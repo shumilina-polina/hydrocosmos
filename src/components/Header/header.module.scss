@@ -1,0 +1,22 @@
+@import "@/styles/styles.scss";
+
+.header {
+  padding: 19px 0;
+  user-select: none;
+  background-color: $black;
+  color: $white;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: uppercase;
+  z-index: 99999;
+
+  &_wrapper {
+    & .logo {
+      cursor: pointer;
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

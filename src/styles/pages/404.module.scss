@@ -1,0 +1,27 @@
+@import "@/styles/styles.scss";
+
+.wrapper {
+  margin: 200px auto 289px;
+  width: fit-content;
+  @include tablet {
+    margin: 100px auto 189px;
+  }
+  & h2 {
+    opacity: 0.3;
+    font-size: 250px;
+    line-height: 300px;
+    text-align: center;
+    @include tablet {
+      font-size: 50px;
+      line-height: 50px;
+    }
+  }
+  & span {
+    font-size: 40px;
+    line-height: 48px;
+    @include tablet {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+}

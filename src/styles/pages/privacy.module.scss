@@ -1,0 +1,39 @@
+@import "@/styles/styles.scss";
+
+.wrapper {
+  padding: 100px 0;
+  font-size: 40px;
+  line-height: 48px;
+  @include laptop {
+    font-size: 25px;
+    line-height: 28px;
+  }
+  @include tablet {
+    padding: 50px 0;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  @include mobile {
+    padding: 20px 0;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  & h2 {
+    font-size: 45px;
+    margin-bottom: 50px;
+    @include laptop {
+      font-size: 30px;
+    }
+    @include tablet {
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+    @include mobile {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+  }
+  & a {
+    text-decoration: underline;
+  }
+}

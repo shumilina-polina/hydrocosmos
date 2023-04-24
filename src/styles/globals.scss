@@ -1,0 +1,86 @@
+@import "./styles.scss";
+@import "./reset.min.scss";
+@import "~normalize.css";
+
+html,
+body {
+  min-height: 100vh;
+  background-color: $white;
+}
+
+html {
+  scroll-padding-top: 50px;
+  scroll-behavior: smooth;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  // @include gilroy;
+  font-weight: 300;
+  background-color: $white;
+  color: $black;
+  min-height: 100vh;
+  padding-bottom: 350px;
+  // padding-right: 0 !important;
+  overflow-x: hidden;
+  @include tablet {
+  }
+  @include mobile {
+  }
+}
+
+button {
+  transition: opacity 0.3s;
+  &:focus {
+    transition: opacity 0.3s;
+    opacity: 0.6;
+  }
+  &:disabled {
+    cursor: auto;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+p,
+a,
+br,
+span,
+img,
+div,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea {
+  &::selection {
+    // background-color: $green;
+    color: $black;
+  }
+  scrollbar-color: $black transparent;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: $black;
+  }
+}

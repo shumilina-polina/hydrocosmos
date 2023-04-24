@@ -1,0 +1,15 @@
+@import "src/styles/styles.scss";
+
+.desktop {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.mobile {
+  display: none !important;
+  @include mobile {
+    width: 100%;
+    display: block !important;
+  }
+}

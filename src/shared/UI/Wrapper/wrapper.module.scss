@@ -1,0 +1,11 @@
+@import "@/styles/styles.scss";
+
+.container {
+  max-width: 1180px;
+  height: 100%;
+  margin: auto;
+  padding: 0;
+  @include laptop {
+    max-width: 95%;
+  }
+}

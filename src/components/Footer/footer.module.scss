@@ -1,0 +1,14 @@
+@import "@/styles/styles.scss";
+
+.footer {
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  background-color: $black;
+  color: $white;
+  &_wrapper {
+    height: 100%;
+  }
+}
