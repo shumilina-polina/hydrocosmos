@@ -2,8 +2,8 @@ version: '3'
 
 services:
   setkalavka:
-    image: pushkeen/setkalavka:latest
-    container_name: setkalavka
+    image: pushkeen/hydrocosmos:latest
+    container_name: hydrocosmos
     restart: unless-stopped
     ports:
       - 3100:3001

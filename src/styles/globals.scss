@@ -2,6 +2,10 @@
 @import "./reset.min.scss";
 @import "~normalize.css";
 
+.active-link {
+  opacity: 1 !important;
+}
+
 html,
 body {
   min-height: 100vh;
@@ -16,12 +20,11 @@ html {
 }
 
 body {
-  // @include gilroy;
-  font-weight: 300;
+  @include inter4;
   background-color: $white;
   color: $black;
   min-height: 100vh;
-  padding-bottom: 350px;
+  padding-bottom: 687px;
   // padding-right: 0 !important;
   overflow-x: hidden;
   @include tablet {
@@ -31,11 +34,6 @@ body {
 }
 
 button {
-  transition: opacity 0.3s;
-  &:focus {
-    transition: opacity 0.3s;
-    opacity: 0.6;
-  }
   &:disabled {
     cursor: auto;
     opacity: 0.5;
@@ -54,23 +52,9 @@ svg {
   max-height: 100%;
 }
 
-p,
-a,
-br,
-span,
-img,
-div,
-ul,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-input,
-textarea {
+* {
   &::selection {
-    // background-color: $green;
+    background-color: $cyan;
     color: $black;
   }
   scrollbar-color: $black transparent;

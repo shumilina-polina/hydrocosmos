@@ -1,15 +1,65 @@
 $black: #000000;
 $white: #fff;
-$blue: #0538BB;
-$blue-secondary: #376AED;
-$blue-checkbox: #00A1F4;
-$blue-light: #E0F1F7;
-$cyan: #6FD6E0;
-$gray: #F2F1F2;
+$blue-light: #cef2ff;
+$cyan: #6fd6e0;
 
+@mixin hover-link {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+@mixin hover-button {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.7;
+  }
+}
 
-// @mixin hover-link {
-//   transition: color 0.3s;
-//   &:hover {
-//   }
-// }
+@mixin dark-button {
+  padding: 16px 56px;
+  border: 3px solid $white;
+  border-radius: 32px;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $white;
+  transition: background-color 0.3s, border-color 0.3s;
+  @include inter7;
+  &:hover {
+    background-color: $cyan;
+    border-color: $cyan;
+  }
+}
+@mixin light-button {
+  padding: 16px 56px;
+  border: 3px solid $black;
+  border-radius: 32px;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: $black;
+  transition: color 0.3s, background-color 0.3s;
+  @include inter7;
+  &:hover {
+    background-color: $cyan;
+    color: $white;
+  }
+}
+
+@mixin keyword-button {
+  @include inter4;
+  border-radius: 24px;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $white;
+  transition: background-color 0.3s;
+  background-color: $black;
+  &:hover {
+    background-color: $cyan;
+  }
+}

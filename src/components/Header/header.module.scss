@@ -1,7 +1,7 @@
 @import "@/styles/styles.scss";
 
 .header {
-  padding: 19px 0;
+  padding: 26px 0;
   user-select: none;
   background-color: $black;
   color: $white;
@@ -11,11 +11,55 @@
   z-index: 99999;
 
   &_wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
     & .logo {
-      cursor: pointer;
-      transition: opacity 0.3s;
-      &:hover {
-        opacity: 0.8;
+      @include hover-button;
+    }
+    & > div {
+      display: flex;
+      gap: 62px;
+    }
+
+    & .nav {
+      display: flex;
+      align-items: flex-end;
+      gap: 37px;
+      & > a {
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: $white;
+        opacity: 0.7;
+        @include hover-link;
+      }
+    }
+    & .func {
+      display: flex;
+      align-items: flex-end;
+      & .buttons {
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+        gap: 43px;
+        & > .lang {
+          @include hover-button;
+          text-transform: uppercase;
+          @include inter7;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        & > .search {
+          @include hover-button;
+          height: 22px;
+        }
+      }
+      & > a {
+        display: flex;
+        transform: translateY(6px);
       }
     }
   }

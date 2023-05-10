@@ -1,3 +1,4 @@
+import Main from "@/components/Main/Main";
 import s from "@/styles/pages/index.module.scss";
 import Head from "next/head";
 
@@ -7,8 +8,9 @@ export default function Home() {
       <Head>
         <title>Гидрокосмос</title>
       </Head>
-      <div className={s.page}>
-      </div>
+      <section className={s.wr}>
+        <Main />
+      </section>
     </>
   );
 }
