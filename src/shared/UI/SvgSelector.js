@@ -9,6 +9,12 @@ const SvgSelector = ({ svg }) => {
           />
         </svg>
       );
+    case "ellipse":
+      return (
+        <svg width="2074" height="406" viewBox="0 0 2074 406" fill="none">
+          <ellipse cx="1037" cy="203" rx="1037" ry="203" fill="black" />
+        </svg>
+      );
 
     default:
       return <></>;

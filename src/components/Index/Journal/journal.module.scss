@@ -1,0 +1,76 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 229px 0 190px;
+  background-color: $white;
+  color: $black;
+  & header {
+    margin-bottom: 72px;
+    & > h2 {
+      @include title;
+    }
+  }
+  & main {
+    margin-bottom: 44px;
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      & li {
+        position: relative;
+        padding: 52px 0;
+        @include inter7;
+        transition: background-color 0.3s;
+        &:nth-child(2) {
+          padding-left: 156px;
+          & img {
+            left: calc(50% + 156px);
+          }
+        }
+        &:hover {
+          background-color: $blue-light;
+          & img {
+            opacity: 1;
+            transform: translateX(120px) scale(1);
+          }
+        }
+        & span {
+          font-size: 32px;
+          line-height: 39px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+        & img {
+          transition: opacity 0.3s, transform 0.3s;
+          position: absolute;
+          top: -115px;
+          left: 50%;
+          transform: translateX(120px) scale(0.8);
+          opacity: 0;
+          width: 331px;
+          height: 468px;
+          max-height: initial;
+        }
+      }
+    }
+  }
+  & footer {
+    & button {
+      display: block;
+      @include light-button;
+      border: 3px solid #0d0e0e;
+      font-size: 14px;
+      line-height: 17px;
+      padding: 10px 32px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.active {
+  background-color: $blue-light;
+  & img {
+    opacity: 1 !important;
+    transform: translateX(120px) scale(1) !important;
+  }
+}
