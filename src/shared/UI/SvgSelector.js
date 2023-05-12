@@ -15,6 +15,22 @@ const SvgSelector = ({ svg }) => {
           <ellipse cx="1037" cy="203" rx="1037" ry="203" fill="black" />
         </svg>
       );
+    case "slider-arrow":
+      return (
+        <svg
+          width="12"
+          height="18"
+          viewBox="0 0 12 18"
+          fill="none"
+        >
+          <path
+            d="M10.9374 1.125L3.0625 8.99993L10.9374 16.8749"
+            stroke="white"
+            strokeOpacity="0.8"
+            strokeWidth="3"
+          />
+        </svg>
+      );
 
     default:
       return <></>;

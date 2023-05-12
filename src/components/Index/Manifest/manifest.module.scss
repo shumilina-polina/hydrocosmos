@@ -1,0 +1,47 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 165px 0 263px;
+  background-color: $black;
+  color: $white;
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
+  & header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 72px;
+    & > h2 {
+      @include title;
+    }
+  }
+  & main {
+    align-self: flex-end;
+    text-align: right;
+    font-size: 64px;
+    line-height: 77px;
+    letter-spacing: 0.03em;
+    margin-bottom: 40px;
+    max-width: 90%;
+    & em {
+      background-color: $cyan-article;
+      font-style: normal;
+    }
+  }
+  & footer {
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
+    max-width: 50%;
+
+    & > button {
+      color: $cyan-article;
+      text-decoration: underline;
+      transition: opacity 0.3s;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

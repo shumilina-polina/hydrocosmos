@@ -1,7 +1,5 @@
 import s from "./journal.module.scss";
 import { useTranslation } from "react-i18next";
-import cn from "classnames";
-import SvgSelector from "@/shared/UI/SvgSelector";
 import Wrapper from "@/shared/UI/Wrapper/Wrapper";
 import { useState } from "react";
 
@@ -32,31 +30,33 @@ const Journal = () => {
       <Wrapper>
         <header>
           <h2>{t("home.journal.title")}</h2>
+          <hr />
         </header>
       </Wrapper>
       <main>
         <ul>
-          {data.map((item, i) => (
-            <li
-              key={item.id}
-              className={i === 0 && active ? s.active : ""}
-              onMouseOver={() => {
-                setActive(false);
-              }}
-              onMouseOut={() => {
-                setActive(true);
-              }}
-            >
-              <Wrapper>
-                <span>{item.date}</span>
-                <img src={item.url} alt={item.date} />
-              </Wrapper>
-            </li>
-          ))}
+          {data &&
+            data.map((item, i) => (
+              <li
+                key={item.id}
+                className={i === 0 && active ? s.active : ""}
+                onMouseOver={() => {
+                  setActive(false);
+                }}
+                onMouseOut={() => {
+                  setActive(true);
+                }}
+              >
+                <Wrapper>
+                  <span>{item.date}</span>
+                  <img src={item.url} alt={item.date} />
+                </Wrapper>
+              </li>
+            ))}
         </ul>
       </main>
       <footer>
-        <button>смотреть все выпуски</button>
+        <button>{t("home.journal.button")}</button>
       </footer>
     </section>
   );

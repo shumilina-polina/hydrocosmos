@@ -52,7 +52,7 @@ svg {
   max-height: 100%;
 }
 
-* {
+*:not(body, html) {
   &::selection {
     background-color: $cyan;
     color: $black;

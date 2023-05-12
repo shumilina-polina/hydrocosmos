@@ -1,0 +1,80 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 145px 0 175px;
+  background-color: $white;
+  color: $black;
+  &_header {
+    margin-bottom: 72px;
+    display: flex;
+    align-items: center;
+    & > h2 {
+      @include title;
+      margin-right: 24px;
+    }
+  }
+  & main {
+    & .content {
+      display: grid;
+      column-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    & article {
+      & > img {
+        width: 100%;
+        min-height: 386px;
+        max-height: 500px;
+      }
+      position: relative;
+      @include inter7;
+      padding: 44px 0;
+      &:nth-of-type(2),
+      &:first-of-type {
+        padding: 0 0 24px;
+      }
+      & > header {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: $cyan-article;
+      }
+      & > main {
+        margin-bottom: 24px;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      & > footer {
+        & > span {
+          @include inter4;
+          font-size: 14px;
+          line-height: 17px;
+          letter-spacing: 0.03em;
+          transition: color 0.3s;
+          &:hover {
+            color: $cyan-article;
+          }
+        }
+      }
+      & > hr {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200%;
+        background-color: $black;
+        opacity: 0.2;
+      }
+      &:hover {
+        & > main {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -90,7 +90,6 @@ const Main = () => {
           {data &&
             data.map((slide, index, arr) => {
               if (!(index % 2)) {
-                console.log("index: ", index);
                 return (
                   <SwiperSlide className={index} key={slide.id}>
                     <img src={slide.url} />

@@ -69,6 +69,51 @@
   }
 }
 
+.reports-slider {
+  & .swiper {
+    &-pagination {
+      bottom: 8px !important;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-bullet {
+        width: 6px !important;
+        height: 6px !important;
+        background-color: $black;
+        opacity: 1;
+        margin: 0 19px !important;
+        display: block;
+        &-active {
+          position: relative;
+          &::after {
+            position: absolute;
+            content: "";
+            top: -5px;
+            bottom: -5px;
+            right: -5px;
+            left: -5px;
+            border: 1px solid $black;
+            border-radius: 50%;
+            will-change: opacity;
+            animation: showActiveBullet 0.3s ease-in forwards;
+          }
+        }
+      }
+    }
+    &-button {
+      &-prev,
+      &-next {
+        &::after {
+          content: "";
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
 @keyframes showActiveBullet {
   from {
     opacity: 0;

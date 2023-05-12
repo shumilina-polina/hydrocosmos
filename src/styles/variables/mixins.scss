@@ -62,8 +62,15 @@
 
 @mixin title {
   @include inter7;
+  padding-left: 44px;
   font-size: 48px;
   line-height: 58px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-right: 24px;
+  & ~ hr {
+    flex-grow: 1;
+    background-color: $black;
+    opacity: 0.2;
+  }
 }

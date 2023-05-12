@@ -6,6 +6,8 @@
   color: $black;
   & header {
     margin-bottom: 72px;
+    display: flex;
+    align-items: center;
     & > h2 {
       @include title;
     }
@@ -35,6 +37,7 @@
           }
         }
         & span {
+          padding-left: 44px;
           font-size: 32px;
           line-height: 39px;
           letter-spacing: 0.05em;
