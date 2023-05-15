@@ -1,0 +1,111 @@
+$gray: #dedede;
+
+#contactForm {
+  & .MuiInputBase {
+    &-root {
+      margin-top: 0;
+      &:hover {
+        &::before {
+          border-width: 1px;
+          border-color: $white;
+        }
+      }
+      &::before {
+        border-color: $gray;
+      }
+      &::after {
+        border-color: $white;
+      }
+    }
+    &-input {
+      text-overflow: ellipsis;
+      color: $gray !important;
+      height: 46px;
+      padding: 0;
+      width: 100%;
+      &::placeholder {
+        opacity: 0.9;
+        transition: opacity 0.3s;
+      }
+      &:focus {
+        &::placeholder {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  & .MuiFormLabel-root {
+    @include inter4;
+    color: rgba($color: $white, $alpha: 0.6);
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    left: -14px;
+  }
+  & .MuiFormControl-root {
+    margin-bottom: 40px;
+    width: 100%;
+
+    & > textarea {
+      overflow-y: auto !important;
+      @include inter4;
+      background-color: transparent;
+      color: rgba($color: $white, $alpha: 0.6);
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.03em;
+      padding: 8px 12px;
+      max-width: 100%;
+      resize: none;
+      min-height: 132px;
+      max-height: 132px;
+      border: 1px solid rgba($color: $white, $alpha: 0.7);
+      transition: border-color 0.3s;
+      &::placeholder {
+        color: inherit;
+        transition: opacity 0.3s;
+      }
+      &:hover {
+        border-color: rgba($color: $white, $alpha: 1);
+        transition: border-color 0.3s;
+      }
+      &:focus {
+        &::placeholder {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  & .MuiFormControlLabel-label {
+    padding: 8px 0;
+    font-size: 18px;
+    line-height: 24px;
+    @include inter4;
+    color: $white;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  & .Mui-checked ~ span {
+    opacity: 1;
+  }
+
+  .input-phone {
+    margin-bottom: 32px;
+  }
+
+  & input:-webkit-autofill,
+  & input:-webkit-autofill:hover,
+  & input:-webkit-autofill:focus,
+  & input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 100px rgb(74, 151, 151) inset !important;
+    -webkit-text-fill-color: $gray !important;
+    @include inter4;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+  }
+}

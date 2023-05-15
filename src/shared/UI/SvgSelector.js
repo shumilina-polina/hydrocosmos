@@ -17,17 +17,21 @@ const SvgSelector = ({ svg }) => {
       );
     case "slider-arrow":
       return (
-        <svg
-          width="12"
-          height="18"
-          viewBox="0 0 12 18"
-          fill="none"
-        >
+        <svg width="12" height="18" viewBox="0 0 12 18" fill="none">
           <path
             d="M10.9374 1.125L3.0625 8.99993L10.9374 16.8749"
             stroke="white"
             strokeOpacity="0.8"
             strokeWidth="3"
+          />
+        </svg>
+      );
+    case "mailing":
+      return (
+        <svg width="21" height="18" viewBox="0 0 21 18" fill="none">
+          <path
+            d="M0.00999999 18L21 9L0.00999999 0L0 7L15 9L0 11L0.00999999 18Z"
+            fill="white"
           />
         </svg>
       );

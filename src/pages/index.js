@@ -1,4 +1,5 @@
 import Articles from "@/components/Index/Articles/Articles";
+import Form from "@/components/Index/Form/Form";
 import Journal from "@/components/Index/Journal/Journal";
 import Main from "@/components/Index/Main/Main";
 import Manifest from "@/components/Index/Manifest/Manifest";
@@ -22,6 +23,7 @@ export default function Home() {
         <Manifest />
         <Reports />
         <Pairs />
+        <Form/>
       </section>
     </>
   );
