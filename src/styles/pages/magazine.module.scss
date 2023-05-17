@@ -1,0 +1,10 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 110px 0;
+  & > header {
+    margin-bottom: 90px;
+  }
+  & > main {
+  }
+}

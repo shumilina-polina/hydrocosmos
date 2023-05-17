@@ -6,7 +6,6 @@ import Manifest from "@/components/Index/Manifest/Manifest";
 import News from "@/components/Index/News/News";
 import Pairs from "@/components/Index/Pairs/Pairs";
 import Reports from "@/components/Index/Reports/Reports";
-import s from "@/styles/pages/index.module.scss";
 import Head from "next/head";
 
 export default function Home() {
@@ -15,7 +14,7 @@ export default function Home() {
       <Head>
         <title>Гидрокосмос</title>
       </Head>
-      <section className={s.wr}>
+      <section>
         <Main />
         <Journal />
         <News />
