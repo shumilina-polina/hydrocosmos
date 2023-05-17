@@ -108,5 +108,24 @@
         }
       }
     }
+    & > .policy {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      & > a {
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.03em;
+        text-decoration-line: underline;
+        color: $white;
+        opacity: 0.8;
+        @include hover-link;
+      }
+      & > ul {
+        display: flex;
+        align-items: center;
+        gap: 31px;
+      }
+    }
   }
 }

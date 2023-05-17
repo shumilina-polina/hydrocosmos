@@ -1,6 +1,6 @@
 import s from "./journal.module.scss";
 import { useTranslation } from "react-i18next";
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import { useState } from "react";
 
 const data = [

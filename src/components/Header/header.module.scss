@@ -21,6 +21,7 @@
     & > div {
       display: flex;
       gap: 62px;
+      padding-bottom: 5px;
     }
 
     & .nav {
@@ -60,6 +61,8 @@
       & > a {
         display: flex;
         transform: translateY(6px);
+        width: 69px;
+        height: 62px;
       }
     }
   }

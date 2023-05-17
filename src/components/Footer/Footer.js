@@ -1,10 +1,10 @@
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
 import s from "./footer.module.scss";
 import { pagesFooter } from "@/shared/constants/pages";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import SvgSelector from "@/shared/UI/SvgSelector";
+import Wrapper from "@/shared/UI/Wrapper";
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
@@ -37,7 +37,7 @@ const Footer = () => {
                   name="email"
                   type="email"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  required
+                  required={true}
                 />
                 <button type="submit">
                   <SvgSelector svg={"mailing"} />
@@ -51,6 +51,32 @@ const Footer = () => {
             >
               <img src="assets/logo-2.png" alt="Центр подводных исследований" />
             </a>
+          </div>
+          <div className={s.policy}>
+            <a
+              href="https://pushkeen.ru"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Политика защиты и обработки персональных данных
+            </a>
+            <ul>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                  <SvgSelector svg={"vk"} />
+                </a>
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                  <SvgSelector svg={"youtube"} />
+                </a>
+              </li>
+              <li>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                  <SvgSelector svg={"dzen"} />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </Wrapper>

@@ -1,6 +1,6 @@
 import s from "./manifest.module.scss";
 import { useTranslation } from "react-i18next";
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Manifest = () => {

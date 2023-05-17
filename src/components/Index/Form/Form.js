@@ -1,4 +1,4 @@
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import s from "./form.module.scss";
 import {
   Checkbox,
@@ -96,7 +96,7 @@ const Form = () => {
                 control={
                   <Checkbox
                     inputProps={{
-                      required: "true",
+                      required: true,
                     }}
                     sx={{
                       color: "#8BE1F4",

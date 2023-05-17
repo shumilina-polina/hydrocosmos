@@ -5,6 +5,9 @@ const nextConfig = {
     unoptimized: true,
     domains: ["localhost"],
   },
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 module.exports = nextConfig;

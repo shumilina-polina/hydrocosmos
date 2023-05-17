@@ -1,6 +1,6 @@
 import s from "./news.module.scss";
 import { useTranslation } from "react-i18next";
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";

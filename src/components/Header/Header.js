@@ -1,4 +1,4 @@
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import Link from "next/link";
 import s from "./header.module.scss";
 import { pagesHeader } from "@/shared/constants/pages";

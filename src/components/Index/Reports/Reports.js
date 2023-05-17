@@ -1,6 +1,6 @@
 import s from "./reports.module.scss";
 import { useTranslation } from "react-i18next";
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -145,7 +145,7 @@ const Reports = () => {
                     {[1, 2, 3, 4].map(
                       (item) =>
                         arr[i + item] && (
-                          <figure>
+                          <figure key={item}>
                             <img src={arr[i + item].url} />
                             <figcaption>
                               <div>

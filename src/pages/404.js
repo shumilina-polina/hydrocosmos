@@ -1,4 +1,4 @@
-import Wrapper from "@/shared/UI/Wrapper/Wrapper";
+import Wrapper from "@/shared/UI/Wrapper";
 import s from "@/styles/pages/404.module.scss";
 
 export default function Error() {
