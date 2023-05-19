@@ -2,8 +2,8 @@ export const pagesHeader = [
   {
     id: 1,
     ru: "журнал",
-    en: "journal",
-    path: "journal",
+    en: "magazine",
+    path: "magazine",
   },
   {
     id: 2,

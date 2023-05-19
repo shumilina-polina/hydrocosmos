@@ -4,12 +4,18 @@
   padding: 229px 0 190px;
   background-color: $white;
   color: $black;
+  @include mobile {
+    padding: 70px 0 36px;
+  }
   & header {
     margin-bottom: 72px;
     display: flex;
     align-items: center;
     & > h2 {
       @include title;
+    }
+    @include mobile {
+      margin-bottom: 32px;
     }
   }
   & main {
@@ -23,7 +29,7 @@
         padding: 52px 0;
         @include inter7;
         transition: background-color 0.3s;
-        &:nth-child(2) {
+        &:nth-child(2n) {
           padding-left: 156px;
           & img {
             left: calc(50% + 156px);
@@ -56,12 +62,15 @@
         }
       }
     }
+    @include mobile{
+      padding-left: 5%;
+    }
   }
   & footer {
     & button {
       display: block;
       @include light-button;
-      border: 3px solid #0d0e0e;
+      border: 3px solid $gray;
       font-size: 14px;
       line-height: 17px;
       padding: 10px 32px;

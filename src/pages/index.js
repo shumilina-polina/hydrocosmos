@@ -6,14 +6,10 @@ import Manifest from "@/components/Index/Manifest/Manifest";
 import News from "@/components/Index/News/News";
 import Pairs from "@/components/Index/Pairs/Pairs";
 import Reports from "@/components/Index/Reports/Reports";
-import Head from "next/head";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Гидрокосмос</title>
-      </Head>
       <section>
         <Main />
         <Journal />

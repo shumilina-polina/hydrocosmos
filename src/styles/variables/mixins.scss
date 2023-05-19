@@ -22,9 +22,18 @@
   color: $white;
   transition: background-color 0.3s, border-color 0.3s;
   @include inter7;
+  @include tablet {
+    border-width: 2px;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+  }
   &:hover {
     background-color: $cyan;
     border-color: $cyan;
+  }
+  & > span {
+    letter-spacing: normal;
   }
 }
 @mixin light-button {
@@ -38,10 +47,19 @@
   color: $black;
   transition: color 0.3s, background-color 0.3s, border-color 0.3s;
   @include inter7;
+  @include tablet {
+    border-width: 2px;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+  }
   &:hover {
     border-color: $cyan;
     background-color: $cyan;
     color: $white;
+  }
+  & > span {
+    letter-spacing: normal;
   }
 }
 
@@ -72,5 +90,11 @@
     flex-grow: 1;
     background-color: $black;
     opacity: 0.2;
+  }
+  @include mobile {
+    font-size: 24px;
+    line-height: 29px;
+    margin-right: 8px;
+    padding-left: 10px;
   }
 }

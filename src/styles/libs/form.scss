@@ -1,5 +1,3 @@
-$gray: #dedede;
-
 #contactForm {
   & .MuiInputBase {
     &-root {
@@ -11,7 +9,7 @@ $gray: #dedede;
         }
       }
       &::before {
-        border-color: $gray;
+        border-color: $grayLight;
       }
       &::after {
         border-color: $white;
@@ -19,7 +17,7 @@ $gray: #dedede;
     }
     &-input {
       text-overflow: ellipsis;
-      color: $gray !important;
+      color: $grayLight !important;
       height: 46px;
       padding: 0;
       width: 100%;
@@ -102,7 +100,7 @@ $gray: #dedede;
   & input:-webkit-autofill:focus,
   & input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 100px rgb(74, 151, 151) inset !important;
-    -webkit-text-fill-color: $gray !important;
+    -webkit-text-fill-color: $grayLight !important;
     @include inter4;
     font-size: 18px;
     line-height: 24px;

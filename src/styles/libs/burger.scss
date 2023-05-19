@@ -1,0 +1,20 @@
+$burgerTop: 91px;
+
+.MuiDrawer-modal {
+  top: $burgerTop !important;
+  & .MuiPaper-root {
+    background-color: $black;
+    top: $burgerTop !important;
+    box-shadow: none !important;
+  }
+  & .MuiBackdrop-root {
+    top: $burgerTop !important;
+  }
+  & .MuiListItem-root {
+    border-bottom: 0.2px solid $white;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -1,36 +1,40 @@
+import { JournalCart } from "@/components/JournalCart";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
 import s from "@/styles/pages/magazine.module.scss";
-import cn from "classnames";
 import Head from "next/head";
 import { useTranslation } from "react-i18next";
 
 const data = [
   {
     id: 1,
-    text: "1 журнал гидрокомос",
-    date: "май 2024",
+    name: "1 журнал гидрокомос",
+    num: 4,
+    date: "Май 2024",
     year: "2024",
-    url: "assets/test/magazine.jpg",
+    url: "assets/test/journal.jpg",
   },
   {
     id: 2,
-    text: "2 журнал гидрокомос",
-    date: "май 2024",
-    year: "2024",
-    url: "assets/test/magazine.jpg",
+    name: "2 журнал гидрокомос",
+    num: 4,
+    date: "Май 2023",
+    year: "2023",
+    url: "assets/test/news.jpg",
   },
   {
     id: 3,
-    text: "3 журнал гидрокомос",
-    date: "май 2023",
-    year: "2023",
+    name: "3 журнал гидрокомос",
+    num: 4,
+    date: "Май 2023",
+    year: "2024",
     url: "assets/test/magazine.jpg",
   },
   {
     id: 4,
-    text: "4 журнал гидрокомос",
-    date: "май 2023",
+    name: "4 журнал гидрокомос",
+    num: 4,
+    date: "Май 2023",
     year: "2023",
     url: "assets/test/magazine.jpg",
   },
@@ -38,7 +42,7 @@ const data = [
 
 export default function Magazine() {
   const { t } = useTranslation();
-
+  // year sort
   return (
     <>
       <Head>
@@ -50,7 +54,25 @@ export default function Magazine() {
             <Title>{t("magazine.title")}</Title>
           </header>
           <main>
-            {/* {data.filter} */}
+            {data &&
+              Array.from(new Set(data.map((elem) => elem.year))).map((year) => (
+                <div className={s.year}>
+                  <div>
+                    <h2>{year}</h2>
+                    <hr />
+                  </div>
+                  <ul>
+                    {data.map(
+                      (cart) =>
+                        cart.year === year && (
+                          <li>
+                            <JournalCart cart={cart} />
+                          </li>
+                        )
+                    )}
+                  </ul>
+                </div>
+              ))}
           </main>
         </section>
       </Wrapper>

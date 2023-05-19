@@ -28,9 +28,6 @@
       & > button {
         @include dark-button;
         width: 100%;
-        & > span {
-          letter-spacing: normal;
-        }
       }
     }
   }

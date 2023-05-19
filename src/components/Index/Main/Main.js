@@ -7,11 +7,13 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination, Keyboard } from "swiper";
 import cn from "classnames";
 import SvgSelector from "@/shared/UI/SvgSelector";
+import { breakpoints, sizes } from "@/styles/variables/variables";
+import { useMediaQuery } from "@mui/material";
 
 const data = [
   {
     id: 1,
-    url: "assets/test/main-slider.jpg",
+    url: "assets/test/journal.jpg",
   },
   {
     id: 2,
@@ -19,7 +21,7 @@ const data = [
   },
   {
     id: 3,
-    url: "assets/test/main-slider.jpg",
+    url: "assets/test/journal.jpg",
   },
   {
     id: 4,
@@ -27,7 +29,7 @@ const data = [
   },
   {
     id: 5,
-    url: "assets/test/main-slider.jpg",
+    url: "assets/test/journal.jpg",
   },
   {
     id: 6,
@@ -35,7 +37,7 @@ const data = [
   },
   {
     id: 7,
-    url: "assets/test/main-slider.jpg",
+    url: "assets/test/journal.jpg",
   },
   {
     id: 8,
@@ -54,18 +56,21 @@ const data = [
     url: "assets/test/main-slider.jpg",
   },
 ];
+const { desktopWidth, laptopWidth, mobileWidth } = sizes;
+const { mobile } = breakpoints;
 
 const Main = () => {
   const { t } = useTranslation();
+  const isMobile = useMediaQuery(mobile);
 
   return (
     <section className={s.wr}>
       <header>
         <ReactMarkdown>{"# " + t("home.title")}</ReactMarkdown>
-        <button>
-          Читать выпуск №1 <span>-&gt;</span>
-        </button>
       </header>
+      <button>
+        Читать выпуск №1 <span>-&gt;</span>
+      </button>
       <main>
         <Swiper
           speed={2000}
@@ -73,10 +78,7 @@ const Main = () => {
           pagination={{
             clickable: true,
           }}
-          slidesPerView={"auto"}
-          centeredSlides={true}
           className={cn(s.slider, "main-slider")}
-          spaceBetween={63}
           // centerInsufficientSlides={true}
           keyboard={{
             enabled: true,
@@ -86,18 +88,39 @@ const Main = () => {
             delay: 3000,
             disableOnInteraction: false,
           }}
+          breakpoints={{
+            [desktopWidth.slice(0, -2)]: {
+              slidesPerView: "auto",
+              spaceBetween: 63,
+              centeredSlides: true,
+              loop: false,
+            },
+            [laptopWidth.slice(0, -2)]: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+              loop: true,
+            },
+            [mobileWidth.slice(0, -2)]: {
+              spaceBetween: 16,
+            },
+          }}
         >
           {data &&
             data.map((slide, index, arr) => {
-              if (!(index % 2)) {
+              if (!(index % 2) && !isMobile) {
                 return (
-                  <SwiperSlide className={index} key={slide.id}>
+                  <SwiperSlide key={slide.id}>
                     <img src={slide.url} />
                     {arr[index + 1] ? <img src={arr[index + 1].url} /> : ""}
                   </SwiperSlide>
                 );
-              }
-              return;
+              } else if (isMobile)
+                return (
+                  <SwiperSlide key={slide.id}>
+                    <img src={slide.url} />
+                  </SwiperSlide>
+                );
+              else return;
             })}
           <SvgSelector svg={"ellipse"} />
           <SvgSelector svg={"ellipse"} />

@@ -1,9 +1,9 @@
 import css from "styled-jsx/css";
 
-const sizes = {
-  desktopWidth: "1190px",
+export const sizes = {
+  desktopWidth: "1330px",
   laptopWidth: "900px",
-  mobileWidth: "440px",
+  mobileWidth: "450px",
 };
 
 export const breakpoints = {
@@ -18,6 +18,8 @@ export const colors = {
   blueLight: "#cef2ff",
   cyan: "#6fd6e0",
   cyanArticle: "#65ccd6",
+  gray: "#0d0e0e",
+  grayLight: "#dedede",
 };
 
 export const fonts = {
@@ -55,5 +57,32 @@ export const fonts = {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
+  `,
+};
+
+export const mixins = {
+  darkButton: css`
+    padding: 16px 56px;
+    border: 3px solid ${colors.white};
+    border-radius: 32px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: ${colors.white};
+    transition: background-color 0.3s, border-color 0.3s;
+    ${fonts.inter7}
+
+    &:hover {
+      background-color: ${colors.cyan};
+      border-color: ${colors.cyan};
+    }
+
+    @media ${breakpoints.tablet} {
+      border-width: 2px;
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: 0.05em;
+    }
   `,
 };

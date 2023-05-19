@@ -5,6 +5,8 @@ import { pagesHeader } from "@/shared/constants/pages";
 import { useTranslation } from "react-i18next";
 import { CustomLink } from "@/shared/UI/CustomLink";
 import SvgSelector from "@/shared/UI/SvgSelector";
+import { DesktopContainer, MobileContainer } from "@/shared/UI/Containers";
+import Burger from "./Burger";
 
 const Header = () => {
   const { i18n } = useTranslation();
@@ -17,7 +19,7 @@ const Header = () => {
           <Link href={"/"} className={s.logo}>
             <img src="assets/logo.svg" alt="hydrocosmos" />
           </Link>
-          <div>
+          <DesktopContainer>
             <nav className={s.nav}>
               {pagesHeader.map((page) => (
                 <CustomLink key={page.id} href={`/${page.path}`}>
@@ -50,7 +52,10 @@ const Header = () => {
                 />
               </a>
             </div>
-          </div>
+          </DesktopContainer>
+          <MobileContainer>
+            <Burger />
+          </MobileContainer>
         </div>
       </Wrapper>
     </header>
