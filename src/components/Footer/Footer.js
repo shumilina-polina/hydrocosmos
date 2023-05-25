@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import SvgSelector from "@/shared/UI/SvgSelector";
 import Wrapper from "@/shared/UI/Wrapper";
+import { links } from "@/shared/constants/links";
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
@@ -24,7 +25,7 @@ const Footer = () => {
               ))}
             </ul>
           </nav>
-          <div className={s.mailing}>
+          <div className={s.footer_bottom}>
             <div>
               <label htmlFor="mailing-input">
                 <ReactMarkdown>{t("footer.email")}</ReactMarkdown>
@@ -45,34 +46,38 @@ const Footer = () => {
               </form>
             </div>
             <a
-              href="https://pushkeen.ru"
+              className={s.rgs}
+              href={links.rgs}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img src="assets/logo-2.png" alt="Центр подводных исследований" />
             </a>
-          </div>
-          <div className={s.policy}>
             <a
+              className={s.policy}
               href="https://pushkeen.ru"
               target="_blank"
               rel="noopener noreferrer"
             >
               Политика защиты и обработки персональных данных
             </a>
-            <ul>
+            <ul className={s.social}>
               <li>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href={links.vk} target="_blank" rel="noopener noreferrer">
                   <SvgSelector svg={"vk"} />
                 </a>
               </li>
               <li>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={links.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <SvgSelector svg={"youtube"} />
                 </a>
               </li>
               <li>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href={links.dzen} target="_blank" rel="noopener noreferrer">
                   <SvgSelector svg={"dzen"} />
                 </a>
               </li>

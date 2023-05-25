@@ -10,6 +10,7 @@ export const breakpoints = {
   laptop: `(max-width: ${sizes.desktopWidth})`,
   tablet: `(max-width: ${sizes.laptopWidth})`,
   mobile: `(max-width: ${sizes.mobileWidth})`,
+  swiperLaptop: `(max-width: 1600px)`,
 };
 
 export const colors = {

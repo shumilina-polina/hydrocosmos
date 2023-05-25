@@ -48,7 +48,7 @@ const data = [
 const Journal = () => {
   const { t } = useTranslation();
   const [active, setActive] = useState(true);
-  const isMobile = useMediaQuery(breakpoints.mobile);
+  const isTablet = useMediaQuery(breakpoints.tablet);
 
   return (
     <section className={s.wr}>
@@ -59,7 +59,7 @@ const Journal = () => {
         </header>
       </Wrapper>
       <main>
-        {!isMobile ? (
+        {!isTablet ? (
           <ul>
             {data &&
               data.map((item, i) => (
@@ -97,7 +97,14 @@ const Journal = () => {
         )}
       </main>
       <footer>
-        <button>{t("home.journal.button")}</button>
+        {isTablet ? (
+          <button>
+            {t(`home.journal.button-mobile`)}
+            <span>-&gt;</span>
+          </button>
+        ) : (
+          <button>{t(`home.journal.button`)}</button>
+        )}
       </footer>
     </section>
   );

@@ -57,11 +57,10 @@ const data = [
   },
 ];
 const { desktopWidth, laptopWidth, mobileWidth } = sizes;
-const { mobile } = breakpoints;
 
 const Main = () => {
   const { t } = useTranslation();
-  const isMobile = useMediaQuery(mobile);
+  const isMobile = useMediaQuery(breakpoints.mobile);
 
   return (
     <section className={s.wr}>

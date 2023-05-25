@@ -4,7 +4,10 @@
   padding: 229px 0 190px;
   background-color: $white;
   color: $black;
-  @include mobile {
+  @include laptop {
+    padding: 170px 0;
+  }
+  @include tablet {
     padding: 70px 0 36px;
   }
   & header {
@@ -14,25 +17,40 @@
     & > h2 {
       @include title;
     }
-    @include mobile {
+    @include tablet {
       margin-bottom: 32px;
     }
   }
   & main {
     margin-bottom: 44px;
+    @include tablet {
+      margin-bottom: 37px;
+    }
     & ul {
       display: flex;
       flex-direction: column;
       gap: 25px;
+      @include laptop {
+        gap: 15px;
+      }
       & li {
         position: relative;
         padding: 52px 0;
         @include inter7;
         transition: background-color 0.3s;
+        @include laptop {
+          padding: 30px 0;
+        }
         &:nth-child(2n) {
           padding-left: 156px;
           & img {
             left: calc(50% + 156px);
+            @include laptop {
+              left: calc(50% + 80px);
+            }
+          }
+          @include laptop {
+            padding-left: 80px;
           }
         }
         &:hover {
@@ -40,6 +58,9 @@
           & img {
             opacity: 1;
             transform: translateX(120px) scale(1);
+            @include laptop {
+              transform: translateX(60px) scale(1);
+            }
           }
         }
         & span {
@@ -59,22 +80,41 @@
           width: 331px;
           height: 468px;
           max-height: initial;
+          @include laptop {
+            top: -60px;
+            height: 350px;
+            width: 240px;
+            left: 40%;
+            transform: translateX(60px) scale(0.8);
+          }
         }
       }
     }
-    @include mobile{
-      padding-left: 5%;
+    @include tablet {
+      padding-left: 3%;
     }
   }
   & footer {
+    @include tablet {
+      padding-left: 5%;
+    }
     & button {
       display: block;
       @include light-button;
       border: 3px solid $gray;
       font-size: 14px;
       line-height: 17px;
-      padding: 10px 32px;
       margin: 0 auto;
+      padding: 10px 32px;
+      @include tablet {
+        letter-spacing: 0.05em;
+        text-decoration-line: underline;
+        text-transform: uppercase;
+        color: $cyan-article;
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
     }
   }
 }

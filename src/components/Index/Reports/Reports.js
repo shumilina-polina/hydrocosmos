@@ -7,83 +7,92 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Keyboard, Autoplay, Pagination } from "swiper";
 import cn from "classnames";
-import { useRef } from "react";
-import SvgSelector from "@/shared/UI/SvgSelector";
+import { Fragment, useRef } from "react";
+import { useMediaQuery } from "@mui/material";
+import { ReportCart } from "@/components/ReportCart";
+import { Buttons } from "./Buttons";
 
 const data = [
   {
     id: 1,
-    title: "белый мишка вышел погулять",
+    title: "1 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-1.jpg",
   },
   {
     id: 2,
-    title: "белый мишка вышел погулять",
+    title: "2 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-2.jpg",
   },
   {
     id: 3,
-    title: "белый мишка вышел погулять",
+    title: "3 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-1.jpg",
   },
   {
     id: 4,
-    title: "белый мишка вышел погулять",
+    title: "4 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-1.jpg",
   },
   {
     id: 5,
-    title: "белый мишка вышел погулять",
+    title: "5 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-2.jpg",
   },
   {
     id: 6,
-    title: "белый мишка вышел погулять",
+    title: "6 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-2.jpg",
   },
   {
     id: 7,
-    title: "белый мишка вышел погулять",
+    title: "7 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-1.jpg",
   },
   {
     id: 8,
-    title: "белый мишка вышел погулять",
+    title: "8 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-1.jpg",
   },
   {
     id: 9,
-    title: "белый мишка вышел погулять",
+    title: "9 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-2.jpg",
   },
   {
     id: 10,
-    title: "белый мишка вышел погулять",
+    title: "10 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-2.jpg",
   },
   {
     id: 11,
-    title: "белый мишка вышел погулять",
+    title: "11 белый мишка вышел погулять",
+    num: "3",
+    type: "репортаж",
+    url: "assets/test/reports-2.jpg",
+  },
+  {
+    id: 12,
+    title: "12 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
     url: "assets/test/reports-2.jpg",
@@ -91,9 +100,9 @@ const data = [
 ];
 
 const Reports = () => {
-  const swiperRef = useRef();
-
   const { t } = useTranslation();
+
+  const isSwiperLaptop = useMediaQuery("(max-width:1650px)");
 
   return (
     <section className={s.wr}>
@@ -104,78 +113,102 @@ const Reports = () => {
         </header>
       </Wrapper>
       <main>
-        <Swiper
-          onBeforeInit={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          speed={1000}
-          modules={[Autoplay, Pagination, Keyboard]}
-          pagination={{
-            clickable: true,
-          }}
-          slidesPerView={"auto"}
-          className={cn(s.slider, "reports-slider")}
-          spaceBetween={21}
-          centerInsufficientSlides={true}
-          keyboard={{
-            enabled: true,
-          }}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-        >
-          {data &&
-            data.map((slide, i, arr) => {
-              if (i % 5 == 0)
-                return (
-                  <SwiperSlide className={s.slide} key={slide.id}>
-                    <figure>
-                      <img src={slide.url} />
-                      <figcaption>
-                        <div>
-                          <span>
-                            {t("home.reports.figcaption")} №{slide.num}
-                          </span>
-                          |<span>{slide.type}</span>
-                        </div>
-                        <h3>{slide.title}</h3>
-                      </figcaption>
-                    </figure>
-                    {[1, 2, 3, 4].map(
-                      (item) =>
-                        arr[i + item] && (
-                          <figure key={item}>
-                            <img src={arr[i + item].url} />
-                            <figcaption>
-                              <div>
-                                <span>
-                                  {t("home.reports.figcaption")} №
-                                  {arr[i + item].num}
-                                </span>
-                                |<span>{arr[i + item].type}</span>
-                              </div>
-                              <h3>{arr[i + item].title}</h3>
-                            </figcaption>
-                          </figure>
-                        )
-                    )}
-                  </SwiperSlide>
-                );
-              return;
-            })}
-          <div className={s.slider_buttons}>
-            <button onClick={() => swiperRef.current?.slidePrev()}>
-              <SvgSelector svg={"slider-arrow"} />
-            </button>
-            <button onClick={() => swiperRef.current?.slideNext()}>
-              <SvgSelector svg={"slider-arrow"} />
-            </button>
-          </div>
-        </Swiper>
+        {data && isSwiperLaptop ? (
+          <SliderLaptop data={data} />
+        ) : (
+          <SliderDesktop data={data} />
+        )}
       </main>
     </section>
   );
 };
 
 export default Reports;
+
+const SliderLaptop = ({ data }) => {
+  const swiperRef = useRef();
+
+  return (
+    <Swiper
+      onBeforeInit={(swiper) => {
+        swiperRef.current = swiper;
+      }}
+      speed={1000}
+      modules={[Autoplay]}
+      slidesPerView={"auto"}
+      className={cn(s.slider, "reports-slider")}
+      spaceBetween={12}
+      centerInsufficientSlides={true}
+      keyboard={{
+        enabled: true,
+      }}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+    >
+      {data.map((slide, i, arr) => (
+        <Fragment key={slide.id}>
+          <SwiperSlide key={slide.id + "s"} className={s.slide}>
+            <ReportCart cart={slide} />
+          </SwiperSlide>
+          <SwiperSlide
+            key={slide.id + "f"}
+            className={cn(s.slide, s.slide_flex)}
+          >
+            <>
+              {arr[i + 1] && <ReportCart cart={arr[i + 1]} />}
+              {arr[i + 2] && <ReportCart cart={arr[i + 2]} />}
+            </>
+          </SwiperSlide>
+        </Fragment>
+      ))}
+      <Buttons swiperRef={swiperRef} />
+    </Swiper>
+  );
+};
+
+const SliderDesktop = ({ data }) => {
+  const swiperRef = useRef();
+
+  return (
+    <Swiper
+      onBeforeInit={(swiper) => {
+        swiperRef.current = swiper;
+      }}
+      speed={1000}
+      modules={[Autoplay, Pagination, Keyboard]}
+      pagination={{
+        clickable: true,
+      }}
+      slidesPerView={"auto"}
+      className={cn(s.slider, "reports-slider")}
+      spaceBetween={12}
+      centerInsufficientSlides={true}
+      keyboard={{
+        enabled: true,
+      }}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+    >
+      {data.map(
+        (slide, i, arr) =>
+          i % 5 == 0 && (
+            <SwiperSlide className={s.slide} key={slide.id}>
+              <ReportCart cart={slide} />
+              {[1, 2, 3, 4].map(
+                (item) =>
+                  arr[i + item] && (
+                    <ReportCart key={item} cart={arr[i + item]} />
+                  )
+              )}
+            </SwiperSlide>
+          )
+      )}
+
+      <Buttons swiperRef={swiperRef} />
+    </Swiper>
+  );
+};

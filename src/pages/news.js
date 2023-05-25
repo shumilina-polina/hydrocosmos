@@ -1,3 +1,4 @@
+import { NewCart } from "@/components/NewCart";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
 import s from "@/styles/pages/news.module.scss";
@@ -131,45 +132,45 @@ export default function News() {
             <Title>{t("news.title")}</Title>
           </header>
           <main>
-            {data.map((card, i, arr) => {
+            {data.map((cart, i, arr) => {
               return (
                 <div key={i}>
                   {i % 18 === 0 && (
                     <Row>
-                      <Card card={card} />
-                      <Card card={arr[i + 1]} />
-                      <Card card={arr[i + 2]} />
-                      <Card card={arr[i + 3]} />
+                      <NewCart cart={cart} />
+                      <NewCart cart={arr[i + 1]} />
+                      <NewCart cart={arr[i + 2]} />
+                      <NewCart cart={arr[i + 3]} />
                     </Row>
                   )}
                   {i % 18 === 4 && (
                     <RowTall>
-                      <Card card={card} />
-                      <Card card={arr[i + 1]} />
-                      <Card card={arr[i + 2]} />
+                      <NewCart cart={cart} />
+                      <NewCart cart={arr[i + 1]} />
+                      <NewCart cart={arr[i + 2]} />
                     </RowTall>
                   )}
                   {i % 18 === 7 && (
                     <>
                       <Row>
-                        <Card card={card} />
-                        <Card card={arr[i + 1]} />
-                        <Card card={arr[i + 2]} />
-                        <Card card={arr[i + 3]} />
+                        <NewCart cart={cart} />
+                        <NewCart cart={arr[i + 1]} />
+                        <NewCart cart={arr[i + 2]} />
+                        <NewCart cart={arr[i + 3]} />
                       </Row>
                       <Row>
-                        <Card card={arr[i + 4]} />
-                        <Card card={arr[i + 5]} />
-                        <Card card={arr[i + 6]} />
-                        <Card card={arr[i + 7]} />
+                        <NewCart cart={arr[i + 4]} />
+                        <NewCart cart={arr[i + 5]} />
+                        <NewCart cart={arr[i + 6]} />
+                        <NewCart cart={arr[i + 7]} />
                       </Row>
                     </>
                   )}
                   {i % 18 === 15 && (
                     <RowTall>
-                      <Card card={card} />
-                      <Card card={arr[i + 1]} />
-                      <Card card={arr[i + 2]} />
+                      <NewCart cart={cart} />
+                      <NewCart cart={arr[i + 1]} />
+                      <NewCart cart={arr[i + 2]} />
                     </RowTall>
                   )}
                 </div>
@@ -184,18 +185,6 @@ export default function News() {
     </>
   );
 }
-
-const Card = ({ card }) => (
-  <div className={s.card}>
-    <div>
-      <div className={s.img_wr}>
-        <img src={card?.url} />
-      </div>
-      <ReactMarkdown>{card?.text}</ReactMarkdown>
-    </div>
-    <span>{card?.date}</span>
-  </div>
-);
 
 const Row = ({ children }) => <div className={s.row}>{children}</div>;
 const RowTall = ({ children }) => (

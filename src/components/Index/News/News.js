@@ -6,16 +6,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Keyboard } from "swiper";
 import cn from "classnames";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { useRef } from "react";
 import SvgSelector from "@/shared/UI/SvgSelector";
+import { breakpoints } from "@/styles/variables/variables";
+import { useMediaQuery } from "@mui/material";
+import { NewCart } from "@/components/NewCart";
 
 const data = [
   {
     id: 1,
     text: "НИОКР «Создание отечественного обитаемого подводного аппарата».",
     date: "12 мая 2023",
-    url: "assets/test/news.jpg",
+    url: "assets/test/journal.jpg",
   },
   {
     id: 2,
@@ -56,6 +58,8 @@ const data = [
 ];
 
 const News = () => {
+  const isMobile = useMediaQuery(breakpoints.mobile);
+
   const { t } = useTranslation();
   const swiperRef = useRef();
 
@@ -68,49 +72,52 @@ const News = () => {
         </header>
       </Wrapper>
       <main>
-        <div className={s.slider_wr}>
-          <Swiper
-            onBeforeInit={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            speed={1000}
-            loop={true}
-            modules={[Keyboard]}
-            slidesPerView={3}
-            className={cn(s.slider, "news-slider")}
-            spaceBetween={19}
-            keyboard={{
-              enabled: true,
-            }}
-          >
-            {data &&
-              data.map((slide) => (
-                <SwiperSlide key={slide.id}>
-                  <div className={s.slider_slide}>
-                    <div>
-                      <div className={s.img_wr}>
-                        <img src={slide.url} />
-                      </div>
-                      <ReactMarkdown>{slide.text}</ReactMarkdown>
-                    </div>
-                    <span>{slide.date}</span>
-                  </div>
-                </SwiperSlide>
-              ))}
-          </Swiper>
+        {isMobile ? (
+          <Wrapper>
+            <div className={s.mobile_wrapper}>
+              {data &&
+                data
+                  .slice(0, 2)
+                  .map((cart) => <NewCart key={cart.id} cart={cart} />)}
+            </div>
+          </Wrapper>
+        ) : (
+          <div className={s.slider_wr}>
+            <Swiper
+              onBeforeInit={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              speed={1000}
+              loop={true}
+              modules={[Keyboard]}
+              slidesPerView={3}
+              className={cn(s.slider, "news-slider")}
+              spaceBetween={19}
+              keyboard={{
+                enabled: true,
+              }}
+            >
+              {data &&
+                data.map((slide) => (
+                  <SwiperSlide key={slide.id}>
+                    <NewCart cart={slide} />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
 
-          <div className={s.slider_buttons}>
-            <button onClick={() => swiperRef.current?.slidePrev()}>
-              <SvgSelector svg={"slider-arrow"} />
-            </button>
-            <button onClick={() => swiperRef.current?.slideNext()}>
-              <SvgSelector svg={"slider-arrow"} />
-            </button>
+            <div className={s.slider_buttons}>
+              <button onClick={() => swiperRef.current?.slidePrev()}>
+                <SvgSelector svg={"slider-arrow"} />
+              </button>
+              <button onClick={() => swiperRef.current?.slideNext()}>
+                <SvgSelector svg={"slider-arrow"} />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </main>
       <footer>
-        <button>{t("home.news.button")}</button>
+        <button>{t(`home.news.button${isMobile ? "-mobile" : ""}`)}</button>
       </footer>
     </section>
   );

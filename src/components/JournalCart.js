@@ -44,7 +44,7 @@ const ImageWrapper = styled.div`
       opacity: 1;
     }
   }
-  @media ${breakpoints.mobile} {
+  @media ${breakpoints.tablet} {
     height: 359px;
   }
 `;
@@ -67,7 +67,7 @@ const Release = styled.h3`
   ${fonts.inter7}
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  @media ${breakpoints.mobile} {
+  @media ${breakpoints.tablet} {
     font-size: 20px;
     line-height: 24px;
   }

@@ -7,6 +7,7 @@ import { CustomLink } from "@/shared/UI/CustomLink";
 import SvgSelector from "@/shared/UI/SvgSelector";
 import { DesktopContainer, MobileContainer } from "@/shared/UI/Containers";
 import Burger from "./Burger";
+import { links } from "@/shared/constants/links";
 
 const Header = () => {
   const { i18n } = useTranslation();
@@ -42,7 +43,7 @@ const Header = () => {
                 </button>
               </div>
               <a
-                href="https://pushkeen.ru"
+                href={links.rgs}
                 target="_blank"
                 rel="noopener noreferrer"
               >

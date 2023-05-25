@@ -24,20 +24,23 @@ body {
   background-color: $white;
   color: $black;
   min-height: 100vh;
-  padding-bottom: 687px;
+  padding-bottom: 695px;
   // padding-right: 0 !important;
   overflow-x: hidden;
   @include laptop {
-    border: 2px solid blue;
+    border: 3px solid blue;
   }
   @include tablet {
-    border: 2px solid red;
+    border: 3px solid red;
+    padding-bottom: 675px;
   }
   @include mobile {
-    border: 2px solid yellow;
+    border: 3px solid yellow;
+    padding-bottom: 1195px;
   }
   @include small {
-    border: 2px solid green;
+    padding-bottom: 1240px;
+    border: 3px solid green;
   }
 }
 

@@ -12,44 +12,109 @@
     padding: 104px 0 78px;
     height: 100%;
     text-align: center;
+    @include tablet {
+      padding: 50px 0;
+    }
+    @include mobile {
+      padding: 41px 0 56px;
+    }
     & > .logo {
       margin-bottom: 81px;
       display: block;
       @include hover-button;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include mobile {
+        margin-bottom: 60px;
+      }
       & img {
         width: 304px;
         height: 54px;
+        @include tablet {
+          width: 200px;
+          height: auto;
+        }
+        @include mobile {
+          width: 80%;
+          height: auto;
+        }
       }
     }
     & > nav {
       margin-bottom: 72px;
       padding: 0 10%;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include mobile {
+        margin-bottom: 63px;
+      }
       & ul {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         justify-content: center;
         gap: 26px 48px;
+        @include tablet {
+          gap: 20px 25px;
+        }
+        @include mobile {
+          gap: 24px;
+          flex-direction: column;
+        }
+
         & > li {
           font-size: 18px;
           line-height: 24px;
           letter-spacing: 0.05em;
           text-transform: uppercase;
           @include hover-button;
+          @include tablet {
+            font-size: 14px;
+            line-height: 19px;
+          }
+          @include mobile {
+            font-size: 16px;
+            line-height: 22px;
+            gap: 24px;
+            @for $i from 1 to 5 {
+              &:nth-child(#{$i}) {
+                order: #{$i};
+              }
+            }
+            &:nth-child(8),
+            &:nth-child(3) {
+              order: 5;
+            }
+          }
         }
       }
     }
-    & > .mailing {
-      margin-bottom: 66px;
+    & > .footer_bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 71px;
+      @include tablet {
+        flex-direction: column;
+      }
+      @include mobile {
+        gap: 115px;
+      }
       & label {
         display: block;
         margin-bottom: 24px;
         font-size: 24px;
         line-height: 26px;
         letter-spacing: 0.03em;
+        @include tablet {
+          margin-bottom: 20px;
+          font-size: 20px;
+          line-height: 24px;
+          text-align: left;
+        }
       }
       & form {
         position: relative;
@@ -64,6 +129,9 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          @include tablet {
+            width: 66px;
+          }
           & path {
             transition: fill 0.3s;
           }
@@ -78,26 +146,32 @@
           border-radius: 24px;
           padding: 10px 129px 10px 16px;
           background-color: transparent;
-          font-weight: 400;
           font-size: 18px;
           line-height: 22px;
           display: flex;
           align-items: center;
           letter-spacing: 0.03em;
-          color: rgba($color: $white, $alpha: 1);
+          color: $white;
           width: 471px;
           text-overflow: ellipsis;
           transition: opacity 0.3s;
 
-          @include mobile{
-            padding-right: 0;
+          @include mobile {
             width: 100%;
+            padding: 16px 70px 16px 16px;
+            font-size: 14px;
+            line-height: 17px;
           }
-  
+
           &::placeholder {
             transition: opacity 0.3s;
             font-size: 18px;
             line-height: 22px;
+            @include mobile {
+              font-size: 14px;
+              line-height: 17px;
+              color: $white;
+            }
           }
           &:hover {
             opacity: 0.7;
@@ -109,18 +183,17 @@
           }
         }
       }
-      & > a {
+      & .rgs {
         & > img {
           width: 130px;
           height: 117px;
+          @include tablet {
+            width: 108px;
+            height: auto;
+          }
         }
       }
-    }
-    & > .policy {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      & > a {
+      & .policy {
         font-size: 18px;
         line-height: 24px;
         letter-spacing: 0.03em;
@@ -128,11 +201,22 @@
         color: $white;
         opacity: 0.8;
         @include hover-link;
+        @include tablet {
+          text-align: left;
+          max-width: 70%;
+          align-self: flex-start;
+          font-size: 16px;
+          line-height: 19px;
+          margin-top: -40px;
+        }
       }
-      & > ul {
+      & .social {
         display: flex;
         align-items: center;
         gap: 31px;
+        @include tablet {
+          order: -1;
+        }
       }
     }
   }

@@ -25,3 +25,9 @@ $mobile-width: 450px;
     @content;
   }
 }
+
+@mixin swiper-laptop {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}

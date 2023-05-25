@@ -17,69 +17,19 @@
   }
 }
 
-.card {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  & .img_wr {
-    transition: opacity 0.3s;
-    width: 100%;
-    margin-bottom: 16px;
-    overflow: hidden;
-    & img {
-      transition: transform 0.3s;
-    }
-  }
-  & p {
-    max-height: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -moz-box;
-    -moz-box-orient: vertical;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-clamp: 3;
-    box-orient: vertical;
-    font-size: 18px;
-    line-height: 26px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-  }
-  & span {
-    font-size: 12px;
-    line-height: 15px;
-    letter-spacing: 0.03em;
-    opacity: 0.8;
-  }
-  &:hover {
-    & .img_wr {
-      opacity: 0.8;
-      & img {
-        transform: scale(1.1);
-      }
-    }
-    & p {
-      text-decoration: underline;
-    }
-  }
-}
-
 .row {
   display: flex;
   align-items: flex-start;
   gap: 28px;
   height: 307px;
   margin-bottom: 56px;
-  & .img_wr {
+  & > div > div > div:first-child {
     height: 177px;
   }
   &_tall {
     height: 375px;
     gap: 20px;
-    .img_wr {
+    & > div > div > div:first-child {
       height: 246px;
     }
   }
