@@ -1,7 +1,7 @@
 @import "@/styles/styles.scss";
 
 .wr {
-  padding: 132px 0 192px;
+  padding: 132px 0 142px;
   background-color: $white;
   color: $black;
   @include laptop {
@@ -22,6 +22,7 @@
     }
   }
   & main {
+    margin-bottom: 48px;
     & .slider {
       padding-bottom: 43px;
       position: relative;
@@ -32,23 +33,34 @@
         display: grid;
         grid-template-rows: repeat(2, 310px);
         grid-template-columns: 514px max-content max-content;
+        & > figure {
+          & > div {
+            height: 100%;
+          }
+        }
 
         @include swiper-laptop {
           display: block;
           max-width: 306px;
-          & img{
-             height: 364px;
+          & img {
+            height: 364px;
           }
         }
         &_flex {
           display: flex;
           flex-direction: column;
           gap: 12px;
-          & img{
+          & img {
             height: 176px;
           }
         }
       }
+    }
+  }
+  & footer {
+    text-align: center;
+    & button {
+      @include light-button;
     }
   }
 }

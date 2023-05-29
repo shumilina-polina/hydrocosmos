@@ -11,6 +11,8 @@ import SvgSelector from "@/shared/UI/SvgSelector";
 import { breakpoints } from "@/styles/variables/variables";
 import { useMediaQuery } from "@mui/material";
 import { NewCart } from "@/components/NewCart";
+import { routes } from "@/shared/constants/routes";
+import Link from "next/link";
 
 const data = [
   {
@@ -117,7 +119,9 @@ const News = () => {
         )}
       </main>
       <footer>
-        <button>{t(`home.news.button${isMobile ? "-mobile" : ""}`)}</button>
+        <Link href={"/" + routes.news}>
+          <button>{t(`home.news.button${isMobile ? "-mobile" : ""}`)}</button>
+        </Link>
       </footer>
     </section>
   );

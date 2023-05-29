@@ -7,8 +7,9 @@ import { useMediaQuery } from "@mui/material";
 import { JournalCart } from "@/components/JournalCart";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import cn from "classnames";
+import Link from "next/link";
+import { routes } from "@/shared/constants/routes";
 
 const data = [
   {
@@ -74,7 +75,12 @@ const Journal = () => {
                   }}
                 >
                   <Wrapper>
-                    <span>{item.date}</span>
+                    <span
+                      data-aos="fade-left"
+                      data-aos-delay={`${100 * i}`}
+                    >
+                      {item.date}
+                    </span>
                     <img src={item.url} alt={item.date} />
                   </Wrapper>
                 </li>
@@ -97,14 +103,16 @@ const Journal = () => {
         )}
       </main>
       <footer>
-        {isTablet ? (
-          <button>
-            {t(`home.journal.button-mobile`)}
-            <span>-&gt;</span>
-          </button>
-        ) : (
-          <button>{t(`home.journal.button`)}</button>
-        )}
+        <Link href={"/" + routes.magazine}>
+          {isTablet ? (
+            <button>
+              {t(`home.journal.button-mobile`)}
+              <span>-&gt;</span>
+            </button>
+          ) : (
+            <button>{t(`home.journal.button`)}</button>
+          )}
+        </Link>
       </footer>
     </section>
   );

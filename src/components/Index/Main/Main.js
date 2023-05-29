@@ -68,7 +68,8 @@ const Main = () => {
         <ReactMarkdown>{"# " + t("home.title")}</ReactMarkdown>
       </header>
       <button>
-        Читать выпуск №1 <span>-&gt;</span>
+        {t("home.button")}
+        <span> -&gt;</span>
       </button>
       <main>
         <Swiper

@@ -12,12 +12,12 @@ const Manifest = () => {
         <header>
           <h2>{t("home.manifest.title")}</h2>
         </header>
-        <main>
+        <main data-aos="fade-zoom-in" data-aos-duration={1000}>
           <ReactMarkdown children={{ type: "html", value: "<span>" }}>
             {t("home.manifest.main")}
           </ReactMarkdown>
         </main>
-        <footer>
+        <footer data-aos="fade-zoom-in" data-aos-duration={1000}>
           <ReactMarkdown>{t("home.manifest.footer.text")}</ReactMarkdown>
           <br />
           <button>{t("home.manifest.footer.button")}</button>

@@ -24,7 +24,7 @@ body {
   background-color: $white;
   color: $black;
   min-height: 100vh;
-  padding-bottom: 695px;
+  padding: 90px 0 695px;
   // padding-right: 0 !important;
   overflow-x: hidden;
   @include laptop {
@@ -32,11 +32,11 @@ body {
   }
   @include tablet {
     border: 3px solid red;
-    padding-bottom: 675px;
+    padding: 150px 0 675px;
   }
   @include mobile {
     border: 3px solid yellow;
-    padding-bottom: 1195px;
+    padding: 70px 0 1195px;
   }
   @include small {
     padding-bottom: 1240px;

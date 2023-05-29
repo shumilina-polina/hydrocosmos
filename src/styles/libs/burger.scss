@@ -1,4 +1,4 @@
-$burgerTop: 91px;
+$burgerTop: 70px;
 
 .MuiDrawer-modal {
   top: $burgerTop !important;
@@ -10,11 +10,48 @@ $burgerTop: 91px;
   & .MuiBackdrop-root {
     top: $burgerTop !important;
   }
-  & .MuiListItem-root {
-    border-bottom: 0.2px solid $white;
+  & .MuiBox-root {
+    padding: 40px 10px !important;
+    height: calc(100vh - $burgerTop) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  & ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
 
-    &:last-child {
-      border-bottom: none;
+    & li {
+      &:nth-child(2) {
+        order: -2;
+      }
+      &:nth-child(7) {
+        order: -1;
+      }
+      &:nth-child(3) {
+        order: 7;
+      }
+      &:nth-child(5) {
+        order: 8;
+      }
+      &:nth-child(9) {
+        order: 9;
+      }
+      & > .MuiButtonBase-root {
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        & .MuiTypography-root {
+          text-align: center;
+          @include inter4;
+          font-size: 16px;
+          line-height: 22px;
+          letter-spacing: 0.05em;
+        }
+      }
     }
   }
 }

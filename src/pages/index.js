@@ -6,8 +6,14 @@ import Manifest from "@/components/Index/Manifest/Manifest";
 import News from "@/components/Index/News/News";
 import Pairs from "@/components/Index/Pairs/Pairs";
 import Reports from "@/components/Index/Reports/Reports";
+import { useEffect } from "react";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Home() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <section>
@@ -18,7 +24,7 @@ export default function Home() {
         <Manifest />
         <Reports />
         <Pairs />
-        <Form/>
+        <Form />
       </section>
     </>
   );

@@ -93,7 +93,9 @@ export const ReportCart = ({ cart }) => {
   const { t } = useTranslation();
   return (
     <Wrapper>
-      <Image src={cart.url} />
+      <div style={{ maxHeight: "100%" }}>
+        <Image src={cart.url} />
+      </div>
       <Label>
         <Box>
           <span>

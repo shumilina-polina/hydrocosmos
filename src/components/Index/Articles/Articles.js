@@ -163,14 +163,20 @@ const Articles = () => {
         <main>
           {data && (
             <div className={s.content}>
-              <article>
+              <article data-aos="zoom-in">
                 <img src={data[0].url} />
                 <hr />
               </article>
               {data.map(
                 (article, i) =>
                   ((isTablet && i < 3) || !isTablet) && (
-                    <article className={s[`article_${i}`]} key={article.id}>
+                    <article
+                      data-aos="fade-up"
+                      data-aos-duration={500}
+                      data-aos-delay={`${50 * i}`}
+                      className={s[`article_${i}`]}
+                      key={article.id}
+                    >
                       <header>
                         <span>
                           {t("home.articles.release")} №{article.num}

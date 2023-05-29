@@ -8,19 +8,24 @@ import SvgSelector from "@/shared/UI/SvgSelector";
 import { DesktopContainer, MobileContainer } from "@/shared/UI/Containers";
 import Burger from "./Burger";
 import { links } from "@/shared/constants/links";
+import { useScrollTrigger } from "@mui/material";
+import React from "react";
+import cn from "classnames";
 
 const Header = () => {
   const { i18n } = useTranslation();
   const { changeLanguage, language } = i18n;
 
+  const trigger = useScrollTrigger();
+
   return (
-    <header className={s.header}>
+    <header className={cn(s.header, trigger && s.header_fix)}>
       <Wrapper>
         <div className={s.header_wrapper}>
-          <Link href={"/"} className={s.logo}>
-            <img src="assets/logo.svg" alt="hydrocosmos" />
-          </Link>
           <DesktopContainer>
+            <Link href={"/"} className={s.logo}>
+              <img src="assets/logo.svg" alt="hydrocosmos" />
+            </Link>
             <nav className={s.nav}>
               {pagesHeader.map((page) => (
                 <CustomLink key={page.id} href={`/${page.path}`}>
@@ -43,6 +48,7 @@ const Header = () => {
                 </button>
               </div>
               <a
+                className={s.rgs}
                 href={links.rgs}
                 target="_blank"
                 rel="noopener noreferrer"

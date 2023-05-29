@@ -1,9 +1,11 @@
+import { routes } from "./routes";
+
 export const pagesHeader = [
   {
     id: 1,
     ru: "журнал",
     en: "magazine",
-    path: "magazine",
+    path: routes.magazine,
   },
   {
     id: 2,
@@ -23,13 +25,13 @@ export const pagesFooter = [
     id: 1,
     ru: "журнал",
     en: "journal",
-    path: "journal",
+    path: routes.magazine,
   },
   {
     id: 2,
     ru: "Новости",
     en: "news",
-    path: "news",
+    path: routes.news,
   },
   {
     id: 3,
@@ -59,7 +61,7 @@ export const pagesFooter = [
     id: 7,
     ru: "репортажи",
     en: "reports",
-    path: "reports",
+    path: routes.reports,
   },
   {
     id: 8,

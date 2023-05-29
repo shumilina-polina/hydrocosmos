@@ -11,6 +11,8 @@ import { Fragment, useRef } from "react";
 import { useMediaQuery } from "@mui/material";
 import { ReportCart } from "@/components/ReportCart";
 import { Buttons } from "./Buttons";
+import { routes } from "@/shared/constants/routes";
+import Link from "next/link";
 
 const data = [
   {
@@ -119,6 +121,11 @@ const Reports = () => {
           <SliderDesktop data={data} />
         )}
       </main>
+      <footer>
+        <Link href={"/" + routes.reports}>
+          <button>{t(`home.reports.button`)}</button>
+        </Link>
+      </footer>
     </section>
   );
 };
@@ -147,22 +154,25 @@ const SliderLaptop = ({ data }) => {
         disableOnInteraction: false,
       }}
     >
-      {data.map((slide, i, arr) => (
-        <Fragment key={slide.id}>
-          <SwiperSlide key={slide.id + "s"} className={s.slide}>
-            <ReportCart cart={slide} />
-          </SwiperSlide>
-          <SwiperSlide
-            key={slide.id + "f"}
-            className={cn(s.slide, s.slide_flex)}
-          >
-            <>
-              {arr[i + 1] && <ReportCart cart={arr[i + 1]} />}
-              {arr[i + 2] && <ReportCart cart={arr[i + 2]} />}
-            </>
-          </SwiperSlide>
-        </Fragment>
-      ))}
+      {data.map(
+        (slide, i, arr) =>
+          i % 3 == 0 && (
+            <Fragment key={slide.id}>
+              <SwiperSlide key={slide.id + "s"} className={s.slide}>
+                <ReportCart cart={slide} />
+              </SwiperSlide>
+              <SwiperSlide
+                key={slide.id + "f"}
+                className={cn(s.slide, s.slide_flex)}
+              >
+                <>
+                  {arr[i + 1] && <ReportCart cart={arr[i + 1]} />}
+                  {arr[i + 2] && <ReportCart cart={arr[i + 2]} />}
+                </>
+              </SwiperSlide>
+            </Fragment>
+          )
+      )}
       <Buttons swiperRef={swiperRef} />
     </Swiper>
   );

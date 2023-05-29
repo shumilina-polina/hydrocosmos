@@ -10,12 +10,15 @@ import cn from "classnames";
 import { useEffect, useState } from "react";
 import s from "./header.module.scss";
 import { CustomLink } from "@/shared/UI/CustomLink";
-import { pagesHeader } from "@/shared/constants/pages";
+import { pagesFooter } from "@/shared/constants/pages";
 import { useTranslation } from "react-i18next";
+import { links } from "@/shared/constants/links";
+import Link from "next/link";
 
 const Burger = ({}) => {
   const [open, setOpen] = useState(false);
   const { i18n } = useTranslation();
+  const { changeLanguage, language } = i18n;
 
   useEffect(() => {
     window.document
@@ -23,7 +26,7 @@ const Burger = ({}) => {
       .setAttribute("style", open ? "overflow: hidden" : "");
   }, [open]);
 
-  const toggleDrawer = (open) => (event) => {
+  const toggleDrawer = (_, open) => (event) => {
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -34,6 +37,9 @@ const Burger = ({}) => {
   };
   return (
     <>
+      <Link href={"/"} className={s.logo}>
+        <img src="assets/logo.svg" alt="hydrocosmos" />
+      </Link>
       <button
         onClick={() => setOpen(!open)}
         className={cn(s.burger, open ? s.burger_active : "")}
@@ -54,8 +60,25 @@ const Burger = ({}) => {
           onClick={toggleDrawer("top", false)}
           onKeyDown={toggleDrawer("top", false)}
         >
-          <List>
-            {pagesHeader.map((page) => (
+          <List className={s.list}>
+            <div className={s.lang_buttons}>
+              <button
+                className={s.lang}
+                disabled={language === "ru"}
+                onClick={() => changeLanguage("ru")}
+              >
+                ru
+              </button>
+              <span>/</span>
+              <button
+                className={s.lang}
+                disabled={language === "en"}
+                onClick={() => changeLanguage("en")}
+              >
+                en
+              </button>
+            </div>
+            {pagesFooter.map((page) => (
               <ListItem key={page.id} disablePadding>
                 <ListItemButton>
                   <CustomLink href={`/${page.path}`}>
@@ -68,6 +91,11 @@ const Burger = ({}) => {
               </ListItem>
             ))}
           </List>
+          <div className={s.rgs}>
+            <a href={links.rgs} target="_blank" rel="noopener noreferrer">
+              <img src="assets/logo-2.png" alt="Центр подводных исследований" />
+            </a>
+          </div>
         </Box>
       </Drawer>
     </>

@@ -5,7 +5,6 @@ import s from "@/styles/pages/news.module.scss";
 import cn from "classnames";
 import Head from "next/head";
 import { useTranslation } from "react-i18next";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const data = [
   {
@@ -118,7 +117,7 @@ const data = [
   },
 ];
 
-export default function News() {
+export default function NewsPage() {
   const { t } = useTranslation();
 
   return (
