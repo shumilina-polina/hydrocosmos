@@ -9,10 +9,14 @@ import { DesktopContainer, MobileContainer } from "@/shared/UI/Containers";
 import Burger from "./Burger";
 import { links } from "@/shared/constants/links";
 import { useScrollTrigger } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import cn from "classnames";
+import Modal from "@/shared/UI/Modal/Modal";
+import Search from "../Search/Search";
 
 const Header = () => {
+  const [openSearch, setOpenSearch] = useState(false);
+
   const { i18n } = useTranslation();
   const { changeLanguage, language } = i18n;
 
@@ -35,7 +39,10 @@ const Header = () => {
             </nav>
             <div className={s.func}>
               <div className={s.buttons}>
-                <button className={s.search}>
+                <button
+                  className={s.search}
+                  onClick={() => setOpenSearch(true)}
+                >
                   <SvgSelector svg={"search"} />
                 </button>
                 <button
@@ -65,6 +72,9 @@ const Header = () => {
           </MobileContainer>
         </div>
       </Wrapper>
+      <Modal open={openSearch} setOpen={setOpenSearch}>
+        <Search />
+      </Modal>
     </header>
   );
 };
