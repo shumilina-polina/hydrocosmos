@@ -11,8 +11,8 @@ const StyledTitle = styled.h2`
   background-color: white;
 
   @media ${breakpoints.laptop} {
-    font-size: 30px;
-    line-height: 33px;
+    font-size: 38px;
+    line-height: 40px;
   }
   @media ${breakpoints.tablet} {
     font-size: 20px;

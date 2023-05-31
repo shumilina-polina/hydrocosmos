@@ -27,7 +27,7 @@ $mobile-width: 450px;
 }
 
 @mixin swiper-laptop {
-  @media (max-width: 1600px) {
+  @media (max-width: 1660px) {
     @content;
   }
 }

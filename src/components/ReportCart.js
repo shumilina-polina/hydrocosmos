@@ -92,8 +92,8 @@ const Box = styled.div`
 export const ReportCart = ({ cart }) => {
   const { t } = useTranslation();
   return (
-    <Wrapper>
-      <div style={{ maxHeight: "100%" }}>
+    <Wrapper data-aos="flip-up">
+      <div>
         <Image src={cart.url} />
       </div>
       <Label>

@@ -14,7 +14,7 @@ const Footer = () => {
       <Wrapper>
         <div className={s.footer_wrapper}>
           <Link href={"/"} className={s.logo}>
-            <img src="assets/logo.svg" alt="hydrocosmos" />
+            <img src="/assets/logo.svg" alt="hydrocosmos" />
           </Link>
           <nav>
             <ul>
@@ -51,7 +51,10 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="assets/logo-2.png" alt="Центр подводных исследований" />
+              <img
+                src="/assets/logo-2.png"
+                alt="Центр подводных исследований"
+              />
             </a>
             <a
               className={s.policy}

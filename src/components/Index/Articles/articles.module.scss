@@ -97,21 +97,6 @@
           margin-bottom: 16px;
         }
       }
-      & > footer {
-        & > span {
-          @include inter4;
-          font-size: 14px;
-          line-height: 17px;
-          letter-spacing: 0.03em;
-          transition: color 0.3s;
-          &:hover {
-            color: $cyan-article;
-          }
-          @include tablet {
-            line-height: 22px;
-          }
-        }
-      }
       & > hr {
         position: absolute;
         bottom: 0;

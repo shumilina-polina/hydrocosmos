@@ -13,47 +13,47 @@ import { useMediaQuery } from "@mui/material";
 const data = [
   {
     id: 1,
-    url: "assets/test/journal.jpg",
+    url: "/assets/test/magazine.jpg",
   },
   {
     id: 2,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
   {
     id: 3,
-    url: "assets/test/journal.jpg",
+    url: "/assets/test/magazine.jpg",
   },
   {
     id: 4,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
   {
     id: 5,
-    url: "assets/test/journal.jpg",
+    url: "/assets/test/magazine.jpg",
   },
   {
     id: 6,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
   {
     id: 7,
-    url: "assets/test/journal.jpg",
+    url: "/assets/test/magazine.jpg",
   },
   {
     id: 8,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
   {
     id: 9,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
   {
     id: 10,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
   {
     id: 11,
-    url: "assets/test/main-slider.jpg",
+    url: "/assets/test/main-slider.jpg",
   },
 ];
 const { desktopWidth, laptopWidth, mobileWidth } = sizes;

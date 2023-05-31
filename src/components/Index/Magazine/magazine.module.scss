@@ -29,40 +29,47 @@
     & ul {
       display: flex;
       flex-direction: column;
-      gap: 25px;
-      @include laptop {
-        gap: 15px;
-      }
+      // gap: 25px;
+      // @include laptop {
+      //   gap: 15px;
+      // }
       & li {
-        position: relative;
-        padding: 52px 0;
-        @include inter7;
-        transition: background-color 0.3s;
-        @include laptop {
-          padding: 30px 0;
+        padding-bottom: 25px;
+        & > a {
+          display: block;
+          position: relative;
+          padding: 52px 0;
+          @include inter7;
+          transition: background-color 0.3s;
+          @include laptop {
+            padding: 30px 0;
+          }
+          &:hover {
+            background-color: $blue-light;
+            & img {
+              opacity: 1;
+              transform: translateX(120px) scale(1);
+              @include laptop {
+                transform: translateX(60px) scale(1);
+              }
+            }
+          }
         }
         &:nth-child(2n) {
-          padding-left: 156px;
+          & > a {
+            padding-left: 156px;
+            @include laptop {
+              padding-left: 80px;
+            }
+          }
           & img {
             left: calc(50% + 156px);
             @include laptop {
               left: calc(50% + 80px);
             }
           }
-          @include laptop {
-            padding-left: 80px;
-          }
         }
-        &:hover {
-          background-color: $blue-light;
-          & img {
-            opacity: 1;
-            transform: translateX(120px) scale(1);
-            @include laptop {
-              transform: translateX(60px) scale(1);
-            }
-          }
-        }
+
         & span {
           display: block;
           padding-left: 44px;
@@ -121,7 +128,9 @@
 }
 
 .active {
-  background-color: $blue-light;
+  & > a {
+    background-color: $blue-light;
+  }
   & img {
     opacity: 1 !important;
     transform: translateX(120px) scale(1) !important;

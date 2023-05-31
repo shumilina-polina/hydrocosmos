@@ -24,7 +24,7 @@ export const pagesFooter = [
   {
     id: 1,
     ru: "журнал",
-    en: "journal",
+    en: "magazine",
     path: routes.magazine,
   },
   {
@@ -42,7 +42,7 @@ export const pagesFooter = [
   {
     id: 4,
     ru: "Редакция журнала",
-    en: "journal editorial",
+    en: "magazine editorial",
     path: "editorial",
   },
   {

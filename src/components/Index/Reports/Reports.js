@@ -13,6 +13,7 @@ import { ReportCart } from "@/components/ReportCart";
 import { Buttons } from "./Buttons";
 import { routes } from "@/shared/constants/routes";
 import Link from "next/link";
+import { breakpoints } from "@/styles/variables/variables";
 
 const data = [
   {
@@ -20,91 +21,91 @@ const data = [
     title: "1 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-1.jpg",
+    url: "/assets/test/reports-1.jpg",
   },
   {
     id: 2,
     title: "2 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
   {
     id: 3,
     title: "3 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-1.jpg",
+    url: "/assets/test/reports-1.jpg",
   },
   {
     id: 4,
     title: "4 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-1.jpg",
+    url: "/assets/test/reports-1.jpg",
   },
   {
     id: 5,
     title: "5 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
   {
     id: 6,
     title: "6 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
   {
     id: 7,
     title: "7 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-1.jpg",
+    url: "/assets/test/reports-1.jpg",
   },
   {
     id: 8,
     title: "8 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-1.jpg",
+    url: "/assets/test/reports-1.jpg",
   },
   {
     id: 9,
     title: "9 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
   {
     id: 10,
     title: "10 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
   {
     id: 11,
     title: "11 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
   {
     id: 12,
     title: "12 белый мишка вышел погулять",
     num: "3",
     type: "репортаж",
-    url: "assets/test/reports-2.jpg",
+    url: "/assets/test/reports-2.jpg",
   },
 ];
 
 const Reports = () => {
   const { t } = useTranslation();
 
-  const isSwiperLaptop = useMediaQuery("(max-width:1650px)");
+  const isSwiperLaptop = useMediaQuery(breakpoints.swiperLaptop);
 
   return (
     <section className={s.wr}>

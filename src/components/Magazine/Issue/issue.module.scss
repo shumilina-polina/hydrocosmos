@@ -1,0 +1,108 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
+  margin-bottom: 102px;
+  @include laptop {
+    gap: 50px;
+    margin-bottom: 70px;
+  }
+  & > img {
+    height: 511px;
+    width: 361px;
+    object-fit: contain;
+  }
+  & .content {
+    & > header {
+      margin-bottom: 48px;
+      & h1 {
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 48px;
+        line-height: 58px;
+        margin-bottom: 12px;
+        @include laptop {
+          font-size: 40px;
+          line-height: 50px;
+        }
+      }
+      & span {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+    & > main {
+      margin-bottom: 40px;
+      & > ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        & li {
+          font-size: 14px;
+          line-height: 17px;
+          color: rgba($color: $black, $alpha: 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          & > span:first-child {
+            width: 166px;
+          }
+          & > span:nth-child(2) {
+            width: 90px;
+          }
+          & button {
+            width: 38px;
+            height: 38px;
+            border-radius: 50px;
+            transition: background-color 0.2s;
+            & path {
+              transition: fill 0.2s;
+            }
+            &:hover {
+              background-color: $cyan;
+              & path {
+                fill: $white;
+              }
+            }
+            &:active {
+              background-color: rgba($color: $cyan, $alpha: 0.6);
+            }
+          }
+        }
+      }
+    }
+    & > footer {
+      & > a {
+        display: block;
+        &:first-child {
+          & button {
+            @include dark-button;
+            border: 3px solid $cyan;
+            color: $white;
+            background-color: $cyan;
+            margin-bottom: 24px;
+            @include laptop {
+              margin-bottom: 15px;
+            }
+            &:hover {
+              border-color: $black;
+              background-color: $black;
+            }
+          }
+        }
+        &:nth-child(2) {
+          & button {
+            @include light-button;
+            &:hover {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,35 +5,35 @@ import Wrapper from "@/shared/UI/Wrapper";
 const data = [
   {
     id: 1,
-    url: "assets/test/pairs.png",
+    url: "/assets/test/pairs.png",
   },
   {
     id: 2,
-    url: "assets/test/pairs-2.png",
+    url: "/assets/test/pairs-2.png",
   },
   {
     id: 3,
-    url: "assets/test/pairs.png",
+    url: "/assets/test/pairs.png",
   },
   {
     id: 4,
-    url: "assets/test/pairs.png",
+    url: "/assets/test/pairs.png",
   },
   {
     id: 5,
-    url: "assets/test/pairs-2.png",
+    url: "/assets/test/pairs-2.png",
   },
   {
     id: 6,
-    url: "assets/test/pairs-2.png",
+    url: "/assets/test/pairs-2.png",
   },
   {
     id: 7,
-    url: "assets/test/pairs.png",
+    url: "/assets/test/pairs.png",
   },
   {
     id: 8,
-    url: "assets/test/pairs.png",
+    url: "/assets/test/pairs.png",
   },
 ];
 

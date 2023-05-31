@@ -38,7 +38,7 @@ const Burger = ({}) => {
   return (
     <>
       <Link href={"/"} className={s.logo}>
-        <img src="assets/logo.svg" alt="hydrocosmos" />
+        <img src="/assets/logo.svg" alt="hydrocosmos" />
       </Link>
       <button
         onClick={() => setOpen(!open)}
@@ -93,7 +93,10 @@ const Burger = ({}) => {
           </List>
           <div className={s.rgs}>
             <a href={links.rgs} target="_blank" rel="noopener noreferrer">
-              <img src="assets/logo-2.png" alt="Центр подводных исследований" />
+              <img
+                src="/assets/logo-2.png"
+                alt="Центр подводных исследований"
+              />
             </a>
           </div>
         </Box>

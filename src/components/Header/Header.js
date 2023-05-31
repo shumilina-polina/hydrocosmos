@@ -24,7 +24,7 @@ const Header = () => {
         <div className={s.header_wrapper}>
           <DesktopContainer>
             <Link href={"/"} className={s.logo}>
-              <img src="assets/logo.svg" alt="hydrocosmos" />
+              <img src="/assets/logo.svg" alt="hydrocosmos" />
             </Link>
             <nav className={s.nav}>
               {pagesHeader.map((page) => (
@@ -54,7 +54,7 @@ const Header = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="assets/logo-2.png"
+                  src="/assets/logo-2.png"
                   alt="Центр подводных исследований"
                 />
               </a>

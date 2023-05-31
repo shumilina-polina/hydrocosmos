@@ -6,7 +6,9 @@ const nextConfig = {
     domains: ["localhost"],
   },
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      ssr: true,
+    },
   },
 };
 

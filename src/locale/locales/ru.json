@@ -2,7 +2,7 @@
   "home": {
     "title": "научный журнал о&nbsp;подводных исследованиях",
     "button": "Читать выпуск №1",
-    "journal": {
+    "magazine": {
       "title": "выпуски журнала",
       "button": "смотреть все выпуски",
       "button-mobile": "Читать журнал "
@@ -49,7 +49,16 @@
   "magazine": {
     "title": "журнал",
     "button": "подробнее",
-    "release": "выпуск"
+    "release": "выпуск",
+    "item": {
+      "print": "печатный",
+      "electronic": "электронный",
+      "button": "Читать журнал в pdf",
+      "button-content": "Читать в pdf",
+      "page": "Стр",
+      "about": "о выпуске",
+      "content": "содержание"
+    }
   },
   "reports": {
     "button": "показать больше",

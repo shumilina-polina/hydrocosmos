@@ -81,7 +81,7 @@ const Date = styled.span`
   color: rgba($color: ${colors.black}, $alpha: 0.6);
 `;
 
-export const JournalCart = ({ cart }) => {
+export const MagazineCart = ({ cart }) => {
   const { t } = useTranslation();
 
   return (
@@ -89,14 +89,12 @@ export const JournalCart = ({ cart }) => {
       <ImageWrapper>
         <img src={cart.url} alt="Magazine" />
         <Button>
-          {t("magazine.button")} <span>-&gt;</span>
+            {t("magazine.button")} <span>-&gt;</span>
         </Button>
       </ImageWrapper>
       <Name>{cart.name}</Name>
       <Release>
-        <>
           {t("magazine.release")} №{cart.num}
-        </>
       </Release>
       <Date>{cart.date}</Date>
     </div>

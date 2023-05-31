@@ -1,15 +1,17 @@
-import s from "./journal.module.scss";
+import s from "./magazine.module.scss";
 import { useTranslation } from "react-i18next";
 import Wrapper from "@/shared/UI/Wrapper";
 import { useState } from "react";
 import { breakpoints } from "@/styles/variables/variables";
 import { useMediaQuery } from "@mui/material";
-import { JournalCart } from "@/components/JournalCart";
+import { MagazineCart } from "@/components/MagazineCart";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import cn from "classnames";
 import Link from "next/link";
 import { routes } from "@/shared/constants/routes";
+
+const page = "issue-1";
 
 const data = [
   {
@@ -18,7 +20,7 @@ const data = [
     num: 4,
     date: "Май 2024",
     year: "2024",
-    url: "assets/test/journal.jpg",
+    url: "/assets/test/magazine.jpg",
   },
   {
     id: 2,
@@ -26,7 +28,7 @@ const data = [
     num: 4,
     date: "Май 2023",
     year: "2023",
-    url: "assets/test/news.jpg",
+    url: "/assets/test/news.jpg",
   },
   {
     id: 3,
@@ -34,7 +36,7 @@ const data = [
     num: 4,
     date: "Май 2023",
     year: "2024",
-    url: "assets/test/magazine.jpg",
+    url: "/assets/test/magazine.jpg",
   },
   {
     id: 4,
@@ -42,11 +44,11 @@ const data = [
     num: 4,
     date: "Май 2023",
     year: "2023",
-    url: "assets/test/magazine.jpg",
+    url: "/assets/test/magazine.jpg",
   },
 ];
 
-const Journal = () => {
+const Magazine = () => {
   const { t } = useTranslation();
   const [active, setActive] = useState(true);
   const isTablet = useMediaQuery(breakpoints.tablet);
@@ -55,7 +57,7 @@ const Journal = () => {
     <section className={s.wr}>
       <Wrapper>
         <header>
-          <h2>{t("home.journal.title")}</h2>
+          <h2>{t("home.magazine.title")}</h2>
           <hr />
         </header>
       </Wrapper>
@@ -74,15 +76,17 @@ const Journal = () => {
                     setActive(true);
                   }}
                 >
-                  <Wrapper>
-                    <span
-                      data-aos="fade-left"
-                      data-aos-delay={`${100 * i}`}
-                    >
-                      {item.date}
-                    </span>
-                    <img src={item.url} alt={item.date} />
-                  </Wrapper>
+                  <Link
+                    as={`/${routes.magazine}/${page}`}
+                    href={`/${routes.magazine}/[id]`}
+                  >
+                    <Wrapper>
+                      <span data-aos="fade-left" data-aos-delay={`${100 * i}`}>
+                        {item.date}
+                      </span>
+                      <img src={item.url} alt={item.date} />
+                    </Wrapper>
+                  </Link>
                 </li>
               ))}
           </ul>
@@ -90,13 +94,13 @@ const Journal = () => {
           <Swiper
             speed={2000}
             spaceBetween={27}
-            className={cn(s.slider, "journal-slider")}
+            className={cn(s.slider, "magazine-slider")}
             slidesPerView={"auto"}
           >
             {data &&
               data.map((cart) => (
                 <SwiperSlide key={cart.id}>
-                  <JournalCart cart={cart} />
+                  <MagazineCart cart={cart} />
                 </SwiperSlide>
               ))}
           </Swiper>
@@ -106,11 +110,11 @@ const Journal = () => {
         <Link href={"/" + routes.magazine}>
           {isTablet ? (
             <button>
-              {t(`home.journal.button-mobile`)}
+              {t(`home.magazine.button-mobile`)}
               <span>-&gt;</span>
             </button>
           ) : (
-            <button>{t(`home.journal.button`)}</button>
+            <button>{t(`home.magazine.button`)}</button>
           )}
         </Link>
       </footer>
@@ -118,4 +122,4 @@ const Journal = () => {
   );
 };
 
-export default Journal;
+export default Magazine;

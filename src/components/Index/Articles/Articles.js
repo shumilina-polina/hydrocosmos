@@ -2,9 +2,9 @@ import s from "./articles.module.scss";
 import { useTranslation } from "react-i18next";
 import Wrapper from "@/shared/UI/Wrapper";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import Link from "next/link";
 import { useMediaQuery } from "@mui/material";
 import { breakpoints } from "@/styles/variables/variables";
+import Authors from "@/shared/UI/Authors";
 
 const data = [
   {
@@ -12,7 +12,7 @@ const data = [
     num: 3,
     type: "научная статья",
     text: "1 ГЛУБОКОВОДНЫЕ ВОДОЛАЗНЫЕ СПУСКИ (МЕДИЦИНСКИЕ И&nbsp;ЕХНИЧЕСКИЕ АСПЕКТЫ, МЕТОДИКИ ТЕХНИЧЕСКОГО ДАЙВИНГА, ИСПОЛЬЗОВАНИЕ АВТОНОМНЫХ АППАРАТОВ С&nbsp;ЗАМКНУТОЙ СХЕМОЙ ДЫХАНИЯ, АЛГОРИТМЫ МЕДИЦИНСКОГО РЕАГИРОВАНИЯ И&nbsp;ПАРАМЕДИЦИНСКИЕ НАВЫКИ ВОДОЛАЗОВ)",
-    url: "assets/test/article.jpg",
+    url: "/assets/test/article.jpg",
     authors: [
       {
         id: 1,
@@ -187,14 +187,7 @@ const Articles = () => {
                         <ReactMarkdown>{article.text}</ReactMarkdown>
                       </main>
                       <footer>
-                        {article.authors.map((author, i, arr) => (
-                          <span key={author.id}>
-                            <Link href={"/"}>
-                              {author.name}
-                              {i < arr.length - 1 ? ", " : "."}
-                            </Link>
-                          </span>
-                        ))}
+                        <Authors data={article.authors} />
                       </footer>
                       {Boolean(i % 2) && <hr />}
                     </article>

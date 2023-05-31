@@ -1,0 +1,17 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  & > header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 64px;
+    & > h2 {
+      @include title;
+    }
+  }
+  & > main {
+    article {
+      margin-bottom: 56px;
+    }
+  }
+}

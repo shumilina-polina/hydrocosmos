@@ -4,11 +4,20 @@
   padding: 110px 0;
   & > header {
     margin-bottom: 90px;
+    @include laptop {
+      margin-bottom: 40px;
+    }
   }
   & > main {
     padding-right: 200px;
+    @include laptop {
+      padding-right: 0;
+    }
     & .year {
       margin-bottom: 150px;
+      @include laptop {
+      margin-bottom: 80px;
+    }
       & > div {
         display: flex;
         align-items: center;
@@ -24,6 +33,9 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @include laptop {
+          justify-content: space-evenly;
+        }
         & li {
           width: 380px;
           &:nth-child(2n) {

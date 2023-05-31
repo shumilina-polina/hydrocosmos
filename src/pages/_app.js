@@ -5,8 +5,13 @@ import "@/styles/globals.scss";
 import { ApolloProvider } from "@apollo/client";
 import "../locale/i18n";
 import Head from "next/head";
+import Aos from "aos";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <Head>
