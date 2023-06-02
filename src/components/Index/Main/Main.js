@@ -13,7 +13,7 @@ import { useMediaQuery } from "@mui/material";
 const data = [
   {
     id: 1,
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const data = [
   },
   {
     id: 3,
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const data = [
   },
   {
     id: 5,
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 6,
@@ -37,7 +37,7 @@ const data = [
   },
   {
     id: 7,
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 8,

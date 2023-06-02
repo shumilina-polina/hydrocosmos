@@ -17,10 +17,10 @@ const Issue = () => {
         <main>
           <ul>
             <ContentRow data={"1026-9428"}>
-              <span>ISSN &#40;{t("magazine.item.print")}&#41;:</span>
+              <span>ISSN &#40;{t("journal.item.print")}&#41;:</span>
             </ContentRow>
             <ContentRow data={"2618-8945"}>
-              <span>eISSN &#40;{t("magazine.item.electronic")}&#41;:</span>
+              <span>eISSN &#40;{t("journal.item.electronic")}&#41;:</span>
             </ContentRow>
             <ContentRow data={"XHFQWO"}>
               <span>Elibrary EDN:</span>
@@ -34,7 +34,7 @@ const Issue = () => {
             rel="noopener noreferrer"
           >
             <button>
-              {t(`magazine.item.button`)}
+              {t(`journal.item.button`)}
               <span> &#40;rus&#41; -&gt;</span>
             </button>
           </a>
@@ -44,7 +44,7 @@ const Issue = () => {
             rel="noopener noreferrer"
           >
             <button>
-              {t(`magazine.item.button`)}
+              {t(`journal.item.button`)}
               <span> &#40;eng&#41; -&gt;</span>
             </button>
           </a>

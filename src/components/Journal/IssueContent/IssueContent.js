@@ -49,7 +49,7 @@ const IssueContent = () => {
   return (
     <section className={s.wr}>
       <header>
-        <h2>{t("magazine.item.content")}</h2>
+        <h2>{t("journal.item.content")}</h2>
         <hr />
       </header>
       <main>

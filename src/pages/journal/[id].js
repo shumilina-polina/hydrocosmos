@@ -1,16 +1,16 @@
-import Issue from "@/components/Magazine/Issue/Issue";
-import IssueContent from "@/components/Magazine/IssueContent/IssueContent";
+import Issue from "@/components/Journal/Issue/Issue";
+import IssueContent from "@/components/Journal/IssueContent/IssueContent";
 import BreadCrumbs from "@/shared/UI/BreadCrumbs";
 import SvgSelector from "@/shared/UI/SvgSelector";
 import Wrapper from "@/shared/UI/Wrapper";
 import { routes } from "@/shared/constants/routes";
-import s from "@/styles/pages/magazine/magazine.module.scss";
+import s from "@/styles/pages/journal/journal.module.scss";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 
-export default function Magazine() {
+export default function Journal() {
   const router = useRouter();
   const { id } = router.query;
   const { t } = useTranslation();
@@ -18,13 +18,13 @@ export default function Magazine() {
   return (
     <>
       <Head>
-        <title>Гидрокосмос - {t("pages.magazine")}</title>
+        <title>Гидрокосмос - {t("pages.journal")}</title>
       </Head>
       <Wrapper>
         <section className={s.wr}>
           <header>
             <BreadCrumbs>
-              <Link href={"/" + routes.magazine}>{t("pages.magazine")}</Link>
+              <Link href={"/" + routes.journal}>{t("pages.journal")}</Link>
               <span>Выпуск №3</span>
             </BreadCrumbs>
           </header>
@@ -32,7 +32,7 @@ export default function Magazine() {
             <Issue />
             <section className={s.about}>
               <header>
-                <h2>{t("magazine.item.about")}</h2>
+                <h2>{t("journal.item.about")}</h2>
                 <hr />
               </header>
               <main>

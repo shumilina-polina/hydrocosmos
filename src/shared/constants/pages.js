@@ -4,8 +4,8 @@ export const pagesHeader = [
   {
     id: 1,
     ru: "журнал",
-    en: "magazine",
-    path: routes.magazine,
+    en: "journal",
+    path: routes.journal,
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ export const pagesFooter = [
   {
     id: 1,
     ru: "журнал",
-    en: "magazine",
-    path: routes.magazine,
+    en: "journal",
+    path: routes.journal,
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ export const pagesFooter = [
   {
     id: 4,
     ru: "Редакция журнала",
-    en: "magazine editorial",
+    en: "journal editorial",
     path: "editorial",
   },
   {

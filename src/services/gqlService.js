@@ -7,8 +7,23 @@ export const client = new ApolloClient({
   ssrMode: false,
 });
 
-export const GET = gql`
+export const GET_MAIN_PAGE = gql`
   query {
-    data
+    journals(sort: "date:desc", locale: "ru", pagination: { limit: 3 }) {
+      data {
+        id
+        attributes {
+          number
+          date
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;

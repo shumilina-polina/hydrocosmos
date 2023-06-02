@@ -1,3 +1,4 @@
+import { apiUrl } from "@/shared/constants/config";
 import {
   breakpoints,
   colors,
@@ -81,20 +82,21 @@ const Date = styled.span`
   color: rgba($color: ${colors.black}, $alpha: 0.6);
 `;
 
-export const MagazineCart = ({ cart }) => {
+export const JournalCart = ({ cart }) => {
+  console.log("cart: ", cart);
   const { t } = useTranslation();
 
   return (
     <div>
       <ImageWrapper>
-        <img src={cart.url} alt="Magazine" />
+        <img src={apiUrl + cart.photo.data.attributes.url} alt="Journal" />
         <Button>
-            {t("magazine.button")} <span>-&gt;</span>
+          {t("journal.button")} <span>-&gt;</span>
         </Button>
       </ImageWrapper>
-      <Name>{cart.name}</Name>
+      <Name>{t("home.journal.name")}</Name>
       <Release>
-          {t("magazine.release")} №{cart.num}
+        {t("journal.release")} №{cart.number}
       </Release>
       <Date>{cart.date}</Date>
     </div>

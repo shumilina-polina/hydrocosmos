@@ -19,7 +19,7 @@ const data = [
     id: 1,
     text: "НИОКР «Создание отечественного обитаемого подводного аппарата».",
     date: "12 мая 2023",
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 2,

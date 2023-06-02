@@ -1,5 +1,5 @@
 export const routes = {
-  magazine: "magazine",
+  journal: "journal",
   news: "news",
   reports: "reports",
   privacy: "privacy",

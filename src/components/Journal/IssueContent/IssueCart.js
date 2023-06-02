@@ -130,14 +130,14 @@ export const IssueCart = ({ data }) => {
           </Text>
         </main>
         <Footer>
-          <span>{t("magazine.item.page")}. 2—10</span>
+          <span>{t("journal.item.page")}. 2—10</span>
           <button>
-            {t(`magazine.item.button-content`)}
+            {t(`journal.item.button-content`)}
             <span> -&gt;</span>
           </button>
         </Footer>
       </Wrapper>
-      <img src={"/assets/test/reports-2.jpg"} alt="magazine" />
+      <img src={"/assets/test/reports-2.jpg"} alt="journal" />
     </Box>
   );
 };

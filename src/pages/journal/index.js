@@ -1,8 +1,8 @@
-import { MagazineCart } from "@/components/MagazineCart";
+import { JournalCart } from "@/components/JournalCart";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
 import { routes } from "@/shared/constants/routes";
-import s from "@/styles/pages/magazine/magazines.module.scss";
+import s from "@/styles/pages/journal/journals.module.scss";
 import Head from "next/head";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
@@ -14,7 +14,7 @@ const data = [
     num: 4,
     date: "Май 2024",
     year: "2024",
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const data = [
     num: 4,
     date: "Май 2023",
     year: "2024",
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
   {
     id: 4,
@@ -38,24 +38,24 @@ const data = [
     num: 4,
     date: "Май 2023",
     year: "2023",
-    url: "/assets/test/magazine.jpg",
+    url: "/assets/test/journal.jpg",
   },
 ];
 
 const page = "issue-1";
 
-export default function Magazines() {
+export default function Journals() {
   const { t } = useTranslation();
   // year sort
   return (
     <>
       <Head>
-        <title>Гидрокосмос - {t("pages.magazine")}</title>
+        <title>Гидрокосмос - {t("pages.journal")}</title>
       </Head>
       <Wrapper>
         <section className={s.wr}>
           <header>
-            <Title>{t("magazine.title")}</Title>
+            <Title>{t("journal.title")}</Title>
           </header>
           <main>
             {data &&
@@ -76,10 +76,10 @@ export default function Magazines() {
                               key={i}
                             >
                               <Link
-                                as={`/${routes.magazine}/${page}`}
-                                href={`/${routes.magazine}/[id]`}
+                                as={`/${routes.journal}/${page}`}
+                                href={`/${routes.journal}/[id]`}
                               >
-                                <MagazineCart cart={cart} />
+                                <JournalCart cart={cart} />
                               </Link>
                             </li>
                           )
