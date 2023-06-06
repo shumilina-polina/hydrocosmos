@@ -7,37 +7,36 @@ import News from "@/components/Index/News/News";
 import Pairs from "@/components/Index/Pairs/Pairs";
 import Reports from "@/components/Index/Reports/Reports";
 import { GET_MAIN_PAGE } from "@/services/gqlService";
-import Wrapper from "@/shared/UI/Wrapper";
+import Error from "@/shared/UI/Error";
 import { useQuery } from "@apollo/client";
 
+const arr = {
+  data: undefined,
+  error: false,
+};
+
 export default function Home() {
-  const { data, loading, error } = useQuery(GET_MAIN_PAGE);
-  console.log("data: ", data);
+  const { data, error } = useQuery(GET_MAIN_PAGE);
 
   return (
     <>
-      {loading ? (
-        <Wrapper>
-          <p>Загрузка...</p>
-        </Wrapper>
-      ) : error ? (
-        <Wrapper>
-          <p>Ошибка, перезагрузите страницу</p>
-        </Wrapper>
+      {error ? (
+        <Error />
       ) : (
-        data && (
-          <section>
-            <Main />
-            <Journal data={data.journals.data} />
-            <News />
-            <Articles />
-            <Manifest />
-            <Reports />
-            <Pairs />
-            <Form />
-          </section>
-        )
+        <>
+          <Main
+            data={data?.slider.data.attributes.slider.data}
+            journal={data?.journals.data[0].attributes}
+          />
+          <Journal data={data?.journals.data} />
+          <News data={data?.news.data} />
+          <Articles data={data?.articles.data} />
+          <Manifest />
+          <Reports data={data?.reports.data} />
+          <Pairs data={data?.pair.data.attributes.logos.data} />
+        </>
       )}
+      <Form />
     </>
   );
 }

@@ -83,7 +83,6 @@ const Date = styled.span`
 `;
 
 export const JournalCart = ({ cart }) => {
-  console.log("cart: ", cart);
   const { t } = useTranslation();
 
   return (

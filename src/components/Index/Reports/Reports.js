@@ -4,107 +4,18 @@ import Wrapper from "@/shared/UI/Wrapper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Keyboard, Autoplay, Pagination } from "swiper";
+import { Autoplay } from "swiper";
 import cn from "classnames";
 import { Fragment, useRef } from "react";
-import { useMediaQuery } from "@mui/material";
+import { Skeleton, useMediaQuery } from "@mui/material";
 import { ReportCart } from "@/components/ReportCart";
 import { Buttons } from "./Buttons";
 import { routes } from "@/shared/constants/routes";
 import Link from "next/link";
 import { breakpoints } from "@/styles/variables/variables";
 
-const data = [
-  {
-    id: 1,
-    title: "1 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-1.jpg",
-  },
-  {
-    id: 2,
-    title: "2 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  {
-    id: 3,
-    title: "3 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-1.jpg",
-  },
-  {
-    id: 4,
-    title: "4 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-1.jpg",
-  },
-  {
-    id: 5,
-    title: "5 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  {
-    id: 6,
-    title: "6 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  {
-    id: 7,
-    title: "7 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-1.jpg",
-  },
-  {
-    id: 8,
-    title: "8 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-1.jpg",
-  },
-  {
-    id: 9,
-    title: "9 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  {
-    id: 10,
-    title: "10 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  {
-    id: 11,
-    title: "11 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  {
-    id: 12,
-    title: "12 белый мишка вышел погулять",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-];
-
-const Reports = () => {
+const Reports = ({ data }) => {
   const { t } = useTranslation();
-
   const isSwiperLaptop = useMediaQuery(breakpoints.swiperLaptop);
 
   return (
@@ -116,10 +27,18 @@ const Reports = () => {
         </header>
       </Wrapper>
       <main>
-        {data && isSwiperLaptop ? (
-          <SliderLaptop data={data} />
+        {data ? (
+          isSwiperLaptop ? (
+            <SliderLaptop data={data} />
+          ) : (
+            <SliderDesktop data={data} />
+          )
         ) : (
-          <SliderDesktop data={data} />
+          <Skeleton
+            className={s.skeleton}
+            animation="wave"
+            sx={{ bgcolor: "grey.200" }}
+          />
         )}
       </main>
       <footer>
@@ -147,28 +66,25 @@ const SliderLaptop = ({ data }) => {
       className={cn(s.slider, "reports-slider")}
       spaceBetween={12}
       centerInsufficientSlides={true}
-      keyboard={{
-        enabled: true,
-      }}
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,
       }}
     >
-      {data.map(
+      {data?.map(
         (slide, i, arr) =>
           i % 3 == 0 && (
             <Fragment key={slide.id}>
               <SwiperSlide key={slide.id + "s"} className={s.slide}>
-                <ReportCart cart={slide} />
+                <ReportCart cart={slide.attributes} />
               </SwiperSlide>
               <SwiperSlide
                 key={slide.id + "f"}
                 className={cn(s.slide, s.slide_flex)}
               >
                 <>
-                  {arr[i + 1] && <ReportCart cart={arr[i + 1]} />}
-                  {arr[i + 2] && <ReportCart cart={arr[i + 2]} />}
+                  {arr[i + 1] && <ReportCart cart={arr[i + 1].attributes} />}
+                  {arr[i + 2] && <ReportCart cart={arr[i + 2].attributes} />}
                 </>
               </SwiperSlide>
             </Fragment>
@@ -179,47 +95,32 @@ const SliderLaptop = ({ data }) => {
   );
 };
 
-const SliderDesktop = ({ data }) => {
-  const swiperRef = useRef();
-
-  return (
-    <Swiper
-      onBeforeInit={(swiper) => {
-        swiperRef.current = swiper;
-      }}
-      speed={1000}
-      modules={[Autoplay, Pagination, Keyboard]}
-      pagination={{
-        clickable: true,
-      }}
-      slidesPerView={"auto"}
-      className={cn(s.slider, "reports-slider")}
-      spaceBetween={12}
-      centerInsufficientSlides={true}
-      keyboard={{
-        enabled: true,
-      }}
-      autoplay={{
-        delay: 5000,
-        disableOnInteraction: false,
-      }}
-    >
-      {data.map(
-        (slide, i, arr) =>
-          i % 5 == 0 && (
-            <SwiperSlide className={s.slide} key={slide.id}>
-              <ReportCart cart={slide} />
-              {[1, 2, 3, 4].map(
-                (item) =>
-                  arr[i + item] && (
-                    <ReportCart key={item} cart={arr[i + item]} />
-                  )
-              )}
-            </SwiperSlide>
-          )
-      )}
-
-      <Buttons swiperRef={swiperRef} />
-    </Swiper>
-  );
-};
+const SliderDesktop = ({ data }) => (
+  <Swiper
+    speed={1000}
+    modules={[Autoplay]}
+    slidesPerView={"auto"}
+    className={cn(s.slider, "reports-slider")}
+    spaceBetween={12}
+    centerInsufficientSlides={true}
+    autoplay={{
+      delay: 5000,
+      disableOnInteraction: false,
+    }}
+  >
+    {data?.map(
+      (slide, i, arr) =>
+        i % 5 == 0 && (
+          <SwiperSlide className={s.slide} key={slide.id}>
+            <ReportCart cart={slide.attributes} />
+            {[1, 2, 3, 4].map(
+              (item) =>
+                arr[i + item] && (
+                  <ReportCart key={item} cart={arr[i + item].attributes} />
+                )
+            )}
+          </SwiperSlide>
+        )
+    )}
+  </Swiper>
+);

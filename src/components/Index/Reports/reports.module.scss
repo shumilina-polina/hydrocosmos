@@ -64,3 +64,14 @@
     }
   }
 }
+
+.skeleton {
+  border-radius: 30px;
+  margin: 0 auto;
+  height: 684px;
+  width: 80%;
+  @include laptop {
+    height: 411px;
+    width: 90%;
+  }
+}

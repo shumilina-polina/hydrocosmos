@@ -1,6 +1,7 @@
 import { breakpoints, colors, fonts } from "@/styles/variables/variables";
 import Link from "next/link";
 import styled from "styled-components";
+import { routes } from "../constants/routes";
 
 const Author = styled.span`
   ${fonts.inter4};
@@ -17,19 +18,20 @@ const Author = styled.span`
   }
 `;
 
-const Authors = ({ data }) => {
-  return (
-    <>
-      {data.map((author, i, arr) => (
-        <Author key={author.id}>
-          <Link href={"/"}>
-            {author.name}
-            {i < arr.length - 1 ? ", " : "."}
-          </Link>
-        </Author>
-      ))}
-    </>
-  );
-};
+const Authors = ({ data }) => (
+  <>
+    {data?.map((author, i, arr) => (
+      <Author key={author.id}>
+        <Link
+          as={`/${routes.authors}/${author.attributes.slug}`}
+          href={`/${routes.authors}/[id]`}
+        >
+          {author.attributes.name}
+          {i < arr.length - 1 ? ", " : ""}
+        </Link>
+      </Author>
+    ))}
+  </>
+);
 
 export default Authors;

@@ -62,7 +62,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Политика защиты и обработки персональных данных
+              <ReactMarkdown>{t("footer.policy")}</ReactMarkdown>
             </a>
             <ul className={s.social}>
               <li>

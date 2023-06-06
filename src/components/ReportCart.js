@@ -1,4 +1,7 @@
+import { apiUrl } from "@/shared/constants/config";
+import { routes } from "@/shared/constants/routes";
 import { breakpoints, colors, fonts } from "@/styles/variables/variables";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
@@ -64,12 +67,14 @@ const Title = styled.h3`
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: ${colors.white};
+  text-align: right;
+  padding-left: 5%;
   @media ${breakpoints.swiperLaptop} {
-    text-align: right;
     font-size: 18px;
     line-height: 22px;
   }
 `;
+
 const Box = styled.div`
   margin-bottom: 13px;
   display: flex;
@@ -94,14 +99,19 @@ export const ReportCart = ({ cart }) => {
   return (
     <Wrapper data-aos="flip-up">
       <div>
-        <Image src={cart.url} />
+        <Image src={apiUrl + cart.photos.data[0].attributes.url} />
       </div>
       <Label>
         <Box>
           <span>
-            {t("home.reports.figcaption")} №{cart.num}
+            {cart.journal && (
+              <>
+                {t("home.reports.figcaption")} №
+                {cart.journal.data.attributes.number}
+              </>
+            )}
           </span>
-          |<span>{cart.type}</span>
+          |<span>{t("home.reports.type")}</span>
         </Box>
         <Title>{cart.title}</Title>
       </Label>

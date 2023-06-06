@@ -1,6 +1,9 @@
+import { apiUrl } from "@/shared/constants/config";
 import { breakpoints } from "@/styles/variables/variables";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import styled from "styled-components";
+import "moment/locale/ru";
+import moment from "moment/moment";
 
 const ImageWrapper = styled.div`
   transition: opacity 0.3s;
@@ -60,18 +63,21 @@ const Date = styled.span`
   opacity: 0.8;
 `;
 
-export const NewCart = ({ cart }) => {
-  return (
-    <Wrapper>
-      <div>
-        <ImageWrapper>
-          <img src={cart.url} alt="New" />
-        </ImageWrapper>
-        <Text>
-          <ReactMarkdown>{cart.text}</ReactMarkdown>
-        </Text>
-      </div>
-      <Date>{cart.date}</Date>
-    </Wrapper>
-  );
-};
+export const NewCart = ({ cart }) => (
+  <Wrapper>
+    <div>
+      <ImageWrapper>
+        <img src={apiUrl + cart.photos.data[0]?.attributes?.url} alt="New" />
+      </ImageWrapper>
+      <Text>
+        <ReactMarkdown>{cart.title}</ReactMarkdown>
+      </Text>
+    </div>
+    <Date>
+      {moment(cart.date)
+        .locale("ru")
+        // .locale("en")
+        .format("DD MMMM YYYY")}
+    </Date>
+  </Wrapper>
+);

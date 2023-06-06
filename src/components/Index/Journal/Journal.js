@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Wrapper from "@/shared/UI/Wrapper";
 import { useState } from "react";
 import { breakpoints } from "@/styles/variables/variables";
-import { useMediaQuery } from "@mui/material";
+import { Skeleton, useMediaQuery } from "@mui/material";
 import { JournalCart } from "@/components/JournalCart";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,9 +13,6 @@ import { routes } from "@/shared/constants/routes";
 import { apiUrl } from "@/shared/constants/config";
 import "moment/locale/ru";
 import moment from "moment/moment";
-// import "moment/locale/en";
-
-const page = "issue-1";
 
 const Journal = ({ data }) => {
   const { t } = useTranslation();
@@ -31,52 +28,60 @@ const Journal = ({ data }) => {
         </header>
       </Wrapper>
       <main>
-        {!isTablet ? (
-          <ul>
-            {data.map((item, i) => (
-              <li
-                key={item.id}
-                className={i === 0 && active ? s.active : ""}
-                onMouseOver={() => {
-                  setActive(false);
-                }}
-                onMouseOut={() => {
-                  setActive(true);
-                }}
-              >
-                <Link
-                  as={`/${routes.journal}/${page}`}
-                  href={`/${routes.journal}/[id]`}
+        {data ? (
+          !isTablet ? (
+            <ul>
+              {data.map((item, i) => (
+                <li
+                  key={item.id}
+                  className={i === 0 && active ? s.active : ""}
+                  onMouseOver={() => {
+                    setActive(false);
+                  }}
+                  onMouseOut={() => {
+                    setActive(true);
+                  }}
                 >
-                  <Wrapper>
-                    <span data-aos="fade-left" data-aos-delay={`${100 * i}`}>
-                      {moment(item.attributes.date)
-                        .locale("ru")
-                        // .locale("en")
-                        .format("MMMM YYYY")}
-                    </span>
-                    <img
-                      src={apiUrl + item.attributes.photo.data.attributes.url}
-                      alt={"Journal"}
-                    />
-                  </Wrapper>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <Link
+                    as={`/${routes.journal}/${item.attributes?.slug}`}
+                    href={`/${routes.journal}/[id]`}
+                  >
+                    <Wrapper>
+                      <span data-aos="fade-left" data-aos-delay={`${100 * i}`}>
+                        {moment(item.attributes?.date)
+                          .locale("ru")
+                          // .locale("en")
+                          .format("MMMM YYYY")}
+                      </span>
+                      <img
+                        src={apiUrl + item.attributes.photo.data.attributes.url}
+                        alt={"Journal"}
+                      />
+                    </Wrapper>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <Swiper
+              speed={2000}
+              spaceBetween={27}
+              className={cn(s.slider, "journal-slider")}
+              slidesPerView={"auto"}
+            >
+              {data.map((cart) => (
+                <SwiperSlide key={cart.id}>
+                  <JournalCart cart={cart.attributes} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )
         ) : (
-          <Swiper
-            speed={2000}
-            spaceBetween={27}
-            className={cn(s.slider, "journal-slider")}
-            slidesPerView={"auto"}
-          >
-            {data.map((cart) => (
-              <SwiperSlide key={cart.id}>
-                <JournalCart cart={cart.attributes} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <Skeleton
+            className={s.skeleton}
+            animation="wave"
+            sx={{ bgcolor: "grey.200" }}
+          />
         )}
       </main>
       <footer>

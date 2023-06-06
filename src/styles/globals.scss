@@ -24,11 +24,12 @@ body {
   background-color: $white;
   color: $black;
   min-height: 100vh;
-  padding: 90px 0 695px;
+  padding: 110px 0 695px;
   // padding-right: 0 !important;
   overflow-x: hidden;
   @include laptop {
     border: 3px solid blue;
+    padding: 90px 0 695px;
   }
   @include tablet {
     border: 3px solid red;

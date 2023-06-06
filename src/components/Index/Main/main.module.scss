@@ -49,17 +49,42 @@
       }
     }
   }
-  & > button {
-    @include dark-button;
-    margin-bottom: 123px;
+  & > a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 123px;
     @include laptop {
       margin-bottom: 70px;
     }
     @include tablet {
-      margin-bottom: 0;
-      padding: 16px 40px;
+      margin-bottom: 24px;
       order: 1;
       align-self: center;
     }
+    & > button {
+      @include dark-button;
+      @include tablet {
+        padding: 16px 40px;
+      }
+    }
+  }
+}
+
+.skeleton {
+  border-radius: 30px;
+  margin: 181px auto 0;
+  width: 80%;
+  height: 360px;
+  @include laptop {
+    width: 90%;
+    height: 284px;
+    margin-top: 129px;
+  }
+  @include tablet {
+    margin: 0 auto 77px;
+    height: 434px;
+  }
+  @include mobile {
+    height: 264px;
   }
 }

@@ -4,61 +4,18 @@ import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination, Keyboard } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 import cn from "classnames";
 import SvgSelector from "@/shared/UI/SvgSelector";
 import { breakpoints, sizes } from "@/styles/variables/variables";
-import { useMediaQuery } from "@mui/material";
+import { Skeleton, useMediaQuery } from "@mui/material";
+import { apiUrl } from "@/shared/constants/config";
+import { routes } from "@/shared/constants/routes";
+import Link from "next/link";
 
-const data = [
-  {
-    id: 1,
-    url: "/assets/test/journal.jpg",
-  },
-  {
-    id: 2,
-    url: "/assets/test/main-slider.jpg",
-  },
-  {
-    id: 3,
-    url: "/assets/test/journal.jpg",
-  },
-  {
-    id: 4,
-    url: "/assets/test/main-slider.jpg",
-  },
-  {
-    id: 5,
-    url: "/assets/test/journal.jpg",
-  },
-  {
-    id: 6,
-    url: "/assets/test/main-slider.jpg",
-  },
-  {
-    id: 7,
-    url: "/assets/test/journal.jpg",
-  },
-  {
-    id: 8,
-    url: "/assets/test/main-slider.jpg",
-  },
-  {
-    id: 9,
-    url: "/assets/test/main-slider.jpg",
-  },
-  {
-    id: 10,
-    url: "/assets/test/main-slider.jpg",
-  },
-  {
-    id: 11,
-    url: "/assets/test/main-slider.jpg",
-  },
-];
 const { desktopWidth, laptopWidth, mobileWidth } = sizes;
 
-const Main = () => {
+const Main = ({ data, journal }) => {
   const { t } = useTranslation();
   const isMobile = useMediaQuery(breakpoints.mobile);
 
@@ -67,64 +24,79 @@ const Main = () => {
       <header>
         <ReactMarkdown>{"# " + t("home.title")}</ReactMarkdown>
       </header>
-      <button>
-        {t("home.button")}
-        <span> -&gt;</span>
-      </button>
-      <main>
-        <Swiper
-          speed={2000}
-          modules={[Autoplay, Pagination, Keyboard]}
-          pagination={{
-            clickable: true,
-          }}
-          className={cn(s.slider, "main-slider")}
-          // centerInsufficientSlides={true}
-          keyboard={{
-            enabled: true,
-          }}
-          initialSlide={data.length > 4 ? Math.floor(data.length / 4) : 0}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            [desktopWidth.slice(0, -2)]: {
-              slidesPerView: "auto",
-              spaceBetween: 63,
-              centeredSlides: true,
-              loop: false,
-            },
-            [laptopWidth.slice(0, -2)]: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-              loop: true,
-            },
-            [mobileWidth.slice(0, -2)]: {
-              spaceBetween: 16,
-            },
-          }}
+      {journal?.slug && (
+        <Link
+          as={`/${routes.journal}/${journal.slug}`}
+          href={`/${routes.journal}/[id]`}
         >
-          {data &&
-            data.map((slide, index, arr) => {
+          <button>
+            {t("home.button")} {journal?.number || 1}
+            <span> -&gt;</span>
+          </button>
+        </Link>
+      )}
+      <main>
+        {data ? (
+          <Swiper
+            speed={2000}
+            modules={[Autoplay, Pagination]}
+            pagination={{
+              clickable: true,
+            }}
+            className={cn(s.slider, "main-slider")}
+            // centerInsufficientSlides={true}
+            initialSlide={data?.length > 4 ? Math.floor(data.length / 4) : 0}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              [desktopWidth.slice(0, -2)]: {
+                slidesPerView: "auto",
+                spaceBetween: 63,
+                centeredSlides: true,
+                loop: false,
+              },
+              [laptopWidth.slice(0, -2)]: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true,
+              },
+              [mobileWidth.slice(0, -2)]: {
+                spaceBetween: 16,
+              },
+            }}
+          >
+            {data.map((slide, index, arr) => {
               if (!(index % 2) && !isMobile) {
                 return (
                   <SwiperSlide key={slide.id}>
-                    <img src={slide.url} />
-                    {arr[index + 1] ? <img src={arr[index + 1].url} /> : ""}
+                    <img src={apiUrl + slide.attributes.url} />
+                    {arr[index + 1] ? (
+                      <img src={apiUrl + arr[index + 1].attributes.url} />
+                    ) : (
+                      ""
+                    )}
                   </SwiperSlide>
                 );
               } else if (isMobile)
                 return (
                   <SwiperSlide key={slide.id}>
-                    <img src={slide.url} />
+                    <img src={apiUrl + slide.attributes.url} />
                   </SwiperSlide>
                 );
               else return;
             })}
-          <SvgSelector svg={"ellipse"} />
-          <SvgSelector svg={"ellipse"} />
-        </Swiper>
+            <SvgSelector svg={"ellipse"} />
+            <SvgSelector svg={"ellipse"} />
+          </Swiper>
+        ) : (
+          <Skeleton
+            className={s.skeleton}
+            sx={{ bgcolor: "grey.900" }}
+            animation="wave"
+          />
+        )}
       </main>
     </section>
   );

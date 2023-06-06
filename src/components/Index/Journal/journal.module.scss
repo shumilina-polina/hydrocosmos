@@ -29,10 +29,6 @@
     & ul {
       display: flex;
       flex-direction: column;
-      // gap: 25px;
-      // @include laptop {
-      //   gap: 15px;
-      // }
       & li {
         padding-bottom: 25px;
         & > a {
@@ -106,6 +102,11 @@
     @include tablet {
       padding-left: 5%;
     }
+    & a {
+      margin: 0 auto;
+      display: block;
+      width: fit-content;
+    }
     & button {
       display: block;
       @include light-button;
@@ -134,5 +135,19 @@
   & img {
     opacity: 1 !important;
     transform: translateX(120px) scale(1) !important;
+  }
+}
+
+.skeleton {
+  border-radius: 30px;
+  margin: 0 auto;
+  height: 504px;
+  width: 80%;
+  @include laptop {
+    height: 372px;
+    width: 90%;
+  }
+  @include tablet {
+    height: 458px;
   }
 }
