@@ -280,3 +280,40 @@ export const GET_NEWS = gql`
     }
   }
 `;
+
+export const GET_REPORTS = gql`
+  query ($limit: Int, $start: Int) {
+    reports(
+      sort: "createdAt:desc"
+      locale: "ru"
+      pagination: { limit: $limit, start: $start }
+    ) {
+      meta {
+        pagination {
+          total
+        }
+      }
+      data {
+        id
+        attributes {
+          title
+          slug
+          photos(pagination: { limit: 1 }) {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          journal {
+            data {
+              attributes {
+                number
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

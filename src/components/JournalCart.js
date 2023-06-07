@@ -1,4 +1,5 @@
 import { apiUrl } from "@/shared/constants/config";
+import { routes } from "@/shared/constants/routes";
 import {
   breakpoints,
   colors,
@@ -7,6 +8,7 @@ import {
 } from "@/styles/variables/variables";
 import moment from "moment";
 import "moment/locale/ru";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
@@ -91,7 +93,10 @@ export const JournalCart = ({ cart }) => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <Link
+      as={`/${routes.journal}/${cart.slug}`}
+      href={`/${routes.journal}/[id]`}
+    >
       <ImageWrapper>
         <img src={apiUrl + cart.photo.data.attributes.url} alt="Journal" />
         <Button>
@@ -108,7 +113,6 @@ export const JournalCart = ({ cart }) => {
           // .locale("en")
           .format("MMMM YYYY")}
       </Date>
-      {/* <Date>{cart.date}</Date> */}
-    </div>
+    </Link>
   );
 };

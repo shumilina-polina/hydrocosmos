@@ -78,7 +78,8 @@
   margin: 0 auto;
   height: 684px;
   width: 80%;
-  @include laptop {
+
+  @include swiper-laptop {
     height: 411px;
     width: 90%;
   }

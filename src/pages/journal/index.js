@@ -54,12 +54,7 @@ export default function Journals() {
                               data-aos-delay={`${100 * i}`}
                               key={cart.id}
                             >
-                              <Link
-                                as={`/${routes.journal}/${cart.attributes.slug}`}
-                                href={`/${routes.journal}/[id]`}
-                              >
-                                <JournalCart cart={cart.attributes} />
-                              </Link>
+                              <JournalCart cart={cart.attributes} />
                             </li>
                           )
                       )}

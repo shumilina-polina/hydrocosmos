@@ -15,3 +15,17 @@
     }
   }
 }
+
+.skeleton {
+  &_wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+  border-radius: 15px;
+  width: 50%;
+  height: 386px;
+  &:last-child{
+    height: 253px;
+    width: 30%;
+  }
+}
