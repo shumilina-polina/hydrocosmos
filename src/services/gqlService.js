@@ -43,13 +43,18 @@ export const GET_MAIN_PAGE = gql`
         }
       }
     }
-    articles(sort: "createdAt:desc", locale: "ru", pagination: { limit: 5 }) {
+    articles(
+      filters: { popular: { eq: true } }
+      sort: "createdAt:desc"
+      locale: "ru"
+      pagination: { limit: 5 }
+    ) {
       data {
         id
         attributes {
           title
           slug
-          heading
+          rubric
           authors {
             data {
               id
@@ -96,6 +101,7 @@ export const GET_MAIN_PAGE = gql`
         id
         attributes {
           title
+          slug
           photos(pagination: { limit: 1 }) {
             data {
               attributes {
@@ -119,6 +125,151 @@ export const GET_MAIN_PAGE = gql`
           slider {
             data {
               id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_JOURNALS = gql`
+  query {
+    journals(sort: "date:desc", locale: "ru") {
+      data {
+        id
+        attributes {
+          number
+          date
+          slug
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ONE_JOURNAL = gql`
+  query ($slug: String) {
+    journals(locale: "ru", filters: { slug: { eq: $slug } }) {
+      data {
+        id
+        attributes {
+          number
+          date
+          slug
+          ISSN
+          eISSN
+          Elibrary_EDN
+          about
+          reports {
+            data {
+              id
+              attributes {
+                title
+                slug
+                journal {
+                  data {
+                    attributes {
+                      number
+                      slug
+                    }
+                  }
+                }
+                photos(pagination: { limit: 1 }) {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+          articles {
+            data {
+              id
+              attributes {
+                slug
+                rubric
+                title
+                pdf_ru_page
+                pdf_en_page
+                photo {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                authors {
+                  data {
+                    id
+                    attributes {
+                      name
+                      slug
+                    }
+                  }
+                }
+              }
+            }
+          }
+          pdf_ru {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          pdf_en {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_NEWS = gql`
+  query ($limit: Int, $start: Int) {
+    news(
+      sort: "date:desc"
+      locale: "ru"
+      pagination: { limit: $limit, start: $start }
+    ) {
+      meta {
+        pagination {
+          total
+        }
+      }
+      data {
+        id
+        attributes {
+          title
+          date
+          slug
+          photos(pagination: { limit: 1 }) {
+            data {
               attributes {
                 url
               }

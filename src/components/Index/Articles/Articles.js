@@ -6,6 +6,8 @@ import { Skeleton, useMediaQuery } from "@mui/material";
 import { breakpoints } from "@/styles/variables/variables";
 import Authors from "@/shared/UI/Authors";
 import { apiUrl } from "@/shared/constants/config";
+import Link from "next/link";
+import { routes } from "@/shared/constants/routes";
 
 const Articles = ({ data }) => {
   const isTablet = useMediaQuery(breakpoints.tablet);
@@ -46,9 +48,8 @@ const Articles = ({ data }) => {
               </>
             ) : (
               [1, 2, 3, 4].map((elem) => (
-                <article>
+                <article key={elem}>
                   <Skeleton
-                    key={elem}
                     className={s.skeleton}
                     sx={{ bgcolor: "grey.200" }}
                     animation="wave"
@@ -80,10 +81,15 @@ const Article = ({ data, index, t }) => {
             </>
           )}
         </span>
-        |<span>{data.heading}</span>
+        |<span>{data.rubric}</span>
       </header>
       <main>
-        <ReactMarkdown>{data.title}</ReactMarkdown>
+        <Link
+          as={`/${routes.articles}/${data.slug}`}
+          href={`/${routes.articles}/[id]`}
+        >
+          <ReactMarkdown>{data.title}</ReactMarkdown>
+        </Link>
       </main>
       <footer>
         <Authors data={data.authors?.data} />

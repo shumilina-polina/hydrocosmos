@@ -86,4 +86,30 @@ export const mixins = {
       letter-spacing: 0.05em;
     }
   `,
+  title: css`
+    ${fonts.inter7}
+    padding-left: 44px;
+    font-size: 48px;
+    line-height: 58px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-right: 24px;
+    & ~ hr {
+      flex-grow: 1;
+      background-color: ${colors.black};
+      opacity: 0.2;
+    }
+    @media ${breakpoints.laptop} {
+      font-size: 34px;
+      line-height: 50px;
+      margin-right: 8px;
+      padding-left: 10px;
+    }
+    @media ${breakpoints.tablet} {
+      font-size: 24px;
+      line-height: 29px;
+      margin-right: 8px;
+      padding-left: 10px;
+    }
+  `,
 };

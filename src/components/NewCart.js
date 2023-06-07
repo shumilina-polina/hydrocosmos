@@ -4,6 +4,32 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import styled from "styled-components";
 import "moment/locale/ru";
 import moment from "moment/moment";
+import { routes } from "@/shared/constants/routes";
+import Link from "next/link";
+
+export const NewCart = ({ cart }) => (
+  <Link
+    as={`/${routes.news}/${cart.slug}`}
+    href={`/${routes.news}/[id]`}
+  >
+    <Wrapper>
+      <div>
+        <ImageWrapper>
+          <img src={apiUrl + cart.photos.data[0]?.attributes?.url} alt="New" />
+        </ImageWrapper>
+        <Text>
+          <ReactMarkdown>{cart.title}</ReactMarkdown>
+        </Text>
+      </div>
+      <Date>
+        {moment(cart.date)
+          .locale("ru")
+          // .locale("en")
+          .format("DD MMMM YYYY")}
+      </Date>
+    </Wrapper>
+  </Link>
+);
 
 const ImageWrapper = styled.div`
   transition: opacity 0.3s;
@@ -62,22 +88,3 @@ const Date = styled.span`
   letter-spacing: 0.03em;
   opacity: 0.8;
 `;
-
-export const NewCart = ({ cart }) => (
-  <Wrapper>
-    <div>
-      <ImageWrapper>
-        <img src={apiUrl + cart.photos.data[0]?.attributes?.url} alt="New" />
-      </ImageWrapper>
-      <Text>
-        <ReactMarkdown>{cart.title}</ReactMarkdown>
-      </Text>
-    </div>
-    <Date>
-      {moment(cart.date)
-        .locale("ru")
-        // .locale("en")
-        .format("DD MMMM YYYY")}
-    </Date>
-  </Wrapper>
-);

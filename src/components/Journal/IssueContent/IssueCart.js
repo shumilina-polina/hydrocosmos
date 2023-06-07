@@ -1,50 +1,65 @@
+import { apiUrl } from "@/shared/constants/config";
+import { routes } from "@/shared/constants/routes";
 import Authors from "@/shared/UI/Authors";
-import { breakpoints, fonts } from "@/styles/variables/variables";
+import { breakpoints, colors, fonts } from "@/styles/variables/variables";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import styled from "styled-components";
 
-const authors = [
-  {
-    id: 1,
-    name: "А.М. Ярков",
-    link: "https://pushkeen.ru",
-  },
-  {
-    id: 2,
-    name: "С.А. Бычков",
-    link: "https://pushkeen.ru",
-  },
-  {
-    id: 3,
-    name: "А.Ю. Таракановский",
-    link: "https://pushkeen.ru",
-  },
-];
+export const IssueCart = ({ data, journal }) => {
+  const { t } = useTranslation();
 
-const Box = styled.div`
-  padding: 16px 0;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 51px;
-  & > img {
-    height: 253px;
-    object-fit: cover;
-    @media ${breakpoints.laptop} {
-      height: 200px;
-    }
-  }
-`;
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
+  return (
+    <Box>
+      <Wrapper>
+        <main>
+          <Link
+            as={`/${routes.articles}/${data.slug}`}
+            href={`/${routes.articles}/[id]`}
+          >
+            <Title>
+              <ReactMarkdown>{data?.title}</ReactMarkdown>
+            </Title>
+          </Link>
+          <Authors data={data?.authors.data} />
+        </main>
+        <Footer>
+          <span>
+            {t("journal.item.page")}. {data?.pdf_ru_page}
+          </span>
+          <a
+            href={apiUrl + journal + "#page=" + data?.pdf_ru_page}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button>
+              {t(`journal.item.button-content`)}
+              <span> -&gt;</span>
+            </button>
+          </a>
+        </Footer>
+      </Wrapper>
+      <img src={apiUrl + data?.photo.data.attributes.url} alt="Article" />
+    </Box>
+  );
+};
 const Title = styled.h4`
   ${fonts.inter7}
   margin-bottom: 8px;
   font-size: 24px;
   line-height: 29px;
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  transition: color 0.3s;
   & ~ span {
     font-size: 18px;
     line-height: 25px;
@@ -53,24 +68,32 @@ const Title = styled.h4`
     font-size: 20px;
     line-height: 24px;
   }
-`;
-const Text = styled.p`
-  font-size: 16px;
-  line-height: 21px;
-  opacity: 0.7;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -moz-box;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  line-clamp: 4;
-  -moz-box-orient: vertical;
-  -webkit-box-orient: vertical;
-  box-orient: vertical;
-  @media ${breakpoints.laptop} {
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+  &:hover {
+    color: ${colors.cyanArticle};
   }
+`;
+
+const Box = styled.div`
+  padding: 16px 0;
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 51px;
+
+  & > img {
+    object-fit: cover;
+    height: 285px;
+    @media ${breakpoints.laptop} {
+      height: 200px;
+    }
+  }
+`;
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 16px;
 `;
 
 const Footer = styled.footer`
@@ -80,10 +103,7 @@ const Footer = styled.footer`
   padding-right: 10%;
   font-size: 16px;
   line-height: 19px;
-  & > span {
-    opacity: 0.6;
-  }
-  & > button {
+  & button {
     color: #0538bb;
     font-size: 16px;
     line-height: 19px;
@@ -107,37 +127,3 @@ const Footer = styled.footer`
     }
   }
 `;
-
-export const IssueCart = ({ data }) => {
-  const { t } = useTranslation();
-
-  return (
-    <Box>
-      <Wrapper>
-        <header>
-          <Title>УПРАВЛЕНИЕ РИСКАМИ ПРИ ВОДОЛАЗНЫХ РАБОТАХ. ЧТО ЭТО?</Title>
-          <Authors data={authors} />
-        </header>
-        <main>
-          <Text>
-            В декабре 2020 года в свет вышли новые Правила по охране труда при
-            проведении водолазных работ. Документ по своему содержанию и
-            практической направленности актуализировал на современном уровне
-            требования безопасности при проведении водолазных работ – работ
-            потенциально опасных, практической направленности актуализировал на
-            современном уровне требования безопасности при проведении водолазных
-            работ – работ потенциально опасных,
-          </Text>
-        </main>
-        <Footer>
-          <span>{t("journal.item.page")}. 2—10</span>
-          <button>
-            {t(`journal.item.button-content`)}
-            <span> -&gt;</span>
-          </button>
-        </Footer>
-      </Wrapper>
-      <img src={"/assets/test/reports-2.jpg"} alt="journal" />
-    </Box>
-  );
-};

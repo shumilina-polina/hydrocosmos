@@ -4,6 +4,7 @@
   padding: 229px 0 190px;
   background-color: $white;
   color: $black;
+
   @include laptop {
     padding: 170px 0;
   }
@@ -31,6 +32,9 @@
       flex-direction: column;
       & li {
         padding-bottom: 25px;
+        & img {
+          pointer-events: none;
+        }
         & > a {
           display: block;
           position: relative;

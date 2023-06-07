@@ -23,14 +23,26 @@
   gap: 28px;
   height: 307px;
   margin-bottom: 56px;
-  & > div > div > div:first-child {
+  & > a {
+    max-width: 25%;
+  }
+  & > a > div > div > div:first-child {
     height: 177px;
   }
   &_tall {
     height: 375px;
     gap: 20px;
-    & > div > div > div:first-child {
+    & > a {
+      max-width: 33%;
+    }
+    & > a > div > div > div:first-child {
       height: 246px;
     }
   }
+}
+
+.skeleton {
+  border-radius: 30px;
+  width: 100%;
+  height: 279px;
 }

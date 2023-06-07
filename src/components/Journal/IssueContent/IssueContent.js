@@ -1,11 +1,61 @@
 import { ReportsBox } from "@/components/Index/Reports/ReportsBox";
-import s from "./issueContent.module.scss";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { breakpoints, colors, fonts } from "@/styles/variables/variables";
+import {
+  breakpoints,
+  colors,
+  fonts,
+  mixins,
+} from "@/styles/variables/variables";
 import { IssueCart } from "./IssueCart";
 
-export const Theme = styled.h3`
+const IssueContent = ({ data }) => {
+  const { t } = useTranslation();
+
+  return (
+    <Section>
+      <header>
+        <h2>{t("journal.item.content")}</h2>
+        <hr />
+      </header>
+      <main>
+        <ArticlesByRubric data={data.articles.data} journal={data.pdf_ru} />
+        <article>
+          <Theme>репортажи:</Theme>
+          <ReportsBox data={data.reports.data} />
+        </article>
+      </main>
+    </Section>
+  );
+};
+
+export default IssueContent;
+
+const ArticlesByRubric = ({ data, journal }) => {
+  return (
+    <>
+      {Array.from(
+        new Set(data.map((article) => article.attributes.rubric))
+      ).map((rubric, i) => (
+        <article key={i}>
+          <Theme>{rubric}:</Theme>
+          {data.map(
+            (article) =>
+              article.attributes.rubric === rubric && (
+                <IssueCart
+                  key={article.id}
+                  data={article.attributes}
+                  journal={journal.data.attributes.url}
+                />
+              )
+          )}
+        </article>
+      ))}
+    </>
+  );
+};
+
+const Theme = styled.h3`
   ${fonts.inter7}
   color: ${colors.cyanArticle};
   margin-bottom: 32px;
@@ -18,60 +68,21 @@ export const Theme = styled.h3`
     margin-bottom: 20px;
   }
 `;
-
-const data = [
-  {
-    id: 1,
-    title: "1 Крупнейший минеральный водоём Европы — озеро Эльтон",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-1.jpg",
-  },
-  {
-    id: 2,
-    title: "2 горное озеро",
-    num: "3",
-    type: "репортаж",
-    url: "/assets/test/reports-2.jpg",
-  },
-  // {
-  //   id: 3,
-  //   title: "3 горное озеро",
-  //   num: "3",
-  //   type: "репортаж",
-  //   url: "/assets/test/reports-2.jpg",
-  // },
-];
-
-const IssueContent = () => {
-  const { t } = useTranslation();
-
-  return (
-    <section className={s.wr}>
-      <header>
-        <h2>{t("journal.item.content")}</h2>
-        <hr />
-      </header>
-      <main>
-        {["От редакции", "археология", "техника/технологии"].map((theme, i) => (
-          <article key={i}>
-            <Theme>{theme}:</Theme>
-            <div data-aos="fade-right" data-aos-delay={100}>
-              <IssueCart />
-            </div>
-            <div data-aos="fade-right" data-aos-delay={200}>
-              <IssueCart />
-            </div>
-          </article>
-        ))}
-
-        <article>
-          <Theme>репортажи:</Theme>
-          <ReportsBox data={data} />
-        </article>
-      </main>
-    </section>
-  );
-};
-
-export default IssueContent;
+const Section = styled.section`
+  & > header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 64px;
+    & > h2 {
+      ${mixins.title}
+    }
+  }
+  & > main {
+    & article {
+      margin-bottom: 56px;
+      &:last-child {
+        margin-top: 24px;
+      }
+    }
+  }
+`;

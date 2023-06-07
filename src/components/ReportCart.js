@@ -5,6 +5,39 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
+export const ReportCart = ({ cart }) => {
+  const { t } = useTranslation();
+  return (
+    <Link
+      as={`/${routes.reports}/${cart.slug}`}
+      href={`/${routes.reports}/[id]`}
+    >
+      <Wrapper data-aos="flip-up">
+        <div>
+          <Image src={apiUrl + cart.photos.data[0].attributes.url} />
+        </div>
+        <Label>
+          <Box>
+            <span>
+              {cart.journal.data && (
+                <Link
+                  as={`/${routes.journal}/${cart.journal.data.attributes.slug}`}
+                  href={`/${routes.journal}/[id]`}
+                >
+                  {t("home.reports.figcaption")} №
+                  {cart.journal.data.attributes.number}
+                </Link>
+              )}
+            </span>
+            |<span>{t("home.reports.type")}</span>
+          </Box>
+          <Title>{cart.title}</Title>
+        </Label>
+      </Wrapper>
+    </Link>
+  );
+};
+
 const Label = styled.figcaption`
   z-index: 1;
   opacity: 0;
@@ -21,9 +54,9 @@ const Label = styled.figcaption`
     opacity: 1;
   }
 `;
-
 const Wrapper = styled.figure`
   position: relative;
+
   &:first-child {
     grid-row-start: 1;
     grid-row-end: 3;
@@ -86,6 +119,11 @@ const Box = styled.div`
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: ${colors.cyanArticle};
+  & a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   @media ${breakpoints.swiperLaptop} {
     gap: 9px;
     font-size: 14px;
@@ -93,28 +131,3 @@ const Box = styled.div`
     margin-bottom: 7px;
   }
 `;
-
-export const ReportCart = ({ cart }) => {
-  const { t } = useTranslation();
-  return (
-    <Wrapper data-aos="flip-up">
-      <div>
-        <Image src={apiUrl + cart.photos.data[0].attributes.url} />
-      </div>
-      <Label>
-        <Box>
-          <span>
-            {cart.journal && (
-              <>
-                {t("home.reports.figcaption")} №
-                {cart.journal.data.attributes.number}
-              </>
-            )}
-          </span>
-          |<span>{t("home.reports.type")}</span>
-        </Box>
-        <Title>{cart.title}</Title>
-      </Label>
-    </Wrapper>
-  );
-};

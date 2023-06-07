@@ -31,6 +31,10 @@
       & span {
         font-size: 18px;
         line-height: 22px;
+        display: block;
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
     }
     & > main {
@@ -79,15 +83,15 @@
       & > a {
         display: block;
         &:first-child {
+          margin-bottom: 24px;
+          @include laptop {
+            margin-bottom: 15px;
+          }
           & button {
             @include dark-button;
             border: 3px solid $cyan;
             color: $white;
             background-color: $cyan;
-            margin-bottom: 24px;
-            @include laptop {
-              margin-bottom: 15px;
-            }
             &:hover {
               border-color: $black;
               background-color: $black;
@@ -104,5 +108,24 @@
         }
       }
     }
+  }
+}
+
+.skeleton {
+  border-radius: 15px;
+  width: 100%;
+  &_image {
+    height: 511px;
+    width: 361px;
+  }
+  &_list {
+    height: 171px;
+  }
+  &_h1,
+  &_date {
+    height: 35px;
+  }
+  &_date {
+    width: 40%;
   }
 }

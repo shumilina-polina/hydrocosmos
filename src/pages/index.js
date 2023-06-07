@@ -10,11 +10,6 @@ import { GET_MAIN_PAGE } from "@/services/gqlService";
 import Error from "@/shared/UI/Error";
 import { useQuery } from "@apollo/client";
 
-const arr = {
-  data: undefined,
-  error: false,
-};
-
 export default function Home() {
   const { data, error } = useQuery(GET_MAIN_PAGE);
 
@@ -30,6 +25,7 @@ export default function Home() {
           />
           <Journal data={data?.journals.data} />
           <News data={data?.news.data} />
+          {/* отследить, что статья популярная */}
           <Articles data={data?.articles.data} />
           <Manifest />
           <Reports data={data?.reports.data} />

@@ -4,4 +4,5 @@ export const routes = {
   reports: "reports",
   privacy: "privacy",
   authors: "authors",
+  articles: "articles",
 };

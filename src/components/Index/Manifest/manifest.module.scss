@@ -47,6 +47,11 @@
       font-size: 28px;
       line-height: 35px;
       margin-bottom: 58px;
+      word-break: break-word;
+    }
+    @include small {
+      font-size: 22px;
+      line-height: 30px;
     }
   }
   & footer {
@@ -58,6 +63,11 @@
       font-size: 16px;
       line-height: 24px;
       max-width: 100%;
+      word-break: break-word;
+    }
+    @include small {
+      font-size: 13px;
+      line-height: 20px;
     }
 
     & > button {

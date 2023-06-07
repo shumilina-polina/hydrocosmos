@@ -5,6 +5,8 @@ import {
   fonts,
   mixins,
 } from "@/styles/variables/variables";
+import moment from "moment";
+import "moment/locale/ru";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
@@ -73,13 +75,16 @@ const Release = styled.h3`
     line-height: 24px;
   }
 `;
-const Date = styled.span`
+const Date = styled.div`
   ${fonts.inter4}
   font-size: 14px;
   line-height: 17px;
   text-transform: none;
   letter-spacing: 0.03em;
   color: rgba($color: ${colors.black}, $alpha: 0.6);
+  &:first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const JournalCart = ({ cart }) => {
@@ -97,7 +102,13 @@ export const JournalCart = ({ cart }) => {
       <Release>
         {t("journal.release")} №{cart.number}
       </Release>
-      <Date>{cart.date}</Date>
+      <Date>
+        {moment(cart.date)
+          .locale("ru")
+          // .locale("en")
+          .format("MMMM YYYY")}
+      </Date>
+      {/* <Date>{cart.date}</Date> */}
     </div>
   );
 };

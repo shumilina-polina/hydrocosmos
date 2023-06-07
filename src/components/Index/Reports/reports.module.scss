@@ -33,7 +33,15 @@
         display: grid;
         grid-template-rows: repeat(2, 310px);
         grid-template-columns: 514px max-content max-content;
-        & > figure {
+        & > a {
+          display: block;
+          &:first-child {
+            grid-row-start: 1;
+            grid-row-end: 3;
+          }
+        }
+        & figure {
+          height: 100%;
           & > div {
             height: 100%;
           }

@@ -4,6 +4,7 @@
   padding: 72px 0;
   background-color: $black;
   color: $white;
+  // overflow-x: hidden;
   @include mobile {
     padding: 92px 0;
   }
@@ -20,6 +21,9 @@
   }
   & main {
     margin-bottom: 89px;
+    @include laptop {
+      margin-bottom: 50px;
+    }
 
     & .slider {
       height: 378px;
@@ -27,6 +31,10 @@
         position: relative;
         width: 1180px;
         margin: 0 auto;
+        @include laptop {
+          width: 100%;
+          padding: 0 20px 70px;
+        }
       }
 
       &_buttons {
@@ -38,6 +46,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include laptop {
+          bottom: 0;
+          top: initial;
+          width: 10%;
+        }
+        @include tablet {
+          width: 30%;
+        }
         & > button {
           padding: 15px 19px;
           &:last-child {

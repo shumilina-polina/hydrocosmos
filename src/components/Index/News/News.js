@@ -62,11 +62,18 @@ const News = ({ data }) => {
               }}
               speed={1000}
               loop={data?.length > 6}
-              slidesPerView={3}
               className={cn(s.slider, "news-slider")}
               spaceBetween={19}
               keyboard={{
                 enabled: true,
+              }}
+              breakpoints={{
+                1110: {
+                  slidesPerView: 3,
+                },
+                730: {
+                  slidesPerView: 2,
+                },
               }}
             >
               {data ? (

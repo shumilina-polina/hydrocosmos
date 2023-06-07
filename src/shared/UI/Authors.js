@@ -3,6 +3,24 @@ import Link from "next/link";
 import styled from "styled-components";
 import { routes } from "../constants/routes";
 
+const Authors = ({ data }) => (
+  <>
+    {data?.map((author, i, arr) => (
+      <Link
+        as={`/${routes.authors}/${author.attributes.slug}`}
+        href={`/${routes.authors}/[id]`}
+      >
+        <Author key={author.id}>
+          {author.attributes.name}
+          {i < arr.length - 1 ? ", " : ""}
+        </Author>
+      </Link>
+    ))}
+  </>
+);
+
+export default Authors;
+
 const Author = styled.span`
   ${fonts.inter4};
   font-size: 14px;
@@ -17,21 +35,3 @@ const Author = styled.span`
     line-height: 22px;
   }
 `;
-
-const Authors = ({ data }) => (
-  <>
-    {data?.map((author, i, arr) => (
-      <Author key={author.id}>
-        <Link
-          as={`/${routes.authors}/${author.attributes.slug}`}
-          href={`/${routes.authors}/[id]`}
-        >
-          {author.attributes.name}
-          {i < arr.length - 1 ? ", " : ""}
-        </Link>
-      </Author>
-    ))}
-  </>
-);
-
-export default Authors;

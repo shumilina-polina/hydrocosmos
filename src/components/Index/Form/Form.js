@@ -50,6 +50,19 @@ const Form = () => {
                 id="post-input"
               />
             </FormControl>
+            <FormControl>
+              <InputLabel htmlFor="email-input">Email</InputLabel>
+              <Input
+                inputProps={{
+                  maxLength: 60,
+                  name: "email",
+                  required: true,
+                  type: "email",
+                  pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$",
+                }}
+                id="email-input"
+              />
+            </FormControl>
             <FormControl className={"input-phone"}>
               <InputLabel htmlFor="phone-input">
                 {t("home.form.phone")}
