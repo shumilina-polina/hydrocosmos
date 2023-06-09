@@ -5,4 +5,5 @@ export const routes = {
   privacy: "privacy",
   authors: "authors",
   articles: "articles",
+  manifest: "manifest",
 };

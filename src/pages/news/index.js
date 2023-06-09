@@ -2,7 +2,7 @@ import { NewCart } from "@/components/NewCart";
 import { GET_NEWS } from "@/services/gqlService";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
-import s from "@/styles/pages/news.module.scss";
+import s from "@/styles/pages/new/news.module.scss";
 import { useQuery } from "@apollo/client";
 import { Skeleton } from "@mui/material";
 import cn from "classnames";

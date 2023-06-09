@@ -28,14 +28,6 @@
           line-height: 50px;
         }
       }
-      & span {
-        font-size: 18px;
-        line-height: 22px;
-        display: block;
-        &::first-letter {
-          text-transform: uppercase;
-        }
-      }
     }
     & > main {
       margin-bottom: 40px;

@@ -21,6 +21,9 @@
   }
   & main {
     margin-bottom: 89px;
+    & div {
+      color: $white;
+    }
     @include laptop {
       margin-bottom: 50px;
     }

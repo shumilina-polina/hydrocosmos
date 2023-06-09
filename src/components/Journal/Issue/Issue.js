@@ -2,11 +2,10 @@ import s from "./issue.module.scss";
 import { useTranslation } from "react-i18next";
 import SvgSelector from "@/shared/UI/SvgSelector";
 import CopyToClipboard from "react-copy-to-clipboard";
-import moment from "moment";
-import "moment/locale/ru";
 import { apiUrl } from "@/shared/constants/config";
 import cn from "classnames";
 import { Skeleton } from "@mui/material";
+import Date from "@/shared/UI/Date";
 
 const Issue = ({ data }) => {
   const { t } = useTranslation();
@@ -37,22 +36,15 @@ const Issue = ({ data }) => {
               />
             )}
           </h1>
-          <span>
-            {data ? (
-              <>
-                {moment(data.date)
-                  .locale("ru")
-                  // .locale("en")
-                  .format("MMMM YYYY")}
-              </>
-            ) : (
-              <Skeleton
-                className={cn(s.skeleton, s.skeleton_date)}
-                sx={{ bgcolor: "grey.200" }}
-                animation="wave"
-              />
-            )}
-          </span>
+          {data ? (
+            <Date format={"MMMM YYYY"}>{data.date}</Date>
+          ) : (
+            <Skeleton
+              className={cn(s.skeleton, s.skeleton_date)}
+              sx={{ bgcolor: "grey.200" }}
+              animation="wave"
+            />
+          )}
         </header>
         <main>
           {data ? (

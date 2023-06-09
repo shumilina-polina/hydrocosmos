@@ -11,8 +11,7 @@ import cn from "classnames";
 import Link from "next/link";
 import { routes } from "@/shared/constants/routes";
 import { apiUrl } from "@/shared/constants/config";
-import "moment/locale/ru";
-import moment from "moment/moment";
+import Date from "@/shared/UI/Date";
 
 const Journal = ({ data }) => {
   const { t } = useTranslation();
@@ -47,12 +46,7 @@ const Journal = ({ data }) => {
                     href={`/${routes.journal}/[id]`}
                   >
                     <Wrapper>
-                      <span data-aos="fade-left" data-aos-delay={`${100 * i}`}>
-                        {moment(item.attributes?.date)
-                          .locale("ru")
-                          // .locale("en")
-                          .format("MMMM YYYY")}
-                      </span>
+                      <Date format={"MMMM YYYY"}>{item.attributes?.date}</Date>
                       <img
                         src={apiUrl + item.attributes.photo.data.attributes.url}
                         alt={"Journal"}

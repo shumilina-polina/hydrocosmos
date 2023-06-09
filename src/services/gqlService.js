@@ -33,7 +33,7 @@ export const GET_MAIN_PAGE = gql`
           title
           date
           slug
-          photos(pagination: { limit: 1 }) {
+          photo {
             data {
               attributes {
                 url
@@ -268,10 +268,49 @@ export const GET_NEWS = gql`
           title
           date
           slug
-          photos(pagination: { limit: 1 }) {
+          photo {
             data {
               attributes {
                 url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_ONE_NEW = gql`
+  query ($slug: String) {
+    news(locale: "ru", filters: { slug: { eq: $slug } }) {
+      data {
+        id
+        attributes {
+          title
+          date
+          slug
+          description
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          authors_title
+          authors {
+            data {
+              id
+              attributes {
+                name
+                slug
+                photo {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
               }
             }
           }

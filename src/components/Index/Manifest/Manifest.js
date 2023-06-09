@@ -2,6 +2,8 @@ import s from "./manifest.module.scss";
 import { useTranslation } from "react-i18next";
 import Wrapper from "@/shared/UI/Wrapper";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { routes } from "@/shared/constants/routes";
+import Link from "next/link";
 
 const Manifest = () => {
   const { t } = useTranslation();
@@ -19,8 +21,9 @@ const Manifest = () => {
         </main>
         <footer data-aos="fade-zoom-in" data-aos-duration={1000}>
           <ReactMarkdown>{t("home.manifest.footer.text")}</ReactMarkdown>
-          <br />
-          <button>{t("home.manifest.footer.button")}</button>
+          <Link href={"/" + routes.manifest}>
+            <button>{t("home.manifest.footer.button")}</button>
+          </Link>
         </footer>
       </Wrapper>
     </section>

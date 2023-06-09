@@ -54,6 +54,15 @@
               }
             }
           }
+          & > div > div {
+            display: block;
+            padding-left: 44px;
+            @include inter7;
+            font-size: 32px;
+            line-height: 39px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+          }
         }
         &:nth-child(2n) {
           & > a {
@@ -70,14 +79,6 @@
           }
         }
 
-        & span {
-          display: block;
-          padding-left: 44px;
-          font-size: 32px;
-          line-height: 39px;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-        }
         & img {
           transition: opacity 0.5s, transform 0.5s;
           position: absolute;
