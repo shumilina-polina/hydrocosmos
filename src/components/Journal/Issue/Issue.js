@@ -6,6 +6,7 @@ import { apiUrl } from "@/shared/constants/config";
 import cn from "classnames";
 import { Skeleton } from "@mui/material";
 import Date from "@/shared/UI/Date";
+import { CopyButton } from "@/shared/UI/CopyButton";
 
 const Issue = ({ data }) => {
   const { t } = useTranslation();
@@ -99,11 +100,6 @@ export default Issue;
 const ContentRow = ({ data, children }) => (
   <li>
     {children}
-    <span>{data}</span>
-    <CopyToClipboard text={data}>
-      <button>
-        <SvgSelector svg={"copy"} />
-      </button>
-    </CopyToClipboard>
+    <CopyButton>{data}</CopyButton>
   </li>
 );

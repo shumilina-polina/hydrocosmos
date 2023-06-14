@@ -41,7 +41,7 @@ const ImageWrapper = styled.div`
   }
   &:hover {
     &:after {
-      background-color: rgba($color: $black, $alpha: 0.17);
+      background-color: rgba($color: #000000, $alpha: 0.17);
       backdrop-filter: blur(6px);
     }
     & ${Button} {

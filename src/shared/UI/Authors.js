@@ -9,13 +9,15 @@ const Authors = ({ data }) => (
       <Link
         as={`/${routes.authors}/${author.attributes.slug}`}
         href={`/${routes.authors}/[id]`}
+        key={author.id}
       >
-        <Author key={author.id}>
+        <Author>
           {author.attributes.name}
           {i < arr.length - 1 ? ", " : ""}
         </Author>
       </Link>
     ))}
+    .
   </>
 );
 

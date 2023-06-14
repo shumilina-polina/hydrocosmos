@@ -18,17 +18,12 @@ export const ReportCart = ({ cart }) => {
         </div>
         <Label>
           <Box>
-            <span>
-              {cart.journal.data && (
-                <Link
-                  as={`/${routes.journal}/${cart.journal.data.attributes.slug}`}
-                  href={`/${routes.journal}/[id]`}
-                >
-                  {t("home.reports.figcaption")} №
-                  {cart.journal.data.attributes.number}
-                </Link>
-              )}
-            </span>
+            {cart.journal.data && (
+              <span>
+                {t("home.reports.figcaption")} №
+                {cart.journal.data.attributes.number}
+              </span>
+            )}
             |<span>{t("home.reports.type")}</span>
           </Box>
           <Title>{cart.title}</Title>

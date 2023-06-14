@@ -320,6 +320,97 @@ export const GET_ONE_NEW = gql`
   }
 `;
 
+export const GET_ONE_ARTICLE = gql`
+  query ($slug: String) {
+    articles(locale: "ru", filters: { slug: { eq: $slug } }) {
+      data {
+        id
+        attributes {
+          rubric
+          title
+          index_DOI
+          quotation_link
+          pdf_ru_page
+          pdf_en_page
+          annotation
+          keywords
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          journal {
+            data {
+              attributes {
+                number
+                slug
+                pdf_ru {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                pdf_en {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+          authors {
+            data {
+              id
+              attributes {
+                name
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_ARTICLES_BY_RUBRIC = gql`
+  query ($rubric: String, $noSlug: String) {
+    articles(
+      locale: "ru"
+      filters: { rubric: { eq: $rubric }, not: { slug: { eq: $noSlug } } }
+    ) {
+      data {
+        id
+        attributes {
+          rubric
+          title
+          slug
+          journal {
+            data {
+              attributes {
+                number
+                slug
+              }
+            }
+          }
+          authors {
+            data {
+              id
+              attributes {
+                name
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 export const GET_REPORTS = gql`
   query ($limit: Int, $start: Int) {
     reports(

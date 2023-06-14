@@ -24,7 +24,7 @@ const Articles = ({ data }) => {
           <div className={s.content}>
             {data ? (
               <>
-                {data[0].attributes.photo.data && (
+                {data[0].attributes.photo && (
                   <article data-aos="zoom-in">
                     <img
                       src={

@@ -1,4 +1,4 @@
-import { breakpoints, colors, fonts } from "@/styles/variables/variables";
+import { colors, fonts } from "@/styles/variables/variables";
 import styled from "styled-components";
 import "moment/locale/ru";
 import moment from "moment/moment";

@@ -8,7 +8,7 @@ import { apiUrl } from "@/shared/constants/config";
 import { routes } from "@/shared/constants/routes";
 import s from "@/styles/pages/new/new.module.scss";
 import { useQuery } from "@apollo/client";
-import cn from "classnames";
+import { Skeleton } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -42,14 +42,22 @@ export default function New() {
           <Error />
         ) : (
           <>
-            {data?.news.data[0].attributes.photo.data && (
-              <img
-                className={s.main_img}
-                src={
-                  apiUrl +
-                  data.news.data[0].attributes.photo.data.attributes.url
-                }
-                alt="New"
+            {data ? (
+              data.news.data[0].attributes.photo.data && (
+                <img
+                  className={s.main_img}
+                  src={
+                    apiUrl +
+                    data.news.data[0].attributes.photo.data.attributes.url
+                  }
+                  alt="New"
+                />
+              )
+            ) : (
+              <Skeleton
+                animation="wave"
+                className={s.skeleton_image}
+                sx={{ bgcolor: "grey.200" }}
               />
             )}
             <Wrapper>
@@ -64,24 +72,54 @@ export default function New() {
                   )}
                 </BreadCrumbs>
                 <Title>
-                  <ReactMarkdown>
-                    {data?.news.data[0].attributes.title}
-                  </ReactMarkdown>
+                  {data ? (
+                    <ReactMarkdown>
+                      {data.news.data[0].attributes.title}
+                    </ReactMarkdown>
+                  ) : (
+                    <Skeleton
+                      animation="wave"
+                      className={s.skeleton}
+                      sx={{ bgcolor: "grey.200" }}
+                    />
+                  )}
                 </Title>
-                <Date format={"DD MMMM YYYY"}>
-                  {data?.news.data[0].attributes.date}
-                </Date>
+                {data ? (
+                  <Date format={"DD MMMM YYYY"}>
+                    {data.news.data[0].attributes.date}
+                  </Date>
+                ) : (
+                  <Skeleton
+                    animation="wave"
+                    height={"1em"}
+                    width={"20%"}
+                    sx={{ bgcolor: "grey.200" }}
+                  />
+                )}
               </header>
               <main>
                 <div>
-                  <ReactMarkdown>
-                    {data?.news.data[0].attributes.description}
-                  </ReactMarkdown>
+                  {data ? (
+                    <ReactMarkdown>
+                      {data.news.data[0].attributes.description}
+                    </ReactMarkdown>
+                  ) : (
+                    <Skeleton
+                      animation="wave"
+                      height={"20vh"}
+                      width={"65%"}
+                      sx={{ bgcolor: "grey.200" }}
+                    />
+                  )}
                 </div>
-                <Members
-                  data={data?.news.data[0].attributes.authors.data}
-                  title={data?.news.data[0].attributes.authors_title}
-                />
+
+                {data &&
+                  data.news.data[0].attributes.authors.data.length > 0 && (
+                    <Members
+                      data={data.news.data[0].attributes.authors.data}
+                      title={data.news.data[0].attributes.authors_title}
+                    />
+                  )}
               </main>
             </Wrapper>
           </>
@@ -96,7 +134,7 @@ const Members = ({ data, title }) => {
     <article className={s.members}>
       <Title>{title}</Title>
       <ul>
-        {data?.map((member) => (
+        {data.map((member) => (
           <Link
             key={member.id}
             as={`/${routes.authors}/${member.attributes.slug}`}

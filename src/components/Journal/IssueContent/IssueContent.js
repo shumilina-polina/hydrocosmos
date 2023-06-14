@@ -2,12 +2,10 @@ import { ReportsBox } from "@/components/Index/Reports/ReportsBox";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import {
-  breakpoints,
-  colors,
-  fonts,
   mixins,
 } from "@/styles/variables/variables";
 import { IssueCart } from "./IssueCart";
+import { Theme } from "@/shared/UI/Theme";
 
 const IssueContent = ({ data }) => {
   const { t } = useTranslation();
@@ -55,19 +53,6 @@ const ArticlesByRubric = ({ data, journal }) => {
   );
 };
 
-const Theme = styled.h3`
-  ${fonts.inter7}
-  color: ${colors.cyanArticle};
-  margin-bottom: 32px;
-  font-size: 32px;
-  line-height: 39px;
-  text-transform: uppercase;
-  @media ${breakpoints.laptop} {
-    font-size: 28px;
-    line-height: 30px;
-    margin-bottom: 20px;
-  }
-`;
 const Section = styled.section`
   & > header {
     display: flex;

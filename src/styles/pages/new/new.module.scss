@@ -164,3 +164,14 @@
     }
   }
 }
+
+.skeleton {
+  border-radius: 15px;
+  margin: 0 auto;
+  height: 300px;
+  width: 100%;
+  &_image {
+    border-radius: 0px;
+    height: 723px;
+  }
+}
