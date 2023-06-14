@@ -35,7 +35,7 @@ export default function Journal() {
               {data && (
                 <span>
                   {t("journal.release")} №
-                  {data.journals.data[0].attributes.number}
+                  {data.journals.data[0]?.attributes.number}
                 </span>
               )}
             </BreadCrumbs>
@@ -45,7 +45,7 @@ export default function Journal() {
           ) : (
             <>
               <main>
-                <Issue data={data?.journals.data[0].attributes} />
+                <Issue data={data?.journals.data[0]?.attributes} />
                 <section className={s.about}>
                   <header>
                     <h2>{t("journal.item.about")}</h2>
@@ -54,7 +54,7 @@ export default function Journal() {
                   {data ? (
                     <main>
                       <ReactMarkdown>
-                        {data.journals.data[0].attributes.about}
+                        {data.journals.data[0]?.attributes.about}
                       </ReactMarkdown>
                     </main>
                   ) : (
@@ -68,7 +68,7 @@ export default function Journal() {
               </main>
               <footer>
                 {data && (
-                  <IssueContent data={data.journals.data[0].attributes} />
+                  <IssueContent data={data.journals.data[0]?.attributes} />
                 )}
               </footer>
             </>

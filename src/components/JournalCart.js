@@ -91,7 +91,7 @@ export const JournalCart = ({ cart }) => {
       href={`/${routes.journal}/[id]`}
     >
       <ImageWrapper>
-        <img src={apiUrl + cart.photo.data.attributes.url} alt="Journal" />
+        <img src={apiUrl + cart.photo.data?.attributes.url} alt="Journal" />
         <Button>
           {t("journal.button")} <span>-&gt;</span>
         </Button>

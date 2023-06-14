@@ -1,0 +1,82 @@
+@import "@/styles/styles.scss";
+.wr {
+  padding: 84px 0 250px;
+  & header {
+    margin-bottom: 84px;
+  }
+  & main {
+    margin-bottom: 72px;
+    position: relative;
+  }
+  & footer {
+    & > a {
+      display: block;
+      width: fit-content;
+      &:first-child {
+        margin-bottom: 24px;
+        @include laptop {
+          margin-bottom: 15px;
+        }
+        & button {
+          @include dark-button;
+          border: 3px solid $cyan;
+          color: $white;
+          background-color: $cyan;
+          &:hover {
+            border-color: $black;
+            background-color: $black;
+          }
+        }
+      }
+      &:nth-child(2) {
+        & button {
+          @include light-button;
+          &:hover {
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  & > div {
+    display: flex;
+    color: $cyan-article;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    & a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  & h2 > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+  }
+}
+
+.skeleton {
+  border-radius: 15px;
+  width: 100%;
+  height: 386px;
+}

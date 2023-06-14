@@ -20,8 +20,8 @@ export default function Home() {
       ) : (
         <>
           <Main
-            data={data?.slider.data.attributes.slider.data}
-            journal={data?.journals.data[0].attributes}
+            data={data?.slider.data?.attributes.slider.data}
+            journal={data?.journals.data[0]?.attributes}
           />
           <Journal data={data?.journals.data} />
           <News data={data?.news.data} />
@@ -29,7 +29,7 @@ export default function Home() {
           <Articles data={data?.articles.data} />
           <Manifest />
           <Reports data={data?.reports.data} />
-          <Pairs data={data?.pair.data.attributes.logos.data} />
+          <Pairs data={data?.pair.data?.attributes.logos.data} />
         </>
       )}
       <Form />

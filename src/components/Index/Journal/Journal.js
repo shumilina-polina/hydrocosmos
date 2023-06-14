@@ -48,7 +48,9 @@ const Journal = ({ data }) => {
                     <Wrapper>
                       <Date format={"MMMM YYYY"}>{item.attributes?.date}</Date>
                       <img
-                        src={apiUrl + item.attributes.photo.data.attributes.url}
+                        src={
+                          apiUrl + item.attributes.photo.data?.attributes.url
+                        }
                         alt={"Journal"}
                       />
                     </Wrapper>

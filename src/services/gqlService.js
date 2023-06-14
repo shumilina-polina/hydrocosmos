@@ -411,6 +411,7 @@ export const GET_ARTICLES_BY_RUBRIC = gql`
     }
   }
 `;
+
 export const GET_REPORTS = gql`
   query ($limit: Int, $start: Int) {
     reports(
@@ -439,6 +440,50 @@ export const GET_REPORTS = gql`
             data {
               attributes {
                 number
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ONE_REPORT = gql`
+  query ($slug: String) {
+    reports(locale: "ru", filters: { slug: { eq: $slug } }) {
+      data {
+        id
+        attributes {
+          title
+          photos {
+            data {
+              id
+              attributes {
+                url
+                caption
+              }
+            }
+          }
+          journal {
+            data {
+              attributes {
+                number
+                slug
+                pdf_ru {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                pdf_en {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
               }
             }
           }

@@ -5,9 +5,36 @@
     margin: 0;
     padding: 0;
     max-width: 80vw;
+    & > button {
+      align-self: flex-end;
+      transition: opacity .3s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 
   & .MuiModal-backdrop {
     backdrop-filter: blur(11px);
+  }
+}
+
+.report-modal {
+  background-color: rgba($color: $gray, $alpha: 0.6);
+  transition: background-color 0.3s;
+  & .modal_box {
+    width: 1050px;
+    & .report-slider {
+      margin: 0 auto 46px !important;
+      width: 85%;
+      height: 501px;
+      cursor: auto;
+      & .swiper-slide {
+        padding-bottom: 32px;
+      }
+    }
+    & .report-slider_mini {
+      overflow: hidden !important;
+    }
   }
 }

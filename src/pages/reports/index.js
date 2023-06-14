@@ -3,7 +3,7 @@ import { GET_REPORTS } from "@/services/gqlService";
 import Error from "@/shared/UI/Error";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
-import s from "@/styles/pages/reports.module.scss";
+import s from "@/styles/pages/report/reports.module.scss";
 import { useQuery } from "@apollo/client";
 import { Skeleton } from "@mui/material";
 import Head from "next/head";
@@ -22,7 +22,7 @@ export default function ReportsPage() {
       start: start,
     },
     onCompleted: (data) => {
-      setReports([...reports, ...data.reports.data]);
+      setReports([...reports, ...data?.reports.data]);
       total = data.reports.meta.pagination.total;
     },
   });

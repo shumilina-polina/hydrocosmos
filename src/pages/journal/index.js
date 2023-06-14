@@ -32,7 +32,7 @@ export default function Journals() {
               {data ? (
                 Array.from(
                   new Set(
-                    data.journals.data.map((elem) =>
+                    data.journals.data?.map((elem) =>
                       moment(elem.attributes.date).format("YYYY")
                     )
                   )
@@ -43,7 +43,7 @@ export default function Journals() {
                       <hr />
                     </div>
                     <ul>
-                      {data.journals.data.map(
+                      {data.journals.data?.map(
                         (cart, i) =>
                           moment(cart.attributes.date).format("YYYY") ===
                             year && (

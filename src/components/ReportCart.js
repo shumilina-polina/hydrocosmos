@@ -14,14 +14,14 @@ export const ReportCart = ({ cart }) => {
     >
       <Wrapper data-aos="flip-up">
         <div>
-          <Image src={apiUrl + cart.photos.data[0].attributes.url} />
+          <Image src={apiUrl + cart.photos.data[0]?.attributes.url} />
         </div>
         <Label>
           <Box>
             {cart.journal.data && (
               <span>
                 {t("home.reports.figcaption")} №
-                {cart.journal.data.attributes.number}
+                {cart.journal.data?.attributes.number}
               </span>
             )}
             |<span>{t("home.reports.type")}</span>

@@ -24,11 +24,11 @@ const Articles = ({ data }) => {
           <div className={s.content}>
             {data ? (
               <>
-                {data[0].attributes.photo && (
+                {data[0]?.attributes.photo && (
                   <article data-aos="zoom-in">
                     <img
                       src={
-                        apiUrl + data[0].attributes.photo.data.attributes.url
+                        apiUrl + data[0]?.attributes.photo.data?.attributes.url
                       }
                     />
                     <hr />
@@ -74,10 +74,10 @@ const Article = ({ data, index, t }) => {
     >
       <header>
         <span>
-          {data.journal && (
+          {data.journal.data && (
             <>
               {t("home.articles.release")} №
-              {data.journal.data.attributes.number}
+              {data.journal.data?.attributes.number}
             </>
           )}
         </span>

@@ -1,0 +1,23 @@
+@import "@/styles/styles.scss";
+
+.slider {
+  cursor: pointer;
+  width: 56%;
+  margin: 0 0 44px !important;
+  height: 344px;
+}
+
+.slider_mini {
+  height: 104px;
+  overflow: visible !important;
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  color: rgba($color: $white, $alpha: 0.7);
+}

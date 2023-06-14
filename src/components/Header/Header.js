@@ -11,7 +11,7 @@ import { links } from "@/shared/constants/links";
 import { useScrollTrigger } from "@mui/material";
 import React, { useState } from "react";
 import cn from "classnames";
-import Modal from "@/shared/UI/Modal/Modal";
+import Modal from "@/shared/UI/Modal";
 import Search from "../Search/Search";
 
 const Header = () => {

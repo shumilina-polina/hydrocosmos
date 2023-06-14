@@ -1,9 +1,7 @@
 import { ReportsBox } from "@/components/Index/Reports/ReportsBox";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import {
-  mixins,
-} from "@/styles/variables/variables";
+import { mixins } from "@/styles/variables/variables";
 import { IssueCart } from "./IssueCart";
 import { Theme } from "@/shared/UI/Theme";
 
@@ -16,13 +14,15 @@ const IssueContent = ({ data }) => {
         <h2>{t("journal.item.content")}</h2>
         <hr />
       </header>
-      <main>
-        <ArticlesByRubric data={data.articles.data} journal={data.pdf_ru} />
-        <article>
-          <Theme>репортажи:</Theme>
-          <ReportsBox data={data.reports.data} />
-        </article>
-      </main>
+      {data && (
+        <main>
+          <ArticlesByRubric data={data.articles.data} journal={data.pdf_ru} />
+          <article>
+            <Theme>репортажи:</Theme>
+            <ReportsBox data={data.reports.data} />
+          </article>
+        </main>
+      )}
     </Section>
   );
 };
@@ -43,7 +43,7 @@ const ArticlesByRubric = ({ data, journal }) => {
                 <IssueCart
                   key={article.id}
                   data={article.attributes}
-                  journal={journal.data.attributes.url}
+                  journal={journal.data?.attributes.url}
                 />
               )
           )}

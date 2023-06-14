@@ -30,7 +30,7 @@ export default function ArticlePage() {
   const { data: dataByRubric } = useQuery(GET_ARTICLES_BY_RUBRIC, {
     skip: data ? false : true,
     variables: {
-      rubric: data?.articles.data[0].attributes.rubric,
+      rubric: data?.articles.data[0]?.attributes.rubric,
       noSlug: router.query.id,
     },
   });
@@ -53,18 +53,18 @@ export default function ArticlePage() {
                 <header>
                   <BreadCrumbs>
                     <Link
-                      as={`/${routes.journal}/${data?.articles.data[0].attributes.journal.data.attributes.slug}`}
+                      as={`/${routes.journal}/${data?.articles.data[0]?.attributes.journal.data?.attributes.slug}`}
                       href={`/${routes.journal}/[id]`}
                     >
                       {t("home.articles.release")} №
                       {
-                        data?.articles.data[0].attributes.journal.data
+                        data?.articles.data[0]?.attributes.journal.data
                           .attributes.number
                       }
                     </Link>
                     {data && (
                       <ReactMarkdown className={s.bc_title}>
-                        {data.articles.data[0].attributes.title}
+                        {data.articles.data[0]?.attributes.title}
                       </ReactMarkdown>
                     )}
                   </BreadCrumbs>
@@ -76,15 +76,15 @@ export default function ArticlePage() {
                         <Theme>
                           {t("home.articles.release")} №
                           {
-                            data.articles.data[0].attributes.journal.data
+                            data.articles.data[0]?.attributes.journal.data
                               .attributes.number
                           }
                           <span>|</span>
-                          {data.articles.data[0].attributes.rubric}
+                          {data.articles.data[0]?.attributes.rubric}
                         </Theme>
                         <Title>
                           <ReactMarkdown>
-                            {data?.articles.data[0].attributes.title}
+                            {data?.articles.data[0]?.attributes.title}
                           </ReactMarkdown>
                         </Title>
                       </div>
@@ -92,7 +92,7 @@ export default function ArticlePage() {
                         <img
                           src={
                             apiUrl +
-                            data?.articles.data[0].attributes.photo.data
+                            data?.articles.data[0]?.attributes.photo.data
                               .attributes.url
                           }
                           alt="Article"
@@ -119,13 +119,13 @@ export default function ArticlePage() {
                     <li>
                       <span>{t("articles.index")}: </span>
                       <CopyButton>
-                        {data?.articles.data[0].attributes.index_DOI}
+                        {data?.articles.data[0]?.attributes.index_DOI}
                       </CopyButton>
                     </li>
                     <li>
                       <span>{t("articles.link")}: </span>
                       <CopyButton>
-                        {data?.articles.data[0].attributes.quotation_link}
+                        {data?.articles.data[0]?.attributes.quotation_link}
                       </CopyButton>
                     </li>
                   </ul>
@@ -133,10 +133,10 @@ export default function ArticlePage() {
                     <a
                       href={
                         apiUrl +
-                        data?.articles.data[0].attributes.journal.data
-                          .attributes.pdf_ru.data.attributes.url +
+                        data?.articles.data[0]?.attributes.journal.data
+                          .attributes.pdf_ru.data?.attributes.url +
                         "#page=" +
-                        data?.articles.data[0].attributes.pdf_ru_page
+                        data?.articles.data[0]?.attributes.pdf_ru_page
                       }
                       target="_blank"
                       rel="noopener noreferrer"
@@ -149,10 +149,10 @@ export default function ArticlePage() {
                     <a
                       href={
                         apiUrl +
-                        data?.articles.data[0].attributes.journal.data
-                          .attributes.pdf_en.data.attributes.url +
+                        data?.articles.data[0]?.attributes.journal.data
+                          .attributes.pdf_en.data?.attributes.url +
                         "#page=" +
-                        data?.articles.data[0].attributes.pdf_en_page
+                        data?.articles.data[0]?.attributes.pdf_en_page
                       }
                       target="_blank"
                       rel="noopener noreferrer"
@@ -173,7 +173,7 @@ export default function ArticlePage() {
                 <main>
                   {data ? (
                     <ReactMarkdown>
-                      {data.articles.data[0].attributes.annotation}
+                      {data.articles.data[0]?.attributes.annotation}
                     </ReactMarkdown>
                   ) : (
                     <Skeleton
@@ -192,7 +192,7 @@ export default function ArticlePage() {
                 <main>
                   <ul>
                     {data
-                      ? data.articles.data[0].attributes.keywords
+                      ? data.articles.data[0]?.attributes.keywords
                           .split(", ")
                           .map((word, i) => (
                             <li key={i} className={s.word}>
@@ -219,7 +219,7 @@ export default function ArticlePage() {
                 <main>
                   {data ? (
                     <Authors
-                      data={data.articles.data[0].attributes.authors.data}
+                      data={data.articles.data[0]?.attributes.authors.data}
                     />
                   ) : (
                     <Skeleton

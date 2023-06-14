@@ -40,7 +40,7 @@ export const IssueCart = ({ data, journal }) => {
           </a>
         </Footer>
       </Wrapper>
-      <img src={apiUrl + data?.photo.data.attributes.url} alt="Article" />
+      <img src={apiUrl + data?.photo.data?.attributes.url} alt="Article" />
     </Box>
   );
 };

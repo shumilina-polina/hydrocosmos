@@ -26,7 +26,6 @@ export default function New() {
 
   useEffect(() => {
     window.document.querySelectorAll("main > div img").forEach((elem) => {
-      console.log(elem);
       elem.setAttribute("src", apiUrl + elem?.attributes[0].nodeValue);
     });
   }, [data]);
@@ -43,12 +42,12 @@ export default function New() {
         ) : (
           <>
             {data ? (
-              data.news.data[0].attributes.photo.data && (
+              data.news.data[0]?.attributes.photo.data && (
                 <img
                   className={s.main_img}
                   src={
                     apiUrl +
-                    data.news.data[0].attributes.photo.data.attributes.url
+                    data.news.data[0]?.attributes.photo.data?.attributes.url
                   }
                   alt="New"
                 />
@@ -67,14 +66,14 @@ export default function New() {
                   <Link href={"/" + routes.news}>{t("pages.news")}</Link>
                   {data && (
                     <ReactMarkdown className={s.bc_title}>
-                      {data.news.data[0].attributes.title}
+                      {data.news.data[0]?.attributes.title}
                     </ReactMarkdown>
                   )}
                 </BreadCrumbs>
                 <Title>
                   {data ? (
                     <ReactMarkdown>
-                      {data.news.data[0].attributes.title}
+                      {data.news.data[0]?.attributes.title}
                     </ReactMarkdown>
                   ) : (
                     <Skeleton
@@ -86,7 +85,7 @@ export default function New() {
                 </Title>
                 {data ? (
                   <Date format={"DD MMMM YYYY"}>
-                    {data.news.data[0].attributes.date}
+                    {data.news.data[0]?.attributes.date}
                   </Date>
                 ) : (
                   <Skeleton
@@ -101,7 +100,7 @@ export default function New() {
                 <div>
                   {data ? (
                     <ReactMarkdown>
-                      {data.news.data[0].attributes.description}
+                      {data.news.data[0]?.attributes.description}
                     </ReactMarkdown>
                   ) : (
                     <Skeleton
@@ -114,10 +113,10 @@ export default function New() {
                 </div>
 
                 {data &&
-                  data.news.data[0].attributes.authors.data.length > 0 && (
+                  data.news.data[0]?.attributes.authors.data?.length > 0 && (
                     <Members
-                      data={data.news.data[0].attributes.authors.data}
-                      title={data.news.data[0].attributes.authors_title}
+                      data={data.news.data[0]?.attributes.authors.data}
+                      title={data.news.data[0]?.attributes.authors_title}
                     />
                   )}
               </main>
@@ -144,7 +143,7 @@ const Members = ({ data, title }) => {
               <h2>{member.attributes.name}</h2>
               <div>
                 <img
-                  src={apiUrl + member.attributes.photo.data.attributes.url}
+                  src={apiUrl + member.attributes.photo.data?.attributes.url}
                   alt={member.attributes.name}
                 />
               </div>

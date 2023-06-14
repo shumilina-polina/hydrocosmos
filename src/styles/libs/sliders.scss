@@ -162,6 +162,34 @@
   }
 }
 
+.report-slider {
+  &_mini {
+    & .swiper-slide {
+      position: relative;
+      &::after {
+        transition: opacity 0.3s;
+        position: absolute;
+        content: "";
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba($color: $black, $alpha: 0.4);
+      }
+      &:hover {
+        &::after {
+          opacity: 0;
+        }
+      }
+      &-thumb-active {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
 .journal-slider {
   & .swiper {
     &-slide {

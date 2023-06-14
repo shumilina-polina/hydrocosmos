@@ -72,6 +72,25 @@ const SvgSelector = ({ svg }) => {
           />
         </svg>
       );
+    case "close":
+      return (
+        <svg width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <line
+            x1="1.35355"
+            y1="0.880822"
+            x2="34.5876"
+            y2="34.1148"
+            stroke="#DEDEDE"
+          />
+          <line
+            x1="0.646447"
+            y1="33.8808"
+            x2="33.8805"
+            y2="0.646803"
+            stroke="#DEDEDE"
+          />
+        </svg>
+      );
 
     default:
       return <></>;

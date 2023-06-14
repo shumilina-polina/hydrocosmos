@@ -22,7 +22,7 @@ export default function NewsPage() {
       start: start,
     },
     onCompleted: (data) => {
-      setNews([...news, ...data.news.data]);
+      setNews([...news, ...data?.news.data]);
       total = data.news.meta.pagination.total;
     },
   });

@@ -12,7 +12,7 @@ export const NewCart = ({ cart }) => (
       <div>
         <ImageWrapper>
           {cart.photo.data && (
-            <img src={apiUrl + cart.photo.data.attributes.url} alt="New" />
+            <img src={apiUrl + cart.photo.data?.attributes.url} alt="New" />
           )}
         </ImageWrapper>
         <Text>

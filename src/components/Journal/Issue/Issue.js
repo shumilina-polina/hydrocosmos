@@ -14,7 +14,7 @@ const Issue = ({ data }) => {
   return (
     <div className={s.wr}>
       {data ? (
-        <img src={apiUrl + data.photo.data.attributes.url} alt="Issue" />
+        <img src={apiUrl + data.photo.data?.attributes.url} alt="Issue" />
       ) : (
         <Skeleton
           className={cn(s.skeleton, s.skeleton_image)}
@@ -70,7 +70,7 @@ const Issue = ({ data }) => {
         </main>
         <footer>
           <a
-            href={apiUrl + data?.pdf_ru.data.attributes.url}
+            href={apiUrl + data?.pdf_ru.data?.attributes.url}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -80,7 +80,7 @@ const Issue = ({ data }) => {
             </button>
           </a>
           <a
-            href={apiUrl + data?.pdf_en.data.attributes.url}
+            href={apiUrl + data?.pdf_en.data?.attributes.url}
             target="_blank"
             rel="noopener noreferrer"
           >
