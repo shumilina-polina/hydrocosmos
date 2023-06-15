@@ -11,7 +11,7 @@ export const pagesHeader = [
     id: 2,
     ru: "Редакционная политика",
     en: "editorial policy",
-    path: "editorial-policy",
+    path: routes.editorialPolicy,
   },
   {
     id: 3,

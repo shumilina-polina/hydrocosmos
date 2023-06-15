@@ -1,0 +1,54 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 110px 0 250px;
+  & > header {
+    margin-bottom: 90px;
+  }
+}
+
+.tab {
+  &_box {
+    gap: 80px;
+  }
+  &_tabs {
+    min-width: 40%;
+    & > div > span {
+      display: none;
+    }
+    & button {
+      max-width: 100%;
+      @include inter4;
+      font-size: 16px;
+      line-height: 19px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $gray;
+      align-items: flex-start;
+      &[aria-selected="true"] {
+        @include inter7;
+        color: $cyan-article;
+      }
+    }
+  }
+  &_panel {
+    font-size: 18px;
+    line-height: 29px;
+    letter-spacing: 0.03em;
+    color: $black;
+    & header {
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      & > h3 {
+        @include title;
+        padding-left: 0;
+        font-size: 32px;
+        line-height: 39px;
+      }
+    }
+    & p {
+      margin-bottom: 1em;
+    }
+  }
+}

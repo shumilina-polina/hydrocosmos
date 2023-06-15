@@ -6,4 +6,5 @@ export const routes = {
   authors: "authors",
   articles: "articles",
   manifest: "manifest",
+  editorialPolicy: "editorial-policy",
 };

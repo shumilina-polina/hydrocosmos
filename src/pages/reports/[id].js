@@ -51,7 +51,7 @@ export default function ReportPage() {
                 </BreadCrumbs>
               </header>
               <main>
-                {data && (
+                {data ? (
                   <>
                     <Content t={t} data={data.reports.data[0]?.attributes} />
                     <ReportSlider
@@ -71,6 +71,33 @@ export default function ReportPage() {
                       </div>
                     </Modal>
                   </>
+                ) : (
+                  <div className={s.skeleton_wrapper}>
+                    <div>
+                      <Skeleton
+                        className={s.skeleton}
+                        sx={{ bgcolor: "grey.200" }}
+                        animation="wave"
+                      />
+                      <div>
+                        <Skeleton
+                          variant="text"
+                          sx={{ bgcolor: "grey.200" }}
+                          animation="wave"
+                        />
+                        <Skeleton
+                          variant="text"
+                          sx={{ bgcolor: "grey.200" }}
+                          animation="wave"
+                        />
+                      </div>
+                    </div>
+                    <Skeleton
+                      className={s.skeleton}
+                      sx={{ bgcolor: "grey.200" }}
+                      animation="wave"
+                    />
+                  </div>
                 )}
               </main>
               <footer>
