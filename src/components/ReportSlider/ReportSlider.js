@@ -34,8 +34,22 @@ const ReportSlider = ({
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        spaceBetween={15}
-        slidesPerView={modal ? 5 : 6}
+        spaceBetween={5}
+        slidesPerView={2}
+        breakpoints={{
+          900: {
+            slidesPerView: modal ? 5 : 6,
+            spaceBetween: 15,
+          },
+          600: {
+            spaceBetween: 10,
+            slidesPerView: 4,
+          },
+          300: {
+            spaceBetween: 5,
+            slidesPerView: 3,
+          },
+        }}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Thumbs]}

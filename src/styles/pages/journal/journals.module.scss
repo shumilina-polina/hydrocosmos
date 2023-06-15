@@ -41,6 +41,14 @@
           &:nth-child(2n) {
             margin-top: 134px;
           }
+          & > a > div:first-child {
+            @include tablet {
+              height: 450px;
+            }
+          }
+          & img {
+            object-fit: contain;
+          }
         }
       }
     }

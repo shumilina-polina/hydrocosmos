@@ -101,6 +101,10 @@ const Title = styled.h3`
     font-size: 18px;
     line-height: 22px;
   }
+  @media ${breakpoints.tablet} {
+    font-size: 13px;
+    line-height: 15px;
+  }
 `;
 
 const Box = styled.div`
@@ -124,5 +128,10 @@ const Box = styled.div`
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 7px;
+  }
+  @media ${breakpoints.tablet} {
+    gap: 5px;
+    font-size: 10px;
+    line-height: 12px;
   }
 `;

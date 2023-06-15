@@ -5,11 +5,21 @@
   width: 56%;
   margin: 0 0 44px !important;
   height: 344px;
+  @include tablet {
+    margin-bottom: 20px !important;
+    height: 200px;
+  }
+  @include mobile {
+    height: 100px;
+  }
 }
 
 .slider_mini {
   height: 104px;
   overflow: visible !important;
+   @include mobile {
+    height: 70px;
+  }
 }
 
 .label {
@@ -20,4 +30,9 @@
   line-height: 24px;
   text-align: right;
   color: rgba($color: $white, $alpha: 0.7);
+  @include tablet{
+    font-size: 10px;
+    line-height: 17px;
+    
+  }
 }

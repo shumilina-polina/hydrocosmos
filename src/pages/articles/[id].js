@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CopyButton } from "@/shared/UI/CopyButton";
 import styled from "styled-components";
-import { mixins } from "@/styles/variables/variables";
+import { breakpoints, mixins } from "@/styles/variables/variables";
 import Authors from "@/shared/UI/Authors";
 import Articles from "@/components/Index/Articles/Articles";
 import { Skeleton } from "@mui/material";
@@ -231,10 +231,12 @@ export default function ArticlePage() {
                 </main>
               </section>
               <section className={s.rubric}>
-                <Header>
-                  <Title>{t("articles.read")}</Title>
-                  <hr />
-                </Header>
+                {dataByRubric?.articles.data.length > 0 && (
+                  <Header>
+                    <Title>{t("articles.read")}</Title>
+                    <hr />
+                  </Header>
+                )}
                 <main>{<Articles data={dataByRubric?.articles.data} />}</main>
               </section>
             </Wrapper>
@@ -249,6 +251,9 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+  @media ${breakpoints.tablet} {
+    margin-bottom: 20px;
+  }
   & h2 {
     ${mixins.title}
     font-size: 32px;

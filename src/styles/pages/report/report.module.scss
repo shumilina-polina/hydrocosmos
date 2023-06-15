@@ -1,12 +1,21 @@
 @import "@/styles/styles.scss";
 .wr {
   padding: 84px 0 250px;
+  @include laptop {
+    padding: 50px 0 100px;
+  }
   & header {
     margin-bottom: 84px;
+    @include mobile {
+      margin-bottom: 30px;
+    }
   }
   & main {
     margin-bottom: 72px;
     position: relative;
+    @include mobile {
+      margin-bottom: 30px;
+    }
   }
   & footer {
     & > a {
@@ -45,6 +54,7 @@
   top: 0;
   right: 0;
   width: 40%;
+
   & > div {
     display: flex;
     color: $cyan-article;
@@ -56,6 +66,12 @@
     line-height: 17px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    @include tablet {
+      gap: 3px;
+      font-size: 10px;
+      line-height: 12px;
+      margin-bottom: 6px;
+    }
     & a {
       &:hover {
         text-decoration: underline;
@@ -79,7 +95,7 @@
   border-radius: 15px;
   height: 344px;
   width: 100%;
-  &:last-child{
+  &:last-child {
     height: 104px;
   }
   &_wrapper {

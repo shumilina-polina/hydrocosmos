@@ -68,6 +68,15 @@ const Title = styled.h4`
     font-size: 20px;
     line-height: 24px;
   }
+  @media ${breakpoints.tablet} {
+    font-size: 15px;
+    line-height: 20px;
+    width: 35vw;
+  }
+  @media ${breakpoints.tablet} {
+    font-size: 15px;
+    line-height: 20px;
+    max-width: 100%;
   &:hover {
     color: ${colors.cyanArticle};
   }
@@ -79,12 +88,25 @@ const Box = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   column-gap: 51px;
+  @media ${breakpoints.laptop} {
+    column-gap: 20px;
+  }
+  @media ${breakpoints.tablet} {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media ${breakpoints.mobile} {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 
   & > img {
     object-fit: cover;
     height: 285px;
     @media ${breakpoints.laptop} {
       height: 200px;
+    }
+    @media ${breakpoints.mobile} {
+      margin-bottom: 20px;
     }
   }
 `;
@@ -103,12 +125,21 @@ const Footer = styled.footer`
   padding-right: 10%;
   font-size: 16px;
   line-height: 19px;
+  @media ${breakpoints.mobile} {
+    padding-right: 0;
+    font-size: 13px;
+    line-height: 14px;
+  }
   & button {
     color: #0538bb;
     font-size: 16px;
     line-height: 19px;
     position: relative;
     text-decoration: none;
+    @media ${breakpoints.mobile} {
+      font-size: 13px;
+      line-height: 14px;
+    }
     &:after {
       display: block;
       position: absolute;

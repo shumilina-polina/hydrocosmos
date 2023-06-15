@@ -2,11 +2,24 @@
 
 .wr {
   padding: 80px 0 113px;
+  @include mobile {
+    padding: 40px 0;
+  }
   & > header {
     margin-bottom: 40px;
   }
   & > main {
     margin-bottom: 49px;
+    @include tablet {
+      margin-bottom: 0;
+    }
+    & figure {
+      & > div {
+        @include laptop {
+          aspect-ratio: 16 / 9;
+        }
+      }
+    }
   }
   & > footer {
     text-align: center;
@@ -17,15 +30,27 @@
 }
 
 .skeleton {
-  &_wrapper{
+  &_wrapper {
     display: flex;
     justify-content: space-between;
+    @include mobile {
+      flex-direction: column;
+    }
   }
   border-radius: 15px;
   width: 50%;
   height: 386px;
-  &:last-child{
+  @include mobile {
+    width: 100%;
+    height: 200px;
+  }
+  &:last-child {
     height: 253px;
     width: 30%;
+    @include mobile {
+      width: 100%;
+      margin-top: 20px;
+      height: 200px;
+    }
   }
 }

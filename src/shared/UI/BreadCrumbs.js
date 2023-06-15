@@ -1,4 +1,4 @@
-import { colors, fonts } from "@/styles/variables/variables";
+import { breakpoints, colors, fonts } from "@/styles/variables/variables";
 import { Breadcrumbs } from "@mui/material";
 import styled from "styled-components";
 
@@ -30,6 +30,9 @@ const Nav = styled.div`
   }
   & .MuiBreadcrumbs-separator {
     margin: 0 30px;
+    @media ${breakpoints.mobile} {
+      margin: 0 10px;
+    }
   }
 `;
 

@@ -35,6 +35,9 @@
           font-size: 15px;
           line-height: 25px;
         }
+        @include mobile {
+          max-width: 100%;
+        }
         & > p {
           margin-bottom: 1em;
         }

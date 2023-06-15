@@ -13,4 +13,9 @@ export const Theme = styled.h3`
     line-height: 30px;
     margin-bottom: 20px;
   }
+  @media ${breakpoints.tablet} {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
 `;

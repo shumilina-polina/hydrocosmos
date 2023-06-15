@@ -1,7 +1,5 @@
 import s from "./issue.module.scss";
 import { useTranslation } from "react-i18next";
-import SvgSelector from "@/shared/UI/SvgSelector";
-import CopyToClipboard from "react-copy-to-clipboard";
 import { apiUrl } from "@/shared/constants/config";
 import cn from "classnames";
 import { Skeleton } from "@mui/material";

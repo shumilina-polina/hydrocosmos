@@ -2,6 +2,9 @@
 
 .wr {
   padding: 84px 0;
+  @include mobile {
+    padding: 40px 0;
+  }
 }
 .main {
   & > header {
@@ -15,6 +18,13 @@
     gap: 120px;
     letter-spacing: 0.05em;
     margin-bottom: 93px;
+    @include laptop {
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    @include tablet {
+      flex-direction: column;
+    }
 
     & h3 {
       font-size: 18px;
@@ -28,9 +38,21 @@
       line-height: 29px;
       text-transform: uppercase;
       word-break: break-word;
+      @include laptop {
+        font-size: 19px;
+        line-height: 23px;
+      }
     }
     & img {
       width: 60%;
+      @include laptop {
+        width: 50%;
+      }
+      @include tablet {
+        width: auto;
+        height: 300px;
+        align-self: center;
+      }
     }
   }
   & > footer {
@@ -39,12 +61,20 @@
     letter-spacing: 0.03em;
     color: $black;
     margin-bottom: 140px;
+    @include tablet {
+      margin-bottom: 90px;
+    }
+
     & > ul {
       display: flex;
       flex-direction: column;
       gap: 40px;
       margin-bottom: 39px;
-      & > li {
+      @include laptop {
+        gap: 5px;
+      }
+      & > li,
+      & span {
         padding: 9px;
         display: flex;
         align-items: center;
@@ -53,6 +83,15 @@
         line-height: 19px;
         letter-spacing: 0.03em;
         color: #000000;
+        @include tablet {
+          font-size: 13px;
+          line-height: 12px;
+        }
+        & > span {
+          @include mobile {
+            width: 100px;
+          }
+        }
 
         & > div {
           justify-content: flex-start;
@@ -61,12 +100,26 @@
           & path {
             fill: #0d0e0e70;
           }
+
+          @include mobile {
+            gap: 5px;
+            justify-content: space-between;
+            width: 219px;
+            & > span {
+              width: 128px;
+            }
+          }
         }
       }
     }
     & > .buttons {
       & > a {
         display: block;
+        & > button {
+          @include mobile {
+            width: 100%;
+          }
+        }
         &:first-child {
           margin-bottom: 24px;
           @include laptop {
@@ -97,12 +150,26 @@
 }
 .annotation {
   margin-bottom: 140px;
+  @include laptop {
+    margin-bottom: 90px;
+  }
+  @include mobile {
+    margin-bottom: 60px;
+  }
 
   & main {
     font-size: 18px;
     line-height: 30px;
     letter-spacing: 0.03em;
     max-width: 70%;
+    @include laptop {
+      max-width: 90%;
+    }
+    @include tablet {
+      max-width: 100%;
+      font-size: 15px;
+      line-height: 25px;
+    }
 
     & > p {
       margin-bottom: 1em;
@@ -112,6 +179,12 @@
 
 .keywords {
   margin-bottom: 140px;
+  @include tablet {
+    margin-bottom: 90px;
+  }
+  @include mobile {
+    margin-bottom: 60px;
+  }
 
   & > main {
     & ul {
@@ -119,6 +192,9 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 16px 20px;
+      @include tablet {
+        gap: 10px;
+      }
     }
     & .word {
       padding: 8px 24px;
@@ -129,18 +205,34 @@
       line-height: 19px;
       letter-spacing: 0.05em;
       text-transform: uppercase;
+      @include tablet {
+        padding: 8px 15px;
+        border-radius: 24px;
+        font-size: 13px;
+        line-height: 14px;
+      }
     }
   }
 }
 
 .authors {
   margin-bottom: 140px;
+  @include tablet {
+    margin-bottom: 90px;
+  }
   & > main {
     max-width: 50%;
+    @include tablet {
+      max-width: 100%;
+    }
   }
   & span {
     font-size: 18px;
     line-height: 26px;
+    @include mobile {
+      font-size: 15px;
+      line-height: 20px;
+    }
   }
 }
 
@@ -152,6 +244,12 @@
         margin: 0;
         & > header {
           display: none;
+        }
+        & article {
+          @include tablet {
+            padding: 10px !important;
+            margin-bottom: 20px;
+          }
         }
       }
       & hr {
@@ -173,6 +271,9 @@
   -moz-box-orient: vertical;
   -webkit-box-orient: vertical;
   box-orient: vertical;
+  @include tablet {
+    max-width: 200px;
+  }
 }
 
 .skeleton {
