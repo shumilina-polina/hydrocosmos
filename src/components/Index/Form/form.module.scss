@@ -9,10 +9,10 @@
   background-size: cover;
   background-position: center;
   @include tablet {
-    padding-bottom: 150px;
+    padding-bottom: 250px;
   }
   @include mobile {
-    padding: 36px 0 53px;
+    padding: 36px 0 153px;
   }
   & header {
     margin-bottom: 72px;

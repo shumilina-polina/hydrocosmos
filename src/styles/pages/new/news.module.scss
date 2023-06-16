@@ -2,12 +2,36 @@
 
 .wr {
   padding: 80px 0 130px;
+  @include tablet {
+    padding: 60px 0;
+  }
   & > header {
     margin-bottom: 90px;
+    @include tablet {
+      margin-bottom: 40px;
+    }
   }
   & > main {
     margin-bottom: 80px;
     display: grid;
+    @include tablet {
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    @include mobile {
+      gap: 10px;
+      & > a {
+        margin-bottom: 20px;
+        & > div > div > div {
+          height: auto;
+          & p{
+            font-size: 14px;
+            line-height: 19px;
+          }
+        }
+      }
+    }
   }
   & > footer {
     text-align: center;
@@ -23,20 +47,64 @@
   gap: 28px;
   height: 307px;
   margin-bottom: 56px;
+  @include laptop {
+    gap: 15px;
+  }
+
+  @include tablet {
+    gap: 5px;
+    margin-bottom: 20px;
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
   & > a {
     max-width: 25%;
+    @include tablet {
+      max-width: 100%;
+    }
   }
   & > a > div > div > div:first-child {
     height: 177px;
+    @include tablet {
+      height: auto;
+    }
   }
   &_tall {
     height: 375px;
     gap: 20px;
+    @include laptop {
+      gap: 15px;
+    }
+    @include tablet {
+      gap: 5px;
+
+      height: auto;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+    }
+
     & > a {
       max-width: 33%;
+      @include tablet {
+        max-width: 100%;
+      }
+      & p {
+        @include tablet {
+          letter-spacing: initial;
+        }
+      }
     }
     & > a > div > div > div:first-child {
       height: 246px;
+      @include tablet {
+        height: auto;
+      }
     }
   }
 }

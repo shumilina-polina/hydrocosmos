@@ -1,7 +1,6 @@
 @import "@/styles/styles.scss";
 
 #search {
-  margin-top: 20px;
   position: relative;
   overflow: hidden;
   width: 640px;
@@ -9,6 +8,15 @@
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0.02em;
+  @include tablet {
+    font-size: 15px;
+    line-height: 20px;
+    width: 100%;
+  }
+  @include mobile {
+    font-size: 12px;
+    line-height: 16px;
+  }
 
   & > button {
     @include inter6;
@@ -20,6 +28,12 @@
     bottom: 0;
     border-radius: 0 32px 32px 0;
     transition: color 0.3s;
+    @include tablet {
+      width: 100px;
+    }
+    @include tablet {
+      width: 70px;
+    }
     &:hover {
       color: $black;
     }
@@ -35,7 +49,9 @@
     background-color: rgba($color: $white, $alpha: 0.2);
     border-radius: 32px;
     @include inter6;
-
+    @include tablet {
+      padding: 10px 100px 10px 20px;
+    }
     &::placeholder {
       color: $white;
       transition: opacity 0.3s;

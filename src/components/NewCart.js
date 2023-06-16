@@ -33,6 +33,10 @@ const ImageWrapper = styled.div`
   & img {
     transition: transform 0.3s;
   }
+  @media ${breakpoints.tablet} {
+    aspect-ratio: 16/9;
+    margin-bottom: 8px;
+  }
 `;
 
 const Text = styled.div`
@@ -51,6 +55,15 @@ const Text = styled.div`
   -moz-box-orient: vertical;
   -webkit-box-orient: vertical;
   box-orient: vertical;
+  @media ${breakpoints.laptop} {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  @media ${breakpoints.tablet} {
+    font-size: 10px;
+    line-height: 15px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -63,6 +76,10 @@ const Wrapper = styled.div`
     &:last-child {
       font-size: 12px;
       line-height: 15px;
+      @media ${breakpoints.tablet} {
+        font-size: 10px;
+        line-height: 13px;
+      }
     }
   }
   &:hover {

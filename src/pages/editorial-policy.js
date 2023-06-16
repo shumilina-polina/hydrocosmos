@@ -3,9 +3,10 @@ import Head from "next/head";
 import Wrapper from "@/shared/UI/Wrapper";
 import Title from "@/shared/UI/Title";
 import s from "@/styles/pages/editorial.module.scss";
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Tab, Tabs, Typography, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { breakpoints } from "@/styles/variables/variables";
 
 export default function EditorialPolicy() {
   const { t } = useTranslation();
@@ -49,6 +50,8 @@ const a11yProps = (index) => {
 };
 
 const VerticalTabs = () => {
+  const isMobile = useMediaQuery(breakpoints.mobile);
+
   const { t } = useTranslation();
 
   const [value, setValue] = useState(0);
@@ -67,14 +70,21 @@ const VerticalTabs = () => {
     >
       <Tabs
         className={s.tab_tabs}
-        orientation="vertical"
+        orientation={isMobile ? "horizontal" : "vertical"}
+        scrollButtons={isMobile}
+        allowScrollButtonsMobile={isMobile}
+        variant={isMobile ? "scrollable" : ""}
         value={value}
         onChange={handleChange}
       >
         {[1, 2, 3, 4, 5, 6, 7].map((tabIndex) => (
           <Tab
             className={s.tab}
-            label={t(`editorial.tab_${tabIndex}.title`)}
+            label={
+              <ReactMarkdown>
+                {t(`editorial.tab_${tabIndex}.title`)}
+              </ReactMarkdown>
+            }
             {...a11yProps(tabIndex - 1)}
           />
         ))}
@@ -82,7 +92,13 @@ const VerticalTabs = () => {
       {[1, 2, 3, 4, 5, 6, 7].map((tabIndex) => (
         <TabPanel value={value} index={tabIndex - 1}>
           <header>
-            <h3>{t(`editorial.tab_${tabIndex}.title`)}</h3>
+            <h3>
+              {
+                <ReactMarkdown>
+                  {t(`editorial.tab_${tabIndex}.title`)}
+                </ReactMarkdown>
+              }
+            </h3>
             <hr />
           </header>
           <ReactMarkdown>{t(`editorial.tab_${tabIndex}.text`)}</ReactMarkdown>

@@ -1,4 +1,4 @@
-import { colors, fonts } from "@/styles/variables/variables";
+import { breakpoints, colors, fonts } from "@/styles/variables/variables";
 import styled from "styled-components";
 import "moment/locale/ru";
 import moment from "moment/moment";
@@ -25,5 +25,9 @@ const Box = styled.div`
   color: ${colors.black};
   &:first-letter {
     text-transform: uppercase;
+  }
+  @media ${breakpoints.tablet} {
+    font-size: 10px;
+    line-height: 13px;
   }
 `;

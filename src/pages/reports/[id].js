@@ -54,10 +54,15 @@ export default function ReportPage() {
                 {data ? (
                   <>
                     <Content t={t} data={data.reports.data[0]?.attributes} />
-                    <ReportSlider
-                      data={data.reports.data[0]?.attributes.photos?.data}
-                      setOpenModal={setOpenModal}
-                    />
+                    <div
+                      onClick={() => {
+                        setOpenModal(true);
+                      }}
+                    >
+                      <ReportSlider
+                        data={data.reports.data[0]?.attributes.photos?.data}
+                      />
+                    </div>
                     <Modal
                       open={openModal}
                       className={"report-modal"}

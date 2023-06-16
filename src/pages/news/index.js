@@ -3,11 +3,12 @@ import { GET_NEWS } from "@/services/gqlService";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
 import s from "@/styles/pages/new/news.module.scss";
+import { breakpoints } from "@/styles/variables/variables";
 import { useQuery } from "@apollo/client";
-import { Skeleton } from "@mui/material";
+import { Skeleton, useMediaQuery } from "@mui/material";
 import cn from "classnames";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 let total = 1;
 
@@ -15,6 +16,7 @@ export default function NewsPage() {
   const { t } = useTranslation();
   const [start, setStart] = useState(0);
   const [news, setNews] = useState([]);
+  const isMobile = useMediaQuery(breakpoints.mobile);
 
   const { error } = useQuery(GET_NEWS, {
     variables: {
@@ -26,6 +28,40 @@ export default function NewsPage() {
       total = data.news.meta.pagination.total;
     },
   });
+
+  const renderGrid = (isMobile) => {
+    return news.map((cart, i, arr) =>
+      !isMobile ? (
+        <div key={i}>
+          {i % 11 === 0 && (
+            <Row>
+              <NewCart cart={cart.attributes} />
+              {arr[i + 1] && <NewCart cart={arr[i + 1].attributes} />}
+              {arr[i + 2] && <NewCart cart={arr[i + 2].attributes} />}
+              {arr[i + 3] && <NewCart cart={arr[i + 3].attributes} />}
+            </Row>
+          )}
+          {i % 11 === 4 && (
+            <RowTall>
+              <NewCart cart={cart.attributes} />
+              {arr[i + 1] && <NewCart cart={arr[i + 1].attributes} />}
+              {arr[i + 2] && <NewCart cart={arr[i + 2].attributes} />}
+            </RowTall>
+          )}
+          {i % 11 === 7 && (
+            <Row>
+              <NewCart cart={cart.attributes} />
+              {arr[i + 1] && <NewCart cart={arr[i + 1].attributes} />}
+              {arr[i + 2] && <NewCart cart={arr[i + 2].attributes} />}
+              {arr[i + 3] && <NewCart cart={arr[i + 3].attributes} />}
+            </Row>
+          )}
+        </div>
+      ) : (
+        <NewCart key={i + "f"} cart={cart.attributes} />
+      )
+    );
+  };
 
   return (
     <>
@@ -41,52 +77,10 @@ export default function NewsPage() {
               <Title>{t("news.title")}</Title>
             </header>
             <main>
-              {news.length
-                ? news.map((cart, i, arr) => (
-                    <div key={cart.id}>
-                      {i % 11 === 0 && (
-                        <Row>
-                          <NewCart cart={cart.attributes} />
-                          {arr[i + 1] && (
-                            <NewCart cart={arr[i + 1].attributes} />
-                          )}
-                          {arr[i + 2] && (
-                            <NewCart cart={arr[i + 2].attributes} />
-                          )}
-                          {arr[i + 3] && (
-                            <NewCart cart={arr[i + 3].attributes} />
-                          )}
-                        </Row>
-                      )}
-                      {i % 11 === 4 && (
-                        <RowTall>
-                          <NewCart cart={cart.attributes} />
-                          {arr[i + 1] && (
-                            <NewCart cart={arr[i + 1].attributes} />
-                          )}
-                          {arr[i + 2] && (
-                            <NewCart cart={arr[i + 2].attributes} />
-                          )}
-                        </RowTall>
-                      )}
-                      {i % 11 === 7 && (
-                        <Row>
-                          <NewCart cart={cart.attributes} />
-                          {arr[i + 1] && (
-                            <NewCart cart={arr[i + 1].attributes} />
-                          )}
-                          {arr[i + 2] && (
-                            <NewCart cart={arr[i + 2].attributes} />
-                          )}
-                          {arr[i + 3] && (
-                            <NewCart cart={arr[i + 3].attributes} />
-                          )}
-                        </Row>
-                      )}
-                    </div>
-                  ))
+              {news.length > 0
+                ? renderGrid(isMobile)
                 : [1, 2].map((elem) => (
-                    <Row key={elem}>
+                    <Row key={elem + "s"}>
                       <Skeleton
                         className={s.skeleton}
                         sx={{ bgcolor: "grey.200" }}

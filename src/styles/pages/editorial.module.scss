@@ -2,19 +2,42 @@
 
 .wr {
   padding: 110px 0 250px;
+  @include tablet {
+    padding: 60px 0;
+  }
   & > header {
     margin-bottom: 90px;
+    @include tablet {
+      margin-bottom: 40px;
+    }
   }
 }
 
 .tab {
   &_box {
     gap: 80px;
+    @include laptop {
+      gap: 20px;
+    }
+    @include mobile {
+      flex-direction: column;
+    }
   }
   &_tabs {
     min-width: 40%;
-    & > div > span {
-      display: none;
+    @include laptop {
+      min-width: 35%;
+    }
+
+    & > div {
+      & > span {
+        display: none;
+      }
+      & > div {
+        @include mobile {
+          flex-direction: row;
+        }
+      }
     }
     & button {
       max-width: 100%;
@@ -25,9 +48,20 @@
       text-transform: uppercase;
       color: $gray;
       align-items: flex-start;
+      text-align: left;
       &[aria-selected="true"] {
         @include inter7;
         color: $cyan-article;
+      }
+      @include tablet {
+        font-size: 13px;
+        line-height: 15px;
+        letter-spacing: 0.05em;
+        padding: 5px 0;
+      }
+      @include mobile {
+        padding: 5px 10px;
+        align-items: center;
       }
     }
   }
@@ -36,15 +70,28 @@
     line-height: 29px;
     letter-spacing: 0.03em;
     color: $black;
+    @include tablet {
+      font-size: 14px;
+      line-height: 22px;
+    }
     & header {
       margin-bottom: 56px;
       display: flex;
       align-items: center;
+      @include tablet {
+        margin-bottom: 20px;
+      }
       & > h3 {
         @include title;
         padding-left: 0;
         font-size: 32px;
         line-height: 39px;
+        & > p {
+          margin-bottom: 0;
+        }
+        @include tablet {
+          padding-left: 0;
+        }
       }
     }
     & p {
