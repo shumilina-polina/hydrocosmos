@@ -8,8 +8,8 @@ export const client = new ApolloClient({
 });
 
 export const GET_MAIN_PAGE = gql`
-  query {
-    journals(sort: "date:desc", locale: "ru", pagination: { limit: 3 }) {
+  query ($lang: I18NLocaleCode) {
+    journals(sort: "date:desc", locale: $lang, pagination: { limit: 3 }) {
       data {
         id
         attributes {
@@ -26,7 +26,7 @@ export const GET_MAIN_PAGE = gql`
         }
       }
     }
-    news(sort: "date:desc", locale: "ru", pagination: { limit: 9 }) {
+    news(sort: "date:desc", locale: $lang, pagination: { limit: 9 }) {
       data {
         id
         attributes {
@@ -46,7 +46,7 @@ export const GET_MAIN_PAGE = gql`
     articles(
       filters: { popular: { eq: true } }
       sort: "createdAt:desc"
-      locale: "ru"
+      locale: $lang
       pagination: { limit: 5 }
     ) {
       data {
@@ -96,7 +96,7 @@ export const GET_MAIN_PAGE = gql`
         }
       }
     }
-    reports(sort: "createdAt:desc", locale: "ru", pagination: { limit: 15 }) {
+    reports(sort: "createdAt:desc", locale: $lang, pagination: { limit: 15 }) {
       data {
         id
         attributes {
@@ -137,8 +137,8 @@ export const GET_MAIN_PAGE = gql`
 `;
 
 export const GET_JOURNALS = gql`
-  query {
-    journals(sort: "date:desc", locale: "ru") {
+  query ($lang: I18NLocaleCode) {
+    journals(sort: "date:desc", locale: $lang) {
       data {
         id
         attributes {
@@ -159,8 +159,8 @@ export const GET_JOURNALS = gql`
 `;
 
 export const GET_ONE_JOURNAL = gql`
-  query ($slug: String) {
-    journals(locale: "ru", filters: { slug: { eq: $slug } }) {
+  query ($slug: String, $lang: I18NLocaleCode) {
+    journals(locale: $lang, filters: { slug: { eq: $slug } }) {
       data {
         id
         attributes {
@@ -251,10 +251,10 @@ export const GET_ONE_JOURNAL = gql`
 `;
 
 export const GET_NEWS = gql`
-  query ($limit: Int, $start: Int) {
+  query ($limit: Int, $start: Int, $lang: I18NLocaleCode) {
     news(
       sort: "date:desc"
-      locale: "ru"
+      locale: $lang
       pagination: { limit: $limit, start: $start }
     ) {
       meta {
@@ -281,8 +281,8 @@ export const GET_NEWS = gql`
   }
 `;
 export const GET_ONE_NEW = gql`
-  query ($slug: String) {
-    news(locale: "ru", filters: { slug: { eq: $slug } }) {
+  query ($slug: String, $lang: I18NLocaleCode) {
+    news(locale: $lang, filters: { slug: { eq: $slug } }) {
       data {
         id
         attributes {
@@ -321,8 +321,8 @@ export const GET_ONE_NEW = gql`
 `;
 
 export const GET_ONE_ARTICLE = gql`
-  query ($slug: String) {
-    articles(locale: "ru", filters: { slug: { eq: $slug } }) {
+  query ($slug: String, $lang: I18NLocaleCode) {
+    articles(locale: $lang, filters: { slug: { eq: $slug } }) {
       data {
         id
         attributes {
@@ -378,9 +378,9 @@ export const GET_ONE_ARTICLE = gql`
   }
 `;
 export const GET_ARTICLES_BY_RUBRIC = gql`
-  query ($rubric: String, $noSlug: String) {
+  query ($rubric: String, $noSlug: String, $lang: I18NLocaleCode) {
     articles(
-      locale: "ru"
+      locale: $lang
       filters: { rubric: { eq: $rubric }, not: { slug: { eq: $noSlug } } }
     ) {
       data {
@@ -413,10 +413,10 @@ export const GET_ARTICLES_BY_RUBRIC = gql`
 `;
 
 export const GET_REPORTS = gql`
-  query ($limit: Int, $start: Int) {
+  query ($limit: Int, $start: Int, $lang: I18NLocaleCode) {
     reports(
       sort: "createdAt:desc"
-      locale: "ru"
+      locale: $lang
       pagination: { limit: $limit, start: $start }
     ) {
       meta {
@@ -450,8 +450,8 @@ export const GET_REPORTS = gql`
 `;
 
 export const GET_ONE_REPORT = gql`
-  query ($slug: String) {
-    reports(locale: "ru", filters: { slug: { eq: $slug } }) {
+  query ($slug: String, $lang: I18NLocaleCode) {
+    reports(locale: $lang, filters: { slug: { eq: $slug } }) {
       data {
         id
         attributes {
@@ -478,6 +478,95 @@ export const GET_ONE_REPORT = gql`
                   }
                 }
                 pdf_en {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ONE_AUTHOR = gql`
+  query ($slug: String, $lang: I18NLocaleCode) {
+    authors(locale: $lang, filters: { slug: { eq: $slug } }) {
+      data {
+        id
+        attributes {
+          name
+          slug
+          description
+          quote
+          email
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          news(sort: "date:desc") {
+            data {
+              id
+              attributes {
+                title
+                date
+                slug
+                photo {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+          articles {
+            data {
+              id
+              attributes {
+                slug
+                rubric
+                title
+                pdf_ru_page
+                pdf_en_page
+                journal {
+                  data {
+                    attributes {
+                      pdf_ru {
+                        data {
+                          attributes {
+                            url
+                          }
+                        }
+                      }
+                      pdf_en {
+                        data {
+                          attributes {
+                            url
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                authors {
+                  data {
+                    id
+                    attributes {
+                      name
+                      slug
+                    }
+                  }
+                }
+                photo {
                   data {
                     attributes {
                       url

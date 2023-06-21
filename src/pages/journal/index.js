@@ -12,8 +12,13 @@ import { Skeleton } from "@mui/material";
 import cn from "classnames";
 
 export default function Journals() {
-  const { t } = useTranslation();
-  const { data, error } = useQuery(GET_JOURNALS);
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
+  const { data, error } = useQuery(GET_JOURNALS, {
+    variables: { lang: language },
+  });
 
   return (
     <>

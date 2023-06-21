@@ -17,8 +17,9 @@ import Link from "next/link";
 
 const Burger = ({}) => {
   const [open, setOpen] = useState(false);
-  const { i18n } = useTranslation();
-  const { changeLanguage, language } = i18n;
+  const {
+    i18n: { changeLanguage, language },
+  } = useTranslation();
 
   useEffect(() => {
     window.document
@@ -84,7 +85,7 @@ const Burger = ({}) => {
                   <CustomLink href={`/${page.path}`}>
                     <ListItemText
                       className={s.burger_text}
-                      primary={page[i18n.language]}
+                      primary={page[language]}
                     />
                   </CustomLink>
                 </ListItemButton>

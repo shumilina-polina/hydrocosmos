@@ -17,10 +17,12 @@ const IssueContent = ({ data }) => {
       {data && (
         <main>
           <ArticlesByRubric data={data.articles.data} journal={data.pdf_ru} />
-          <article>
-            <Theme>репортажи:</Theme>
-            <ReportsBox data={data.reports.data} />
-          </article>
+          {data.reports.data.length > 0 && (
+            <article>
+              <Theme>{t(`home.reports.title`)}:</Theme>
+              <ReportsBox data={data.reports.data} />
+            </article>
+          )}
         </main>
       )}
     </Section>
@@ -29,7 +31,7 @@ const IssueContent = ({ data }) => {
 
 export default IssueContent;
 
-const ArticlesByRubric = ({ data, journal }) => {
+export const ArticlesByRubric = ({ data, journal }) => {
   return (
     <>
       {Array.from(

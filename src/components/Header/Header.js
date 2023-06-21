@@ -17,8 +17,9 @@ import Search from "../Search/Search";
 const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
 
-  const { i18n } = useTranslation();
-  const { changeLanguage, language } = i18n;
+  const {
+    i18n: { changeLanguage, language },
+  } = useTranslation();
 
   const trigger = useScrollTrigger();
 
@@ -51,7 +52,7 @@ const Header = () => {
                     changeLanguage(language === "ru" ? "en" : "ru")
                   }
                 >
-                  {i18n.language}
+                  {language}
                 </button>
               </div>
               <a

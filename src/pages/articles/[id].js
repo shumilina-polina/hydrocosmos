@@ -23,8 +23,12 @@ import cn from "classnames";
 
 export default function ArticlePage() {
   const router = useRouter();
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
   const { data, error } = useQuery(GET_ONE_ARTICLE, {
-    variables: { slug: router.query.id },
+    variables: { slug: router.query.id, lang: language },
   });
 
   const { data: dataByRubric } = useQuery(GET_ARTICLES_BY_RUBRIC, {
@@ -32,10 +36,9 @@ export default function ArticlePage() {
     variables: {
       rubric: data?.articles.data[0]?.attributes.rubric,
       noSlug: router.query.id,
+      lang: language,
     },
   });
-
-  const { t } = useTranslation();
 
   return (
     <>
@@ -195,7 +198,12 @@ export default function ArticlePage() {
                       ? data.articles.data[0]?.attributes.keywords
                           .split(", ")
                           .map((word, i) => (
-                            <li key={i} className={s.word}>
+                            <li
+                              data-aos="zoom-in-up"
+                              data-aos-delay={40 * i}
+                              key={i}
+                              className={s.word}
+                            >
                               {word}
                             </li>
                           ))

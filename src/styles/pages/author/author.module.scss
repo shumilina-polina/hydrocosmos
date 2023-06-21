@@ -1,0 +1,206 @@
+@import "@/styles/styles.scss";
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 64px;
+  & h2 {
+    @include title;
+    font-size: 32px;
+    line-height: 39px;
+  }
+}
+.wr {
+  padding: 84px 0;
+  @include mobile {
+    padding: 40px 0;
+  }
+  & .main {
+    & > header {
+      margin-bottom: 60px;
+      @include mobile {
+        margin-bottom: 20px;
+      }
+    }
+    & > main {
+      margin-bottom: 204px;
+      @include laptop {
+        margin-bottom: 150px;
+      }
+      @include tablet {
+        margin-bottom: 70px;
+      }
+    }
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 100px;
+  margin-bottom: 96px;
+  @include laptop {
+    gap: 3%;
+  }
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-bottom: 40px;
+  }
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  & > div:first-child {
+    aspect-ratio: 4/5;
+    @include tablet {
+      aspect-ratio: auto;
+    }
+    @include mobile {
+      height: min-content;
+    }
+    & img {
+      max-height: 473px;
+      object-fit: contain;
+    }
+  }
+  & > div:last-child {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    @include inter7;
+    & > span {
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    & > h1 {
+      text-transform: uppercase;
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: 0.03em;
+      color: $cyan-article;
+      margin-bottom: 24px;
+      @include laptop {
+        font-size: 30px;
+        line-height: 38px;
+      }
+      @include mobile {
+        max-width: 90%;
+      }
+    }
+    & > .desc {
+      @include inter4;
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 0.03em;
+      color: rgba(0, 0, 0, 0.8);
+      margin-bottom: 24px;
+      & p {
+        margin-bottom: 0.5em;
+        @include mobile {
+          text-align: left;
+          max-width: 90%;
+        }
+      }
+    }
+    & > .email {
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      @include laptop {
+        margin-bottom: 5%;
+      }
+      & span {
+        @include inter4;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0.03em;
+        color: rgba(0, 0, 0, 0.8);
+      }
+    }
+    & > blockquote {
+      font-size: 24px;
+      line-height: 32px;
+      color: $gray;
+      @include inter4;
+      padding: 21px 0 21px 42px;
+      border-left: 1px solid #8be1f4;
+      max-width: 100%;
+      & > p {
+        text-align: left;
+        @include mobile {
+          max-width: 90%;
+        }
+      }
+      @include laptop {
+        padding-left: 3%;
+        font-size: 19px;
+        line-height: 25px;
+      }
+    }
+  }
+}
+
+.articles {
+  & article {
+    margin-bottom: 54px;
+    @include tablet {
+      margin-bottom: 30px;
+    }
+    @include mobile {
+      margin-bottom: 15px;
+    }
+    & > div {
+      cursor: pointer;
+      &:hover {
+        & p {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.news {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-bottom: 100px;
+  @include laptop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 150px;
+    gap: 25px 10px;
+  }
+  @include mobile {
+    margin-bottom: 50px;
+  }
+  & a > div > div {
+    & > div:first-child {
+      height: 177px;
+      @include tablet {
+        height: auto;
+      }
+    }
+  }
+}
+
+.skeleton {
+  border-radius: 15px;
+  width: 100%;
+  &_wrapper {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    height: 473px;
+    gap: 8%;
+    margin-bottom: 10%;
+    @include tablet {
+      height: 50vh;
+      grid-template-columns: 1fr;
+    }
+  }
+}

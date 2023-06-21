@@ -1,0 +1,147 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 110px 0 160px;
+  @include tablet {
+    padding: 60px 0;
+  }
+
+  & > header {
+    margin-bottom: 48px;
+    @include tablet {
+      margin-bottom: 20px;
+    }
+    & > h2 {
+      margin-bottom: 48px;
+      @include tablet {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  & > main {
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      @include mobile {
+        gap: 20px;
+      }
+      & > li {
+        padding: 27px;
+        background: rgba(219, 247, 253, 0.38);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include tablet {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 25px;
+        }
+        @include mobile {
+          padding: 10px;
+        }
+        & .left {
+          border-right: 1px solid rgba(0, 0, 0, 0.2);
+          display: flex;
+          gap: 37px;
+          align-items: center;
+          @include inter7;
+          @include tablet {
+            border-right: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          }
+          @include mobile {
+            gap: 15px;
+          }
+          & > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #2daeca;
+            font-size: 23px;
+            line-height: 28px;
+            letter-spacing: 0.03em;
+            color: #ffffff;
+            border-radius: 100%;
+            @include mobile {
+              font-size: 16px;
+              width: 40px;
+              height: 40px;
+            }
+          }
+          & > h3 {
+            @include inter7;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            max-width: 60%;
+            @include tablet {
+              max-width: 70%;
+            }
+            @include mobile {
+              font-size: 14px;
+              line-height: 17px;
+            }
+          }
+        }
+        & .right {
+          padding: 0 10% 0 22%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          @include tablet {
+            padding: 0;
+            justify-content: flex-start;
+            gap: 7%;
+          }
+          & > svg {
+            margin-right: 15%;
+            @include tablet {
+              margin-right: 0;
+              height: 60px;
+            }
+          }
+          & > span {
+            margin-right: 10%;
+            text-align: center;
+            background-color: rgba(219, 247, 253, 0.4);
+            padding: 10px 24px;
+            border-radius: 24px;
+            @include tablet {
+              margin-right: 0;
+            }
+          }
+          & button {
+            width: 60px;
+            height: 60px;
+            background-color: #dbf7fd;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            @include mobile {
+              width: 40px;
+              height: 40px;
+              padding: 9px;
+            }
+            & path {
+              transition: fill 0.3s;
+            }
+            &:hover {
+              background-color: $cyan;
+              & path {
+                fill: $white;
+              }
+            }
+            &:active {
+              background-color: rgba(111, 214, 224, 0.6);
+            }
+          }
+        }
+      }
+    }
+  }
+}

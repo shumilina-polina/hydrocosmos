@@ -29,7 +29,13 @@ export const IssueCart = ({ data, journal }) => {
             {t("journal.item.page")}. {data?.pdf_ru_page}
           </span>
           <a
-            href={apiUrl + journal + "#page=" + data?.pdf_ru_page}
+            href={
+              apiUrl +
+              (journal ||
+                data?.journal.data?.attributes.pdf_ru.data?.attributes.url) +
+              "#page=" +
+              data?.pdf_ru_page
+            }
             target="_blank"
             rel="noopener noreferrer"
           >

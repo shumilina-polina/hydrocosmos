@@ -8,12 +8,15 @@ import { useQuery } from "@apollo/client";
 import { Skeleton, useMediaQuery } from "@mui/material";
 import cn from "classnames";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 let total = 1;
 
 export default function NewsPage() {
-  const { t } = useTranslation();
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
   const [start, setStart] = useState(0);
   const [news, setNews] = useState([]);
   const isMobile = useMediaQuery(breakpoints.mobile);
@@ -22,6 +25,7 @@ export default function NewsPage() {
     variables: {
       limit: 11,
       start: start,
+      lang: language,
     },
     onCompleted: (data) => {
       setNews([...news, ...data?.news.data]);

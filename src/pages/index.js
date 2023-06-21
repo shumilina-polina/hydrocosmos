@@ -9,9 +9,16 @@ import Reports from "@/components/Index/Reports/Reports";
 import { GET_MAIN_PAGE } from "@/services/gqlService";
 import Error from "@/shared/UI/Error";
 import { useQuery } from "@apollo/client";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  const { data, error } = useQuery(GET_MAIN_PAGE);
+  const {
+    i18n: { language },
+  } = useTranslation();
+
+  const { data, error } = useQuery(GET_MAIN_PAGE, {
+    variables: { lang: language },
+  });
 
   return (
     <>
@@ -25,7 +32,6 @@ export default function Home() {
           />
           <Journal data={data?.journals.data} />
           <News data={data?.news.data} />
-          {/* отследить, что статья популярная */}
           <Articles data={data?.articles.data} />
           <Manifest />
           <Reports data={data?.reports.data} />

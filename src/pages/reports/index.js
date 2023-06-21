@@ -12,7 +12,11 @@ import { useTranslation } from "react-i18next";
 let total = 1;
 
 export default function ReportsPage() {
-  const { t } = useTranslation();
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
+  
   const [start, setStart] = useState(0);
   const [reports, setReports] = useState([]);
 
@@ -20,6 +24,7 @@ export default function ReportsPage() {
     variables: {
       limit: 4,
       start: start,
+      lang: language,
     },
     onCompleted: (data) => {
       setReports([...reports, ...data?.reports.data]);

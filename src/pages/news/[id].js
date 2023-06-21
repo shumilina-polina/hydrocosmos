@@ -18,11 +18,13 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export default function New() {
   const router = useRouter();
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
   const { data, error } = useQuery(GET_ONE_NEW, {
-    variables: { slug: router.query.id },
+    variables: { slug: router.query.id, lang: language },
   });
-
-  const { t } = useTranslation();
 
   useEffect(() => {
     window.document.querySelectorAll("main > div img").forEach((elem) => {

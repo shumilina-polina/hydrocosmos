@@ -2,16 +2,13 @@ import { breakpoints, colors, fonts } from "@/styles/variables/variables";
 import styled from "styled-components";
 import "moment/locale/ru";
 import moment from "moment/moment";
+import { useTranslation } from "react-i18next";
 
 const Date = ({ format = "MM YYYY", children }) => {
-  return (
-    <Box>
-      {moment(children)
-        .locale("ru")
-        // .locale("en")
-        .format(format)}
-    </Box>
-  );
+  const {
+    i18n: { language },
+  } = useTranslation();
+  return <Box>{moment(children).locale(language).format(format)}</Box>;
 };
 
 export default Date;
