@@ -3,7 +3,7 @@ import Head from "next/head";
 import Wrapper from "@/shared/UI/Wrapper";
 import Title from "@/shared/UI/Title";
 import s from "@/styles/pages/editorial.module.scss";
-import { Box, Tab, Tabs, Typography, useMediaQuery } from "@mui/material";
+import { Box, Tab, Tabs, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { breakpoints } from "@/styles/variables/variables";
@@ -79,6 +79,7 @@ const VerticalTabs = () => {
       >
         {[1, 2, 3, 4, 5, 6, 7].map((tabIndex) => (
           <Tab
+            key={tabIndex}
             className={s.tab}
             label={
               <ReactMarkdown>
@@ -90,7 +91,7 @@ const VerticalTabs = () => {
         ))}
       </Tabs>
       {[1, 2, 3, 4, 5, 6, 7].map((tabIndex) => (
-        <TabPanel value={value} index={tabIndex - 1}>
+        <TabPanel value={value} key={tabIndex} index={tabIndex - 1}>
           <header>
             <h3>
               {

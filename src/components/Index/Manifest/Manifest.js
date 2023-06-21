@@ -15,9 +15,9 @@ const Manifest = () => {
           <h2>{t("home.manifest.title")}</h2>
         </header>
         <main data-aos="fade-zoom-in" data-aos-duration={1000}>
-          <ReactMarkdown children={{ type: "html", value: "<span>" }}>
-            {t("home.manifest.main")}
-          </ReactMarkdown>
+          <span>
+            <ReactMarkdown>{t("home.manifest.main")}</ReactMarkdown>
+          </span>
         </main>
         <footer data-aos="fade-zoom-in" data-aos-duration={1000}>
           <ReactMarkdown>{t("home.manifest.footer.text")}</ReactMarkdown>

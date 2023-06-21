@@ -1,5 +1,6 @@
 import { NewCart } from "@/components/NewCart";
 import { GET_NEWS } from "@/services/gqlService";
+import Error from "@/shared/UI/Error";
 import Title from "@/shared/UI/Title";
 import Wrapper from "@/shared/UI/Wrapper";
 import s from "@/styles/pages/new/news.module.scss";

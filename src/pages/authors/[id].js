@@ -136,8 +136,8 @@ const Content = ({ data }) => {
 const AuthorNews = ({ data }) => (
   <div className={s.news}>
     {data.map((item, i) => (
-      <div data-aos="flip-right" data-aos-delay={50 * i}>
-        <NewCart key={i} cart={item.attributes} />
+      <div key={i} data-aos="flip-right" data-aos-delay={50 * i}>
+        <NewCart cart={item.attributes} />
       </div>
     ))}
   </div>
