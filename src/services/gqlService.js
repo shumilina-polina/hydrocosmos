@@ -493,6 +493,33 @@ export const GET_ONE_REPORT = gql`
   }
 `;
 
+export const GET_AUTHORS = gql`
+  query ($limit: Int, $lang: I18NLocaleCode) {
+    authors(
+      sort: ["order:desc", "role"]
+      locale: $lang
+      pagination: { limit: $limit }
+    ) {
+      data {
+        attributes {
+          order
+          name
+          slug
+          role
+          description
+          photo {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const GET_ONE_AUTHOR = gql`
   query ($slug: String, $lang: I18NLocaleCode) {
     authors(locale: $lang, filters: { slug: { eq: $slug } }) {
@@ -501,6 +528,7 @@ export const GET_ONE_AUTHOR = gql`
         attributes {
           name
           slug
+          role
           description
           quote
           email

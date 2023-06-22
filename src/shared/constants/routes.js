@@ -6,5 +6,7 @@ export const routes = {
   authors: "authors",
   articles: "articles",
   manifest: "manifest",
+  forAuthors: "for-authors",
   editorialPolicy: "editorial-policy",
+  contacts: "contacts",
 };

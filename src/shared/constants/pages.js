@@ -37,25 +37,25 @@ export const pagesFooter = [
     id: 3,
     ru: "Для авторов",
     en: "for authors",
-    path: "for-authors",
+    path: routes.forAuthors,
   },
   {
     id: 4,
     ru: "Редакция журнала",
     en: "journal editorial",
-    path: "editorial",
+    path: routes.authors,
   },
   {
     id: 5,
     ru: "Манифест редакции",
     en: "manifest",
-    path: "manifest",
+    path: routes.manifest,
   },
   {
     id: 6,
     ru: "Редакционная политика",
     en: "editorial policy",
-    path: "editorial-policy",
+    path: routes.editorialPolicy,
   },
   {
     id: 7,
@@ -67,6 +67,6 @@ export const pagesFooter = [
     id: 8,
     ru: "контакты",
     en: "contacts",
-    path: "contacts",
+    path: routes.contacts,
   },
 ];

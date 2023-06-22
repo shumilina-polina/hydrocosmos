@@ -1,0 +1,100 @@
+@import "@/styles/styles.scss";
+
+.wr {
+  padding: 105px 0 147px;
+  @include tablet {
+    padding: 10vw 0 18vw;
+  }
+  & > header {
+    margin-bottom: 72px;
+    @include tablet {
+      margin-bottom: 5vw;
+    }
+  }
+  & > main {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 74px;
+    @include laptop {
+      gap: 5%;
+    }
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+    @include mobile {
+      gap: 40px;
+    }
+    & em {
+      background-color: $cyan-article;
+      font-style: normal;
+    }
+    & > div {
+      color: #000;
+      text-align: right;
+      font-size: 54px;
+      letter-spacing: 1.6px;
+      @include laptop {
+        font-size: 40px;
+      }
+      @include tablet {
+        width: 80%;
+        order: -1;
+        text-align: left;
+        font-size: 30px;
+      }
+      @include mobile {
+        width: 100%;
+        letter-spacing: 1px;
+        font-size: 20px;
+      }
+      & > p:first-child {
+        margin-bottom: 1em;
+      }
+    }
+    & > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      @include tablet {
+        gap: 10%;
+      }
+      @include mobile {
+        gap: 10px;
+      }
+      & > a {
+        transition: color 0.3s;
+        &:hover {
+          color: $cyan-article;
+          & svg {
+            transform: rotate(30deg);
+          }
+        }
+      }
+      & li {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 18px;
+        @include laptop {
+          gap: 10px;
+          font-size: 17px;
+        }
+
+        & > svg {
+          transition: transform 0.3s;
+          flex-shrink: 0;
+          @include laptop {
+            width: 30%;
+          }
+          @include tablet {
+            width: auto;
+          }
+          @include mobile {
+            width: 20%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

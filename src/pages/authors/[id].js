@@ -14,7 +14,6 @@ import { useTranslation } from "react-i18next";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { CopyButton } from "@/shared/UI/CopyButton";
 import { Skeleton } from "@mui/material";
-import cn from "classnames";
 import { ArticlesByRubric } from "@/components/Journal/IssueContent/IssueContent";
 import { NewCart } from "@/components/NewCart";
 
@@ -116,7 +115,10 @@ const Content = ({ data }) => {
         <img src={apiUrl + data.photo.data.attributes.url} alt="Author" />
       </div>
       <div>
-        <span>{t("authors.item.editor")}</span>
+        <span>
+          {data.role && `${data.role}, `}
+          {t("authors.author")}
+        </span>
         <h1>{data.name}</h1>
         <div className={s.desc}>
           <ReactMarkdown>{data.description}</ReactMarkdown>
