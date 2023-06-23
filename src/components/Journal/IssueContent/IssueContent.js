@@ -66,6 +66,11 @@ const Section = styled.section`
   }
   & > main {
     & article {
+      &:hover {
+        & h4 {
+          text-decoration: underline;
+        }
+      }
       margin-bottom: 56px;
       &:last-child {
         margin-top: 24px;

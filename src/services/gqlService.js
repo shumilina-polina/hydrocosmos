@@ -494,12 +494,17 @@ export const GET_ONE_REPORT = gql`
 `;
 
 export const GET_AUTHORS = gql`
-  query ($limit: Int, $lang: I18NLocaleCode) {
+  query ($limit: Int, $start: Int, $lang: I18NLocaleCode) {
     authors(
       sort: ["order:desc", "role"]
       locale: $lang
-      pagination: { limit: $limit }
+      pagination: { limit: $limit, start: $start }
     ) {
+      meta {
+        pagination {
+          total
+        }
+      }
       data {
         attributes {
           order

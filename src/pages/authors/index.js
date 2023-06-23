@@ -9,16 +9,26 @@ import { useQuery } from "@apollo/client";
 import { Skeleton } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+let totalAuthors = 1;
 
 export default function AuthorsPage() {
   const {
     i18n: { language },
     t,
   } = useTranslation();
+
+  const [start, setStart] = useState(0);
+  const [authors, setAuthors] = useState([]);
+
   const { data, error } = useQuery(GET_AUTHORS, {
-    variables: { lang: language, limit: 10 },
+    variables: { lang: language, limit: 4, start: start },
+    onCompleted: (data) => {
+      setAuthors([...authors, ...data?.authors.data]);
+      totalAuthors = data.authors.meta.pagination.total;
+    },
   });
 
   return (
@@ -36,8 +46,8 @@ export default function AuthorsPage() {
             </header>
             <main>
               <ul>
-                {data ? (
-                  data.authors.data.map((author, i) => (
+                {authors.length ? (
+                  authors.map((author, i) => (
                     <Author key={i} delay={i} data={author.attributes} />
                   ))
                 ) : (
@@ -56,6 +66,19 @@ export default function AuthorsPage() {
                 )}
               </ul>
             </main>
+            {console.log("totalAuthors: ", totalAuthors)}
+            <footer>
+              {
+                <button
+                  disabled={totalAuthors <= authors.length}
+                  onClick={() => {
+                    setStart(start + 4);
+                  }}
+                >
+                  {t("reports.button")}
+                </button>
+              }
+            </footer>
           </section>
         </Wrapper>
       )}
