@@ -17,6 +17,7 @@ const { desktopWidth, laptopWidth, mobileWidth } = sizes;
 
 const Main = ({ data, journal }) => {
   const { t } = useTranslation();
+  data = undefined;
   const isMobile = useMediaQuery(breakpoints.mobile);
 
   return (
