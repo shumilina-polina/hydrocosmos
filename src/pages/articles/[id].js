@@ -200,7 +200,7 @@ export default function ArticlePage() {
                           .map((word, i) => (
                             <li
                               data-aos="zoom-in-up"
-                              data-aos-delay={40 * i}
+                              data-aos-delay={41 * i}
                               key={i}
                               className={s.word}
                             >

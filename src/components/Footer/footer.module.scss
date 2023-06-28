@@ -222,6 +222,12 @@
         @include tablet {
           order: -1;
         }
+        & li {
+          transition: opacity 0.3s;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
       }
     }
   }
