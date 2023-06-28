@@ -614,3 +614,95 @@ export const GET_ONE_AUTHOR = gql`
     }
   }
 `;
+
+export const SEARCH = gql`
+  query ($lang: I18NLocaleCode, $search: String) {
+    authors(
+      locale: $lang
+      filters: {
+        or: [
+          { name: { containsi: $search } }
+          { role: { containsi: $search } }
+          { description: { containsi: $search } }
+        ]
+      }
+      pagination: { limit: 5 }
+    ) {
+      data {
+        attributes {
+          name
+          slug
+        }
+      }
+    }
+    articles(
+      locale: $lang
+      filters: {
+        or: [
+          { quotation_link: { containsi: $search } }
+          { index_DOI: { containsi: $search } }
+          { annotation: { containsi: $search } }
+          { keywords: { containsi: $search } }
+          { rubric: { containsi: $search } }
+          { title: { containsi: $search } }
+        ]
+      }
+      pagination: { limit: 5 }
+    ) {
+      data {
+        attributes {
+          title
+          slug
+        }
+      }
+    }
+    journals(
+      locale: $lang
+      filters: {
+        or: [
+          { ISSN: { containsi: $search } }
+          { Elibrary_EDN: { containsi: $search } }
+          { eISSN: { containsi: $search } }
+          { about: { containsi: $search } }
+        ]
+      }
+      pagination: { limit: 5 }
+    ) {
+      data {
+        attributes {
+          date
+          slug
+        }
+      }
+    }
+    news(
+      locale: $lang
+      filters: {
+        or: [
+          { title: { containsi: $search } }
+          { description: { containsi: $search } }
+        ]
+      }
+      pagination: { limit: 5 }
+    ) {
+      data {
+        attributes {
+          title
+          slug
+        }
+      }
+    }
+    reports(
+      locale: $lang
+      filters: { or: [{ title: { containsi: $search } }] }
+      pagination: { limit: 5 }
+    ) {
+      data {
+        attributes {
+          title
+          slug
+        }
+      }
+    }
+  }
+`;

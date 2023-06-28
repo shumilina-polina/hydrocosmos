@@ -106,7 +106,7 @@ const Author = ({ data, delay }) => {
         </div>
         <div className={s.card_image}>
           {data.photo.data && (
-            <img src={apiUrl + data.photo.data.attributes.url} alt="Author" />
+            <img src={apiUrl + data.photo.data?.attributes.url} alt="Author" />
           )}
         </div>
       </li>

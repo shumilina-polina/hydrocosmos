@@ -18,6 +18,12 @@
     gap: 120px;
     letter-spacing: 0.05em;
     margin-bottom: 93px;
+    & > div {
+      width: 50%;
+      @include tablet {
+        width: 100%;
+      }
+    }
     @include laptop {
       gap: 30px;
       margin-bottom: 40px;
@@ -277,6 +283,7 @@
 }
 
 .skeleton {
+  display: block;
   border-radius: 30px;
   margin: 0 auto;
   height: 350px;

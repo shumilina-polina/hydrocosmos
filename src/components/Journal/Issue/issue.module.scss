@@ -67,7 +67,7 @@
 
           & > span:first-child {
             width: 166px;
-            @include mobile{
+            @include mobile {
               width: 110px;
             }
           }
@@ -110,6 +110,7 @@
 }
 
 .skeleton {
+  display: block;
   border-radius: 15px;
   width: 100%;
   &_image {

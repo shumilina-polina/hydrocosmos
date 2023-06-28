@@ -22,8 +22,8 @@ export default function App({ Component, pageProps }) {
           content="Гидрокосмос – научный журнал о подводных исследованиях"
         />
       </Head>
-      <Header />
       <ApolloProvider client={client}>
+        <Header />
         <Component {...pageProps} />
       </ApolloProvider>
       <Footer />

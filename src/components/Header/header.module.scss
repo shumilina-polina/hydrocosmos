@@ -21,9 +21,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    & > div {
-      width: 100%;
-    }
     @include laptop {
       padding: 15px 0;
     }
@@ -33,15 +30,12 @@
       gap: 20px;
     }
     @include mobile {
-      & > div:nth-child(2) {
-        width: 100%;
-        display: flex !important;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
-
+    
     & .logo {
       @include hover-button;
       & img {
@@ -103,6 +97,8 @@
       align-items: flex-end;
       @include tablet {
         align-self: flex-end;
+        flex-direction: row;
+        justify-content: flex-end;
       }
       & .buttons {
         margin-right: 50px;

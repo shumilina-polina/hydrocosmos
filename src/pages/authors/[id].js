@@ -112,7 +112,7 @@ const Content = ({ data }) => {
   return (
     <article className={s.content}>
       <div>
-        <img src={apiUrl + data.photo.data.attributes.url} alt="Author" />
+        <img src={apiUrl + data.photo.data?.attributes.url} alt="Author" />
       </div>
       <div>
         <span>
