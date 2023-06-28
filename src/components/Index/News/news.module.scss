@@ -94,7 +94,6 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 20px;
-  height: 378px;
+  border-radius: 20px !important;
+  height: 378px !important;
 }

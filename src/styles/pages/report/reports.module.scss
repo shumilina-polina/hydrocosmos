@@ -30,7 +30,6 @@
 }
 
 .skeleton {
-  display: block;
   &_wrapper {
     display: flex;
     justify-content: space-between;
@@ -38,20 +37,20 @@
       flex-direction: column;
     }
   }
-  border-radius: 15px;
-  width: 50%;
-  height: 386px;
+  border-radius: 15px !important;
+  width: 50% !important;
+  height: 386px !important;
   @include mobile {
-    width: 100%;
-    height: 200px;
+    width: 100% !important;
+    height: 200px !important;
   }
   &:last-child {
-    height: 253px;
-    width: 30%;
+    height: 253px !important;
+    width: 30% !important;
     @include mobile {
-      width: 100%;
+      width: 100% !important;
       margin-top: 20px;
-      height: 200px;
+      height: 200px !important;
     }
   }
 }

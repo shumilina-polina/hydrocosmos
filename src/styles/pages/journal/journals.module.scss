@@ -62,12 +62,9 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 30px;
-  height: 600px;
-  width: 100%;
+  height: 600px !important;
   &_h {
-    height: 58px;
-    width: 600px;
+    height: 58px !important;
+    width: 600px !important;
   }
 }

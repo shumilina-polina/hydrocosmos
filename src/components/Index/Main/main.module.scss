@@ -71,21 +71,19 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 30px;
   margin: 181px auto 0;
-  width: 80%;
-  height: 360px;
+  width: 80% !important;
+  height: 360px !important;
   @include laptop {
-    width: 90%;
-    height: 284px;
+    width: 90% !important;
+    height: 284px !important;
     margin-top: 129px;
   }
   @include tablet {
     margin: 0 auto 77px;
-    height: 434px;
+    height: 434px !important;
   }
   @include mobile {
-    height: 264px;
+    height: 264px !important;
   }
 }

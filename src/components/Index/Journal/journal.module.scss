@@ -144,16 +144,14 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 30px;
   margin: 0 auto;
-  height: 504px;
-  width: 80%;
+  height: 504px !important;
+  width: 80% !important;
   @include laptop {
-    height: 372px;
-    width: 90%;
+    height: 372px !important;
+    width: 90% !important;
   }
   @include tablet {
-    height: 458px;
+    height: 458px !important;
   }
 }

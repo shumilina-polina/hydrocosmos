@@ -92,12 +92,10 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 15px;
-  height: 344px;
-  width: 100%;
+  border-radius: 15px !important;
+  height: 344px !important;
   &:last-child {
-    height: 104px;
+    height: 104px !important;
   }
   &_wrapper {
     & > div {
@@ -107,7 +105,7 @@
       & > div {
         & > span {
           width: 40%;
-          font-size: 18px;
+          font-size: 18px !important;
           &:last-child {
             width: 70%;
             height: 200px;

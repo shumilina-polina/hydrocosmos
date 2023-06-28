@@ -189,17 +189,15 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 15px;
-  width: 100%;
+  border-radius: 15px !important;
   &_wrapper {
     display: grid;
     grid-template-columns: 2fr 3fr;
-    height: 473px;
+    height: 473px !important;
     gap: 8%;
     margin-bottom: 10%;
     @include tablet {
-      height: 50vh;
+      height: 50vh !important;
       grid-template-columns: 1fr;
     }
   }

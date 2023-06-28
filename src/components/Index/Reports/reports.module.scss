@@ -75,14 +75,12 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 30px;
   margin: 0 auto;
-  height: 684px;
-  width: 80%;
+  height: 684px !important;
+  width: 80% !important;
 
   @include swiper-laptop {
-    height: 411px;
-    width: 90%;
+    height: 411px !important;
+    width: 90% !important;
   }
 }

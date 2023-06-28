@@ -240,13 +240,11 @@
 }
 
 .skeleton {
-  display: block;
-  border-radius: 15px;
+  border-radius: 15px !important;
   margin: 0 auto;
-  height: 300px;
-  width: 100%;
+  height: 300px !important;
   &_image {
-    border-radius: 0px;
-    height: 723px;
+    border-radius: 0px !important;
+    height: 723px !important;
   }
 }
