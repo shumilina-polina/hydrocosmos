@@ -14,6 +14,7 @@ import { pagesFooter } from "@/shared/constants/pages";
 import { useTranslation } from "react-i18next";
 import { links } from "@/shared/constants/links";
 import Link from "next/link";
+import Search from "../Search/Search";
 
 const Burger = ({}) => {
   const [open, setOpen] = useState(false);
@@ -38,7 +39,7 @@ const Burger = ({}) => {
   };
   return (
     <>
-      <Link href={"/"} className={s.logo}>
+      <Link href={"/"} className={s.logo} onClick={toggleDrawer("top", false)}>
         <img src="/assets/logo.svg" alt="hydrocosmos" />
       </Link>
       <button
@@ -58,8 +59,6 @@ const Burger = ({}) => {
         <Box
           sx={{ width: "auto" }}
           role="presentation"
-          onClick={toggleDrawer("top", false)}
-          onKeyDown={toggleDrawer("top", false)}
         >
           <List className={s.list}>
             <div className={s.lang_buttons}>
@@ -79,9 +78,12 @@ const Burger = ({}) => {
                 en
               </button>
             </div>
+            <div className={s.mobile_search}>
+              <Search setOpen={setOpen} />
+            </div>
             {pagesFooter.map((page) => (
               <ListItem key={page.id} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={toggleDrawer("top", false)}>
                   <CustomLink href={`/${page.path}`}>
                     <ListItemText
                       className={s.burger_text}

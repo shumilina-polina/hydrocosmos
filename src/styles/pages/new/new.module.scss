@@ -202,6 +202,9 @@
           transition: transform 0.3s;
         }
       }
+      @include mobile {
+        background-color: $blue-light;
+      }
       &:hover {
         background-color: $blue-light;
         & img {

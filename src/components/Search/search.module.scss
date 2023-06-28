@@ -94,12 +94,20 @@
       margin-bottom: 3px;
       font-size: 12px;
     }
+    @include tablet {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
   }
   & article {
     margin-bottom: 14px;
     animation: slide 0.4s ease forwards;
 
     & ul {
+      display: block;
+      & > a {
+        width: 100%;
+      }
       & li {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -118,6 +126,8 @@
         color: rgba(255, 255, 255, 0.8);
         & > div {
           color: inherit;
+          font-size: inherit;
+          line-height: inherit;
         }
         font-size: 20px;
         line-height: 24px;
@@ -127,6 +137,7 @@
           font-size: 15px;
           line-height: 18px;
         }
+
         &::first-letter {
           text-transform: uppercase;
         }

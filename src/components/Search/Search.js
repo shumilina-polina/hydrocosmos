@@ -11,7 +11,7 @@ import {
   ReportsResult,
 } from "./Result";
 
-const Search = ({ setOpen }) => {
+const Search = ({ setOpen = () => {} }) => {
   const {
     i18n: { language },
     t,
@@ -38,7 +38,7 @@ const Search = ({ setOpen }) => {
           disabled={search.length === 0}
           onClick={() => loadResult({ variables: { search: search } })}
         >
-          {t("search.button")}
+          <span>{t("search.button")}</span>
         </button>
       </div>
       {called && (

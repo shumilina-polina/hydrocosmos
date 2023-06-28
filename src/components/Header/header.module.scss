@@ -35,7 +35,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    
+
     & .logo {
       @include hover-button;
       & img {
@@ -209,7 +209,7 @@
     justify-content: center;
     display: flex;
     gap: 24px;
-    margin-bottom: 68px;
+    margin-bottom: 10px;
     color: $white;
     // display: none;
   }
@@ -217,4 +217,53 @@
 .search {
   @include hover-button;
   height: 22px;
+}
+
+.mobile_search {
+  order: -1;
+  width: 90vw;
+  margin-bottom: 10px;
+  & > section {
+    & > div:nth-child(2) {
+      padding: 20px 10px !important;
+      max-height: 100%;
+      overflow: auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.08) !important;
+      backdrop-filter: blur(11.5px);
+      z-index: 1;
+    }
+  }
+  & input {
+    padding: 14px 32px !important;
+    background-color: transparent !important;
+    border: 1px solid #fff;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.36px;
+  }
+  & button {
+    border-radius: 30px !important;
+    width: 45px !important;
+    height: 45px !important;
+    top: 4px !important;
+    right: 4px !important;
+    & > span {
+      display: none;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("/assets/search.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+    }
+  }
 }
