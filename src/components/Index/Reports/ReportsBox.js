@@ -81,6 +81,9 @@ const Box = styled.div`
       & img {
         min-width: 100%;
         height: 100%;
+        @media ${breakpoints.laptop} {
+          aspect-ratio: 16/9;
+        }
       }
     }
     &:first-child {

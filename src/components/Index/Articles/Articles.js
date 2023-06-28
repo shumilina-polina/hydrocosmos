@@ -83,14 +83,14 @@ const Article = ({ data, index, t }) => {
         </span>
         |<span>{data.rubric}</span>
       </header>
-      <main>
-        <Link
-          as={`/${routes.articles}/${data.slug}`}
-          href={`/${routes.articles}/[id]`}
-        >
+      <Link
+        as={`/${routes.articles}/${data.slug}`}
+        href={`/${routes.articles}/[id]`}
+      >
+        <main>
           <ReactMarkdown>{data.title}</ReactMarkdown>
-        </Link>
-      </main>
+        </main>
+      </Link>
       <footer>
         <Authors data={data.authors?.data} />
       </footer>

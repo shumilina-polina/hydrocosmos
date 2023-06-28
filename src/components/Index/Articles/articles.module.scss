@@ -91,7 +91,7 @@
           margin-bottom: 8px;
         }
       }
-      & > main {
+      & main {
         margin-bottom: 24px;
         font-size: 18px;
         line-height: 22px;
@@ -101,6 +101,7 @@
         max-height: 250px;
         overflow: hidden;
         text-overflow: ellipsis;
+
         display: -moz-box;
         display: -webkit-box;
         -webkit-line-clamp: 5;
@@ -131,7 +132,7 @@
         }
       }
       &:hover {
-        & > main {
+        & main {
           text-decoration: underline;
         }
       }
