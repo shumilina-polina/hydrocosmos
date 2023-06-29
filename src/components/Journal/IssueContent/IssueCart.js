@@ -78,11 +78,11 @@ const Title = styled.h4`
     font-size: 15px;
     line-height: 20px;
     width: 35vw;
-  }
-  @media ${breakpoints.tablet} {
-    font-size: 15px;
-    line-height: 20px;
     max-width: 100%;
+  }
+  @media ${breakpoints.mobile} {
+    width: auto;
+  }
   &:hover {
     color: ${colors.cyanArticle};
   }
