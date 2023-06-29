@@ -80,18 +80,19 @@ const Journal = ({ data }) => {
           />
         )}
       </main>
-      <footer>
-        <Link href={"/" + routes.journal}>
-          {isTablet ? (
-            <button>
-              {t(`home.journal.button-mobile`)}
-              <span>-&gt;</span>
-            </button>
-          ) : (
+      {!isTablet && (
+        <footer>
+          <Link href={"/" + routes.journal}>
             <button>{t(`home.journal.button`)}</button>
-          )}
-        </Link>
-      </footer>
+          </Link>
+          {/* //   ? (
+          //   <button>
+          //     {t(`home.journal.button-mobile`)}
+          //     <span>-&gt;</span>
+          //   </button>
+          // ) : ( */}
+        </footer>
+      )}
     </section>
   );
 };

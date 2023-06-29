@@ -4,6 +4,12 @@
   @include laptop {
     padding: 50px 0 100px;
   }
+  @include tablet {
+    padding: 50px 0 250px;
+  }
+  @include mobile {
+    padding-bottom: 150px;
+  }
   & header {
     margin-bottom: 84px;
     @include mobile {
@@ -54,6 +60,11 @@
   top: 0;
   right: 0;
   width: 40%;
+  @include mobile {
+    position: static;
+    margin-bottom: 30px;
+    width: 100%;
+  }
 
   & > div {
     display: flex;
@@ -63,6 +74,7 @@
     gap: 16px;
     margin-bottom: 16px;
     font-size: 14px;
+    @include inter7;
     line-height: 17px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -72,6 +84,7 @@
       line-height: 12px;
       margin-bottom: 6px;
     }
+
     & a {
       &:hover {
         text-decoration: underline;

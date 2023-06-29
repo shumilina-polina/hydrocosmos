@@ -7,17 +7,18 @@
   height: 344px;
   @include tablet {
     margin-bottom: 20px !important;
-    height: 200px;
+    height: auto;
+    aspect-ratio: 16/9;
   }
   @include mobile {
-    height: 100px;
+    width: 100%;
   }
 }
 
 .slider_mini {
   height: 104px;
   overflow: visible !important;
-   @include mobile {
+  @include mobile {
     height: 70px;
   }
 }
@@ -30,9 +31,8 @@
   line-height: 24px;
   text-align: right;
   color: rgba($color: $white, $alpha: 0.7);
-  @include tablet{
+  @include tablet {
     font-size: 10px;
     line-height: 17px;
-    
   }
 }

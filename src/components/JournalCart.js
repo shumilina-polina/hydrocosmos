@@ -79,6 +79,21 @@ const Release = styled.h3`
     font-size: 14px;
     line-height: 17px;
     opacity: 0.6;
+    margin-bottom: 37px;
+    & ~ button {
+      & > span {
+        letter-spacing: normal;
+      }
+      font-size: 14px;
+      border: 2px solid red;
+      letter-spacing: 0.05em;
+      text-decoration-line: underline;
+      text-transform: uppercase;
+      color: ${colors.cyanArticle};
+      padding: 0 0 0 10px;
+      margin: 0;
+      border: none;
+    }
   }
 `;
 
@@ -101,6 +116,10 @@ export const JournalCart = ({ cart }) => {
         {t("journal.release")} №{cart.number}
       </Release>
       <Date format={"MMMM YYYY"}>{cart.date}</Date>
+      <button>
+        {t(`home.journal.button-mobile`)}
+        <span>-&gt;</span>
+      </button>
     </Link>
   );
 };

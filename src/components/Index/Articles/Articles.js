@@ -75,10 +75,13 @@ const Article = ({ data, index, t }) => {
       <header>
         <span>
           {data.journal.data && (
-            <>
+            <Link
+              as={`/${routes.journal}/${data.journal.data?.attributes.slug}`}
+              href={`/${routes.journal}/[id]`}
+            >
               {t("home.articles.release")} №
               {data.journal.data?.attributes.number}
-            </>
+            </Link>
           )}
         </span>
         |<span>{data.rubric}</span>
