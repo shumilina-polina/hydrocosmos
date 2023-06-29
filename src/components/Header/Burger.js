@@ -56,15 +56,13 @@ const Burger = ({}) => {
         open={open}
         onClose={toggleDrawer("top", false)}
       >
-        <Box
-          sx={{ width: "auto" }}
-          role="presentation"
-        >
+        <Box sx={{ width: "auto" }} role="presentation">
           <List className={s.list}>
             <div className={s.lang_buttons}>
               <button
                 className={s.lang}
-                disabled={language === "ru"}
+                disabled
+                // disabled={language === "ru"}
                 onClick={() => changeLanguage("ru")}
               >
                 ru
@@ -72,7 +70,8 @@ const Burger = ({}) => {
               <span>/</span>
               <button
                 className={s.lang}
-                disabled={language === "en"}
+                disabled
+                // disabled={language === "en"}
                 onClick={() => changeLanguage("en")}
               >
                 en

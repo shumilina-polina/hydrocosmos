@@ -51,6 +51,7 @@ const Header = () => {
                     <SvgSelector svg={"search"} />
                   </button>
                   <button
+                    disabled
                     className={s.lang}
                     onClick={() =>
                       changeLanguage(language === "ru" ? "en" : "ru")
