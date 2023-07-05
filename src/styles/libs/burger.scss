@@ -6,12 +6,14 @@ $burgerTop: 65px;
     background-color: $black;
     top: $burgerTop !important;
     box-shadow: none !important;
+    overflow: scroll !important;
+    max-height: 100vh;
   }
   & .MuiBackdrop-root {
     top: $burgerTop !important;
   }
   & .MuiBox-root {
-    padding: 40px 10px !important;
+    padding: 30px 10px !important;
     height: calc(100vh - $burgerTop) !important;
     display: flex;
     flex-direction: column;
