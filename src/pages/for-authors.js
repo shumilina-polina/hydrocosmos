@@ -18,11 +18,11 @@ const forAuthors = [
     size: "65",
     url: "Гидрокосмос_карточка_автора.docx",
   },
-  {
-    type: "doc",
-    size: "50",
-    url: "Гидрокосмос_лицензионный_договор.docx",
-  },
+  // {
+  //   type: "doc",
+  //   size: "50",
+  //   url: "Гидрокосмос_лицензионный_договор.docx",
+  // },
 ];
 
 export default function ForAuthors() {
@@ -75,6 +75,40 @@ export default function ForAuthors() {
                   </div>
                 </li>
               ))}
+              <li data-aos="fade-left" data-aos-delay={2 * 100}>
+                <div className={s.left}>
+                  <div>
+                    <span>{3}.</span>
+                  </div>
+                  <h3>
+                    <ReactMarkdown>{t(`for-authors.item-3`)}</ReactMarkdown>
+                    <a
+                      href="mailto:hydrocosmos@urc-rgs.ru"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      hydrocosmos@urc-rgs.ru
+                    </a>
+                  </h3>
+                </div>
+                {/* <div className={s.right}>
+                  <SvgSelector svg={item.type} />
+                  <span>
+                    {item.size} {t("for-authors.mb")}
+                  </span>
+                  <a
+                    download={true}
+                    href={"/assets/documents/" + item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button>
+                      <SvgSelector svg={"download"} />
+                    </button>
+                  </a>
+                </div> */}
+              </li>
             </ul>
           </main>
         </section>
