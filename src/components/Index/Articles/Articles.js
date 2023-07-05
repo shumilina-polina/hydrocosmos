@@ -25,7 +25,7 @@ const Articles = ({ data }) => {
             {data ? (
               <>
                 {data[0]?.attributes.photo && (
-                  <article data-aos="zoom-in">
+                  <article>
                     <img
                       src={
                         apiUrl + data[0]?.attributes.photo.data?.attributes.url
@@ -66,12 +66,7 @@ const Articles = ({ data }) => {
 
 const Article = ({ data, index, t }) => {
   return (
-    <article
-      data-aos="fade-up"
-      data-aos-duration={500}
-      data-aos-delay={`${50 * index}`}
-      className={s[`article_${index}`]}
-    >
+    <article className={s[`article_${index}`]}>
       <header>
         <span>
           {data.journal.data && (

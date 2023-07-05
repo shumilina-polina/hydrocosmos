@@ -12,7 +12,7 @@ export const ReportCart = ({ cart }) => {
       as={`/${routes.reports}/${cart.slug}`}
       href={`/${routes.reports}/[id]`}
     >
-      <Wrapper data-aos="flip-up">
+      <Wrapper>
         <div>
           <Image src={apiUrl + cart.photos.data[0]?.attributes.url} />
         </div>
