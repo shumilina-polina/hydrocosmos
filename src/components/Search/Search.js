@@ -33,6 +33,10 @@ const Search = ({ setOpen = () => {} }) => {
           placeholder={t("search.placeholder")}
           type="text"
           required={true}
+          onKeyDown={(e) => {
+            if (e.key === "Enter")
+              loadResult({ variables: { search: search } });
+          }}
         />
         <button
           disabled={search.length === 0}
