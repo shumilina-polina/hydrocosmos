@@ -32,11 +32,13 @@ body {
   }
   @include tablet {
     // border: 3px solid red;
-    padding: 150px 0 600px;
+    padding: 150px 0 700px;
+    // padding: 150px 0 800px;
   }
   @include mobile {
     // border: 3px solid yellow;
-    padding: 60px 0 1195px;
+    padding: 60px 0 1000px;
+    // padding: 60px 0 1195px;
   }
   @include small {
     padding-bottom: 1240px;

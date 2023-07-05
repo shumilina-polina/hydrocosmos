@@ -75,7 +75,7 @@ export default function AuthorsPage() {
                     setStart(start + 4);
                   }}
                 >
-                  {t("reports.button")}
+                  {t("authors.button")}
                 </button>
               }
             </footer>

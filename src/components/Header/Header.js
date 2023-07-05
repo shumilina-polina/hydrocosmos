@@ -50,7 +50,7 @@ const Header = () => {
                   >
                     <SvgSelector svg={"search"} />
                   </button>
-                  <button
+                  {/* <button
                     disabled
                     className={s.lang}
                     onClick={() =>
@@ -58,7 +58,7 @@ const Header = () => {
                     }
                   >
                     {language}
-                  </button>
+                  </button> */}
                 </div>
                 <a
                   className={s.rgs}

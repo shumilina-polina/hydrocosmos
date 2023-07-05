@@ -59,7 +59,7 @@ export default function Contacts() {
           </main>
         </section>
       </Wrapper>
-      <Form />
+      {/* <Form /> */}
     </>
   );
 }

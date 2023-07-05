@@ -15,13 +15,13 @@ const forAuthors = [
   },
   {
     type: "doc",
-    size: "50",
-    url: "Гидрокосмос_лицензионный_договор.docx",
+    size: "65",
+    url: "Гидрокосмос_карточка_автора.docx",
   },
   {
     type: "doc",
-    size: "65",
-    url: "Гидрокосмос_карточка_автора.docx",
+    size: "50",
+    url: "Гидрокосмос_лицензионный_договор.docx",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function ForAuthors() {
           </main>
         </section>
       </Wrapper>
-      <Form />
+      {/* <Form /> */}
     </>
   );
 }

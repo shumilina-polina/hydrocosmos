@@ -58,7 +58,7 @@ const Footer = () => {
             </a>
             <a
               className={s.policy}
-              href="https://pushkeen.ru"
+              href="/assets/documents/Публичная_оферта_договор_на_оказание_услуг_публикации_в_журнале.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >

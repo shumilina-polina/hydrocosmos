@@ -101,9 +101,15 @@
         flex-direction: column;
       }
       @include mobile {
-        gap: 115px;
+        gap: 90px;
+      }
+      & > div {
+        @include tablet {
+          display: none;
+        }
       }
       & label {
+        visibility: hidden;
         display: block;
         margin-bottom: 24px;
         font-size: 24px;
@@ -114,10 +120,15 @@
           font-size: 20px;
           line-height: 24px;
           text-align: left;
+          display: none;
         }
       }
       & form {
+        visibility: hidden;
         position: relative;
+        @include tablet {
+          display: none;
+        }
         & > button {
           position: absolute;
           background-color: $cyan;
@@ -216,16 +227,19 @@
         }
       }
       & .social {
+        padding: 7px 23px;
         display: flex;
         align-items: center;
-        gap: 31px;
+        border-radius: 60px;
+        background-color: rgba(255, 255, 255, 0.1);
+        gap: 24px;
         @include tablet {
           order: -1;
         }
         & li {
-          transition: opacity 0.3s;
+          transition: transform 0.3s;
           &:hover {
-            opacity: 0.5;
+            transform: scale(1.1);
           }
         }
       }

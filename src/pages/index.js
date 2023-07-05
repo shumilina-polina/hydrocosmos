@@ -38,7 +38,7 @@ export default function Home() {
           <Pairs data={data?.pair.data?.attributes.logos.data} />
         </>
       )}
-      <Form />
+      {/* <Form /> */}
     </>
   );
 }

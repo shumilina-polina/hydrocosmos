@@ -85,12 +85,6 @@ const Journal = ({ data }) => {
           <Link href={"/" + routes.journal}>
             <button>{t(`home.journal.button`)}</button>
           </Link>
-          {/* //   ? (
-          //   <button>
-          //     {t(`home.journal.button-mobile`)}
-          //     <span>-&gt;</span>
-          //   </button>
-          // ) : ( */}
         </footer>
       )}
     </section>

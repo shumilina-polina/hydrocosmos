@@ -58,7 +58,7 @@ const Burger = ({}) => {
       >
         <Box sx={{ width: "auto" }} role="presentation">
           <List className={s.list}>
-            <div className={s.lang_buttons}>
+            {/* <div className={s.lang_buttons}>
               <button
                 className={s.lang}
                 disabled
@@ -76,7 +76,7 @@ const Burger = ({}) => {
               >
                 en
               </button>
-            </div>
+            </div> */}
             <div className={s.mobile_search}>
               <Search setOpen={setOpen} />
             </div>

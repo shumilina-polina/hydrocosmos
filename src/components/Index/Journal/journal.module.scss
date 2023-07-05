@@ -48,10 +48,7 @@
             background-color: $blue-light;
             & img {
               opacity: 1;
-              transform: translateX(120px) scale(1);
-              @include laptop {
-                transform: translateX(60px) scale(1);
-              }
+              transform: translateX(150px) scale(1);
             }
           }
           & > div > div {
@@ -74,7 +71,7 @@
           & img {
             left: calc(50% + 156px);
             @include laptop {
-              left: calc(50% + 80px);
+              left: calc(50% + 30px);
             }
           }
         }
@@ -83,7 +80,7 @@
           transition: opacity 0.5s, transform 0.5s;
           position: absolute;
           top: -115px;
-          left: 50%;
+          left: 55%;
           transform: translateX(120px) scale(0.8);
           opacity: 0;
           width: 331px;
@@ -93,7 +90,7 @@
             top: -60px;
             height: 350px;
             width: 240px;
-            left: 40%;
+            left: 50%;
             transform: translateX(60px) scale(0.8);
           }
         }
